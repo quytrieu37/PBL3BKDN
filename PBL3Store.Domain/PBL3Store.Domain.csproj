@@ -53,6 +53,8 @@
     <Compile Include="Book.cs">
       <DependentUpon>StoreContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cart\Cart.cs" />
+    <Compile Include="Cart\CartLine.cs" />
     <Compile Include="Category.cs">
       <DependentUpon>StoreContext.tt</DependentUpon>
     </Compile>
