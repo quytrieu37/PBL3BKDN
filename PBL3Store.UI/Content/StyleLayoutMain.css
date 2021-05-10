@@ -3,6 +3,7 @@
     margin: 0;
     font-family: 'HelveticaNeue';
     font-size: 1em;
+    box-sizing: border-box;
 }
 
 body {
@@ -37,20 +38,20 @@ li {
     background-color: #e7e7e7;
 }
 
-    .Login_Panel ul {
-        display: flex;
-    }
+.Login_Panel ul {
+    display: flex;
+}
 
-        .Login_Panel ul li {
-            text-decoration: none;
-            padding: 1em;
-        }
+.Login_Panel ul li {
+    text-decoration: none;
+    padding: 1em;
+}
 
-            .Login_Panel ul li a {
-                color: black;
-                opacity: .7;
-                font-size: 1.1em;
-            }
+.Login_Panel ul li a {
+    color: black;
+    opacity: .7;
+    font-size: 1.1em;
+}
 
 .Seach_panel {
     display: flex;
@@ -120,6 +121,7 @@ li {
     box-sizing: border-box;
     line-height: 46px;
     background-color: white;
+    left: 380px;
     padding-left: 1%;
     padding-right: 2%;
 }
@@ -127,4 +129,9 @@ li {
 .grid {
     width: 60%;
     margin: 0 auto;
+}
+
+.container-Body {
+    width: 100%;
+    background-color: #f8f8f8;
 }

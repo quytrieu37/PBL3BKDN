@@ -10,7 +10,7 @@
         <div class="card-deck mb-3 mr-3 text-center">
             @foreach (var book in Model.Books)
             {
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md-3">
                     @Html.Partial("_ProductSummary", book)
                 </div>
             }

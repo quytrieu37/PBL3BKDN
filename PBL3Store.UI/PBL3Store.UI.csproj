@@ -116,7 +116,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\0a93cc2c-87f3-47e1-b42e-24327873dd6c.jpg" />
+    <Content Include="Content\img\6ff85665-63b4-4299-8202-fabbbc0397e5.jpg" />
     <Content Include="Content\img\app-store.png" />
+    <Content Include="Content\img\bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" />
+    <Content Include="Content\img\c9225a84-d82a-42a9-9f23-4951b45e235a.jpg" />
     <Content Include="Content\img\cat-bui-chan-ai.jpg" />
     <Content Include="Content\img\chenh-venh-hai-lam.jpg" />
     <Content Include="Content\img\chieu-chieu.png" />
@@ -132,12 +136,14 @@
     <Content Include="Content\img\de-men-phieu-luu-ky.png" />
     <Content Include="Content\img\doi-callboy.jpg" />
     <Content Include="Content\img\du-hanh-bien-phuong-nam.jpg" />
+    <Content Include="Content\img\e9e561ee-1b22-4cf9-992d-339f0d1c11ee.jpg" />
     <Content Include="Content\img\google-play.png" />
     <Content Include="Content\img\Huyên-thảo-chưa-tàn.jpg" />
     <Content Include="Content\img\img-header-body-right.jpg" />
     <Content Include="Content\img\khoc-giua-sg.jpg" />
     <Content Include="Content\img\lich-su-khai-pha-vu-tru.jpg" />
     <Content Include="Content\img\Logo.jpg" />
+    <Content Include="Content\img\logo.PNG" />
     <Content Include="Content\img\mat-biec.jpg" />
     <Content Include="Content\img\muoi-nam.jpg" />
     <Content Include="Content\img\Mập đẹp béo dễ thương.png" />
