@@ -63,6 +63,11 @@ namespace PBL3Store.UI.Controllers
             }
             return RedirectToAction("Index");
         }
+        public PartialViewResult CartSummary()
+        {
+            Cart cart = GetCart();
+            return PartialView(cart);
+        }
         #region CartHelper
         private Cart GetCart()
         {
