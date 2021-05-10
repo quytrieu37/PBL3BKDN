@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBL3Store.UI", "PBL3Store.UI\PBL3Store.UI.csproj", "{5807A6C1-7D75-42BE-ACA9-CD77B26AF3B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBL3Store.Domain", "PBL3Store.Domain\PBL3Store.Domain.csproj", "{ABEB5BA8-CE90-4F68-BE44-CC7AA308C304}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5807A6C1-7D75-42BE-ACA9-CD77B26AF3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5807A6C1-7D75-42BE-ACA9-CD77B26AF3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5807A6C1-7D75-42BE-ACA9-CD77B26AF3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5807A6C1-7D75-42BE-ACA9-CD77B26AF3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABEB5BA8-CE90-4F68-BE44-CC7AA308C304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABEB5BA8-CE90-4F68-BE44-CC7AA308C304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABEB5BA8-CE90-4F68-BE44-CC7AA308C304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABEB5BA8-CE90-4F68-BE44-CC7AA308C304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6982B6EF-525E-42C5-B053-E2DB9C998FD6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookbuy.vn</title>
+    <link rel="stylesheet" href="~/Content/StyleLayoutMain.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-nav">
+        <div class="grid">
+            <div class="Login_Panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Trợ giúp</a></li>
+                    <li><a href="#"><i class="far fa-newspaper"></i> Tin tức</a></li>
+                    <li><a href="#"><i class="fab fa-cloudscale"></i> Khuyến mãi</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="fas fa-gift"></i> Ưu đãi & tiện ích</a></li>
+                    <li><a href="#"><i class="fas fa-money-check-alt"></i> Kiểm tra đơn hàng</a></li>
+                    <li><a href="#"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
+                    <li><a href="#"><i class="fas fa-user-check"></i> Đăng kí</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="grid">
+            <div class="Seach_panel">
+                <img src="./img/logo.PNG" class="logo" alt="Logo">
+                <form class="seach_input">
+                    <input type="text" placeholder="Bạn cần tìm gì">
+                    <button class="btn-seach"><i class="fas fa-search"></i></button>
+                </form>
+
+                <a class="phone_contact"><i class="fas fa-phone-volume orange phone_contact"></i></a>
+                <div>
+                    <b class="orange">0933109009</b>
+                    <p style="font-size: 2em;">Hot line</p>
+                </div>
+                <a href="#" class="cart"><i class="fas fa-shopping-cart orange"></i>Giỏ hàng</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-category">
+        <div class="grid">
+            <div class="category_bar">
+                <div class="category-box">
+                    <i class="fas fa-bars" style="font-size: 1.2em;"></i>
+                    <b>Danh mục sản phẩm</b>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <a href="#"><i class="fas fa-percent"></i> Giảm thêm 2%</a>
+                <a href="#"><i class="fab fa-hotjar"></i> Sách bán chạy</a>
+                <a href="#"><i class="fab fa-hotjar"></i>Chương trình khuyến mãi</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid">
+            <div style="display:flex; justify-content: space-between;">
+                <div>
+                    <div>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>Sách - Truyện Tranh</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Dụng cụ vẽ - VPP</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Bảng Vẽ - Phụ Kiện Số</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <span>Vật dụng - Đời Sống</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-magic"></i>
+                                    <span>Làm đẹp - Sức khỏe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Quà Tặng - Đồ Chơi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Thời trang</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="slide-wrap">
+                    <img src="/img/0a93cc2c-87f3-47e1-b42e-24327873dd6c.jpg" alt="tab1" class="slide">
+                    <!-- <img src="/img/6ff85665-63b4-4299-8202-fabbbc0397e5.jpg" alt="tab2" class= "slide">
+                    <img src="/img/bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" alt="tab3" class= "slide">
+                    <img src="/img/c9225a84-d82a-42a9-9f23-4951b45e235a.jpg" alt="tab4" class= "slide">
+                    <img src="/img/e9e561ee-1b22-4cf9-992d-339f0d1c11ee.jpg" alt="tab5" class= "slide"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-category">
+        <div class="grid">
+            <div style="padding-top:3500px;">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer class="container-category">
+        <div class="grid">
+
+        </div>
+    </footer>
+    
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/JS.js"></script>
+    @RenderSection("js", false)
+
+</body>
+</html>
+
+<script src="https://kit.fontawesome.com/bc35e4f263.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

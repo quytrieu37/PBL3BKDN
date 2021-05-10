@@ -1,0 +1,27 @@
+﻿@model PBL3Store.UI.Models.HomeListBookModel
+@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Layout/LayoutMain.cshtml";
+}
+
+<h2>Trang chủ</h2>
+<div class="row">
+    <div class="col-12">
+        <div class="card-deck mb-3 mr-3 text-center">
+            @foreach (var book in Model.Books)
+            {
+                <div class="col-12 col-md-2">
+                    @Html.Partial("_ProductSummary", book)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@section js {
+    <script>
+        console.log("trang chu");
+    </script>
+}

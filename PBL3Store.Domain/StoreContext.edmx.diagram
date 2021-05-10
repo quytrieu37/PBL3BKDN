@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d397ea0961b4fb8b82272d410d3ce24" Name="Diagram1">
+        <EntityTypeShape EntityType="PBL3Model.Book" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.Category" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.OrderDetail" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.Payment" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.Role" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.Shipper" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="PBL3Model.FK_OrderDetails_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK_Orders_Payments" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK_Orders_Shippers" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK_Users_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
