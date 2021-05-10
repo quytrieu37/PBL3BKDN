@@ -26,5 +26,14 @@ namespace PBL3Store.UI.Controllers
                 .ToList();
             return View(model);
         }
+        public ViewResult BookDetail(int BookId)
+        {
+            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == BookId);
+            if(book!= null)
+            {
+                return View(book);
+            }
+            return View("NotFound");
+        }
     }
 }
