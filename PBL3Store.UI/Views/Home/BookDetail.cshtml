@@ -17,8 +17,9 @@
         <div>
             @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "frmAddToCart" }))
             {
-                <input name="ProductId" value="@Model.BookId" type="hidden" />
+                <input name="BookId" value="@Model.BookId" type="hidden" />
                 <input name="Quantity" value="1" type="number" style="width: 95%" />
+                <button class="btn btn-outline-primary" type="submit">Thêm vào giỏ hàng</button>
             }
         </div>
         <div>
