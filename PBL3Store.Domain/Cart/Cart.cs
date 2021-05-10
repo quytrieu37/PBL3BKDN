@@ -9,22 +9,9 @@ namespace PBL3Store.Domain.Cart
     public class Cart
     {
         public List<CartLine> lines { get; private set; }
-        private Cart()
+        public Cart()
         {
             lines = new List<CartLine>();
-        }
-        private static Cart _Instance;
-        public static Cart Instance
-        {
-            get
-            {
-                if(_Instance==null)
-                {
-                    _Instance = new Cart();
-                }
-                return _Instance;
-            }
-            private set { }
         }
         
         public void Add(Book book, int quantity)
