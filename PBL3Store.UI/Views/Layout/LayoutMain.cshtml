@@ -32,7 +32,7 @@
     <div class="container">
         <div class="grid">
             <div class="Seach_panel">
-                <img src="~/Content/img/Logo.jpg" class="logo" alt="Logo" width="150">
+                <a href="@Url.Action("HomePage","Home")"><img src="~/Content/img/Logo.jpg" class="logo" alt="Logo" width="150"></a>
                 <form class="seach_input">
                     <input type="text" placeholder="Bạn cần tìm gì">
                     <button class="btn-seach"><i class="fas fa-search"></i></button>
@@ -43,12 +43,14 @@
                     <b class="orange">0933109009</b>
                     <p style="font-size: 2em;">Hot line</p>
                 </div>
-                <a href="#" class="cart"><i class="fas fa-shopping-cart orange"></i>Giỏ hàng</a>
+                <div class="dropdown cart-summary">
+                    @{
+                        Html.RenderAction("CartSummary", "Cart");// gọi một partial view có gọi đến action trả về void nên cần bỏ vào {}
+                    }
+                </div>
             </div>
         </div>
     </div>
-
-
 
     <div class="container-category">
         <div class="grid">
@@ -140,7 +142,7 @@
     </footer>
     
 
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/CartAjax.js"></script>
