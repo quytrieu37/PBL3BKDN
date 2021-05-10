@@ -24,7 +24,7 @@ namespace PBL3Store.UI.Controllers
             return View(cart);
         }
         [HttpPost]
-        public JsonResult AddToCart(AddToCartModel model)
+        public JsonResult AddToCart(LineCartModel model)
         {
             if(ModelState.IsValid)
             {
@@ -32,14 +32,14 @@ namespace PBL3Store.UI.Controllers
                 if(book!= null)
                 {
                     Cart cart = GetCart();
-                    cart.Add(book, model.quantity);
+                    cart.Add(book, model.Quantity);
                     return Json(new { state = true, message = "Thêm sách thành công" });
                 }    
             }
             return Json(new { state = false, message = "Thêm sách thất bại" });
         }
         [HttpPost]
-        public ActionResult UpdateToCart(AddToCartModel model)
+        public ActionResult UpdateToCart(LineCartModel model)
         {
             if (ModelState.IsValid)
             {
@@ -47,7 +47,7 @@ namespace PBL3Store.UI.Controllers
                 if (product != null)
                 {
                     var cart = GetCart();
-                    cart.Update(product, model.quantity);
+                    cart.Update(product, model.Quantity);
                 }
             }
             return RedirectToAction("Index");

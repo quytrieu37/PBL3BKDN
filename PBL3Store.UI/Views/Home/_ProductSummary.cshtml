@@ -2,14 +2,9 @@
 
 <div class="card mb-4 shadow-sm" style=" width: 250px; height: 400px">
     <div class="card-body">
-        <a href="#">
+        <a href="@Url.Action("BookDetail", "Home", new { BookId = Model.BookId})">
             <img src="@Model.BookImage" style="max-width: 200px; height: 250px" />
             <p class="card-title pricing-card-title">@Model.BookName</p>
-            @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "frmAddToCart" }))
-            {
-                <input name="ProductId" value="@Model.BookId" type="hidden" />
-                <input name="Quantity" value="1" type="number" style="width: 95%" />
-            }
         </a>
     </div>
 </div>
