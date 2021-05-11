@@ -15,7 +15,7 @@
                     $(document).trigger('addToCartEvent');
                 }
                 else {
-                    alert('Them that bai');
+                    console.log('Them that bai');
                 }
             },
             error: function (res) {
