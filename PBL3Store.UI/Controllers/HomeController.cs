@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace PBL3Store.UI.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         // GET: Home

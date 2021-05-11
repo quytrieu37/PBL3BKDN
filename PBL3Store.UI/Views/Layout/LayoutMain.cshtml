@@ -21,8 +21,26 @@
                 <ul>
                     <li><a href="#"><i class="fas fa-gift"></i> Ưu đãi & tiện ích</a></li>
                     <li><a href="#"><i class="fas fa-money-check-alt"></i> Kiểm tra đơn hàng</a></li>
-                    <li><a href="#"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
-                    <li><a href="#"><i class="fas fa-user-check"></i> Đăng kí</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="btn" href="@Url.Action("Index", "Admin")">
+                                Hi, @User.Identity.Name
+                            </a>
+                        </li>
+                        <li>
+                            <form action="@Url.Action("Logout", "Account", FormMethod.Post)" method="post">
+                                <button type="submit" class="btn">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login","Account")"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a></li>
+                        <li><a href="@Url.Action("Register","Account")"><i class="fas fa-user-check"></i> Đăng kí</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -142,7 +160,7 @@
     </footer>
     
 
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/CartAjax.js"></script>

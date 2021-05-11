@@ -112,19 +112,25 @@ li {
 .category-box {
     position: relative;
     padding-left: 2%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
+    .category-box:hover {
+        background-color: #eb7c26;
+    }
 
-.menu {
-    position: absolute;
-    font-size: 1.2em;
-    display: block;
-    box-sizing: border-box;
-    line-height: 46px;
-    background-color: white;
-    left: 380px;
-    padding-left: 1%;
-    padding-right: 2%;
-}
+    .menu {
+        position: absolute;
+        font-size: 1.2em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 46px;
+        background-color: white;
+        left: 380px;
+        padding-left: 1%;
+        padding-right: 2%;
+    }
 
 .grid {
     width: 60%;
