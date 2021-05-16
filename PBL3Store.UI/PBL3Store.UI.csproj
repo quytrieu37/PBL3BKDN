@@ -118,6 +118,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\0a93cc2c-87f3-47e1-b42e-24327873dd6c.jpg" />
     <Content Include="Content\img\6ff85665-63b4-4299-8202-fabbbc0397e5.jpg" />
+    <Content Include="Content\AdminLayout.css" />
     <Content Include="Content\img\app-store.png" />
     <Content Include="Content\img\bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" />
     <Content Include="Content\img\bgimg_small.jpg" />
@@ -171,6 +172,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CartAjax.js" />
+    <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -293,12 +295,23 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\UpdateInfo.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Home\OrderManage.cshtml" />
+    <Content Include="Views\Home\ViewOrder.cshtml" />
+    <Content Include="Views\Layout\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\BookList.cshtml" />
+    <Content Include="Views\Admin\BookView.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\CustomFilterRole.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -307,7 +320,12 @@
     <Compile Include="HashPassword\MD5Helper.cs" />
     <Compile Include="Models\AccountLoginModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
+    <Compile Include="Models\AccountUpdateInfoModel.cs" />
+    <Compile Include="Models\AdminBookListModel.cs" />
+    <Compile Include="Models\CartCheckoutModel.cs" />
     <Compile Include="Models\HomeListBookModel.cs" />
+    <Compile Include="Models\HomeOrderManageModel.cs" />
+    <Compile Include="Models\HomeViewOrderModel.cs" />
     <Compile Include="Models\LineCartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

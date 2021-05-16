@@ -1,6 +1,7 @@
 ﻿@model PBL3Store.UI.Models.AccountRegisterModel
 @{
     ViewBag.Title = "Register";
+    Layout = "";
 }
 <link href="~/Content/RegisterStyle.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
@@ -70,16 +71,8 @@
             </div>
         </div>
     </div>
-    <div class="services">
-        <div>
-            <h3>Login</h3>
-        </div>
-        <div>
-            <h3>BackToHome</h3>
-        </div>
-    </div>
     <footer>
-        <p>© 2017 Official Signup Form. All Rights Reserved | Design by <a href="#">W3School</a></p>
+        <p>© 2017 Official Signup Form. All Rights Reserved | <a href="@Url.Action("HomePage","Home")">Back To Home</a>| <a href="@Url.Action("Login","Account")">Login</a></p>
     </footer>
 </div>
 
