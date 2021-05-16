@@ -1,0 +1,35 @@
+﻿@model PBL3Store.Domain.Book
+@{
+    ViewBag.Title = "BookView";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<table class="table table-bordered" style="font-weight:700">
+    <tr>
+        <td>Hình ảnh</td>
+        <td>Mã Sách</td>
+        <td>Tên sách</td>
+        <td>Tác Giả</td>
+        <td>Doanh mục</td>
+        <td>Giá Tiền</td>
+        <td>Tồn kho</td>
+        <td>Mô tả</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><img src="@Model.BookImage" alt="Hình ảnh @Model.BookName" width="100" class="img-fluid" /></td>
+        <td>@Model.BookId</td>
+        <td>@Model.BookName</td>
+        <td>@Model.Author</td>
+        <td>@Model.Category.CategoryName</td>
+        <td>@Model.Price</td>
+        <td>@Model.Quantity</td>
+        <td>@Html.Raw(Model.Description)</td>
+        <td>
+            <a href="#" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+            <a href="#" class="btn btn-outline-danger"><i class="fas fa-minus-circle"></i></a>
+        </td>
+    </tr>
+</table>

@@ -12,11 +12,15 @@ namespace PBL3Store.Domain.Repositories
         IQueryable<Category> Categories { get; }
         IQueryable<Payment> Payments { get; }
         IQueryable<User> Users { get; }
+        IQueryable<Role> Roles { get; }
+        IQueryable<Order> order { get; }
+        IQueryable<OrderDetail> OrderDetails { get; }
         void Add(User user);
         void Add(Order order);
         void Add(OrderDetail orderDetail);
         void Add(Book book);
         void Edit(Book book);
         void Remove(Book book);
+        void Edit(User User);
     }
 }

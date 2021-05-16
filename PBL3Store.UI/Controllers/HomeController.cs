@@ -9,7 +9,6 @@ using System.Web.Mvc;
 
 namespace PBL3Store.UI.Controllers
 {
-    [AllowAnonymous]
     public class HomeController : Controller
     {
         // GET: Home
@@ -35,6 +34,39 @@ namespace PBL3Store.UI.Controllers
                 return View(book);
             }
             return View("NotFound");
+        }
+
+        public ActionResult OrderManage()
+        {
+            string UserName = User.Identity.Name;
+            User customer = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
+            if (customer != null)
+            {
+                List<Order> orders = _mainRepository.order.Where(x => x.UserId == customer.UserId).ToList();
+                if (orders != null)
+                {
+                    HomeOrderManageModel model = new HomeOrderManageModel()
+                    {
+                        Orders = orders,
+                        customer = customer
+                    };
+                    ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
+                    return View(model);
+                }
+            }
+            return View("NotFound");
+        }
+        public ActionResult ViewOrder(int OrderId)
+        {
+            List<OrderDetail> ordetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
+            if (ordetail != null)
+            {
+                HomeViewOrderModel model = new HomeViewOrderModel();
+                model.orderDetails = ordetail;
+                ViewBag.Book = _mainRepository.Books.ToList();
+                return View(model);
+            }
+            return View();
         }
     }
 }

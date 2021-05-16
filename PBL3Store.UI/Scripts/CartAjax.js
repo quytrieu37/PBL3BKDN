@@ -19,7 +19,7 @@
                 }
             },
             error: function (res) {
-                alert('fail');
+                console.log('fail');
             }
         });
     });

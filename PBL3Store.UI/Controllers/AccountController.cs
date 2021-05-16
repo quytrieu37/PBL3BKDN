@@ -66,10 +66,34 @@ namespace PBL3Store.UI.Controllers
                 if(MD5Helper.VerifyPass(user.Password, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
+                    
                     return Redirect("/Home/HomePage");
                 }
                 ModelState.AddModelError("","Sai Mật khẩu");
             }
+            return View(model);
+        }
+        public ViewResult UpdateInfo()
+        {
+            return View();
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult UpdateInfo(AccountUpdateInfoModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                string UserName = User.Identity.Name;
+                User CurrentUser = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
+                if (CurrentUser != null)
+                {
+                    CurrentUser.Address = model.Address;
+                    CurrentUser.Phone = model.PhoneNumber;
+                    _mainRepository.Edit(CurrentUser);
+                    TempData["msg"] = "Cập nhật thông tin thành công!";
+                    return Redirect("/Home/HomePage");
+                }
+            }    
             return View(model);
         }
         [HttpPost]
