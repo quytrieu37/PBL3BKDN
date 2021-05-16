@@ -1,6 +1,7 @@
 ﻿@model PBL3Store.UI.Models.AccountLoginModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Login";
+    Layout = "";
 }
 <link href="~/Content/RegisterStyle.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
@@ -59,7 +60,7 @@
         </div>
     </div>
     <footer>
-        <p>© 2017 Official Signup Form. All Rights Reserved | Design by <a href="#">W3School</a></p>
+        <p>© 2017 Official Login Form. All Rights Reserved | <a href="@Url.Action("HomePage","Home")">Back To Home</a>| <a href="@Url.Action("Register","Account")">Signup</a></p>
     </footer>
 </div>
 

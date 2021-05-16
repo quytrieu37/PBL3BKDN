@@ -1,0 +1,56 @@
+﻿@model PBL3Store.UI.Models.HomeOrderManageModel
+@{
+    ViewBag.Title = "OrderManage";
+    Layout = "~/Views/Layout/LayoutMain.cshtml";
+    var payment = ViewBag.PaymentMethod as List<PBL3Store.Domain.Payment>;
+}
+
+<h4>Tên Khách hàng: @Model.customer.UserName</h4>
+<h4>Danh sách đơn hàng</h4>
+@{
+    int j = 0;
+}
+<div class="row">
+    <div class="col-12">
+        <table class="border table-bordered col-md-8">
+            <tr>
+                <td>STT</td>
+                <td>Phương thức thanh toán</td>
+                <td>Trạng thái</td>
+                <td>Shipper</td>
+                <td>Ghi chú</td>
+                <td>Ngày đặt hàng</td>
+                <td></td>
+            </tr>
+            @foreach (var order in Model.Orders)
+            {
+                j++;
+                <tr>
+                    <td>@j</td>
+                    <td>
+                        @for (int i = 0; i < payment.Count; i++)
+                        {
+                            if (payment[i].PaymentId == order.PaymentId)
+                            {
+                                @payment[i].PaymentName;
+                            }
+                        }
+                </td>
+                    <td>@order.State</td>
+                    @if(order.ShipperId != null)
+                    {
+                        <td>@order.Shipper.ShipperName</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                <td>@order.Note</td>
+                <td>@order.CreateDate</td>
+                <td><a href="@Url.Action("ViewOrder","Home", new { OrderId = order.OrderId})">Chi tiết đơn hàng</a></td>
+        </tr>
+    }
+        </table>
+
+    </div>
+</div>

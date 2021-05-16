@@ -21,6 +21,12 @@ namespace PBL3Store.Domain.Repositories
 
         public IQueryable<User> Users => _context.Users;
 
+        public IQueryable<Role> Roles => _context.Roles;
+
+        public IQueryable<Order> order => _context.Orders;
+
+        public IQueryable<OrderDetail> OrderDetails => _context.OrderDetails;
+
         public void Add(User user)
         {
             _context.Users.Add(user);
@@ -48,6 +54,12 @@ namespace PBL3Store.Domain.Repositories
         public void Edit(Book book)
         {
             _context.Entry(book).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public void Edit(User User)
+        {
+            _context.Entry(User).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
 

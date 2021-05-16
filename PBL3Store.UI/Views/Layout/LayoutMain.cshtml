@@ -20,7 +20,7 @@
                 </ul>
                 <ul>
                     <li><a href="#"><i class="fas fa-gift"></i> Ưu đãi & tiện ích</a></li>
-                    <li><a href="#"><i class="fas fa-money-check-alt"></i> Kiểm tra đơn hàng</a></li>
+                    <li><a href="@Url.Action("OrderManage","Home")"><i class="fas fa-money-check-alt"></i> Kiểm tra đơn hàng</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>
@@ -146,6 +146,16 @@
             </div>
         </div>
     </div>
+    @if (TempData["msg"] != null)
+    {
+        <div class="row">
+            <div class="col-12">
+                <p class="alert alert-info">
+                    @TempData["msg"]
+                </p>
+            </div>
+        </div>
+    }
     <div class="container-body">
         <div class="grid">
             <div>
@@ -158,7 +168,7 @@
 
         </div>
     </footer>
-    
+
 
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
