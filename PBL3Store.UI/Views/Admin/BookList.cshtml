@@ -4,7 +4,7 @@
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
-<h1>Danh sách sách</h1>
+<h1>Danh sách sách            <a href="@Url.Action("AddNewBook","Admin",FormMethod.Post)" class="btn btn-outline-success"><i class="fas fa-plus"></i></a></h1>
 @{ 
     int i = 0;
 }
@@ -14,22 +14,31 @@
         <td>Mã Sách</td>
         <td>Tên sách</td>
         <td>Doanh mục</td>
+        <td>Trạng thái</td>
         <td>Tùy chọn</td>
     </tr>
     @foreach(var book in Model.Books)
     {
         i++;
-        <tr>
-            <td>@i</td>
-            <td>@book.BookId</td>
-            <td>@book.BookName</td>
-            <td>@book.Category.CategoryName</td>
-            <td>
-                <a href="@Url.Action("BookView","Admin", new { id = book.BookId})" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
-                <a href="#" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="fas fa-minus-circle"></i></a>
-            </td>
-        </tr>
+<tr>
+    <td>@i</td>
+    <td>@book.BookId</td>
+    <td>@book.BookName</td>
+    <td>@book.Category.CategoryName</td>
+    @if (book.State == true)
+    {
+        <td>Đang bán</td>
+    }
+    else
+    {
+        <td>Đã dừng bán</td>
+    }
+    <td>
+        <a href="@Url.Action("BookView","Admin", new { id = book.BookId})" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
+        <a href="#" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+        <a href="@Url.Action("StopSell","Admin", new { bookId = book.BookId})" class="btn btn-outline-danger"><i class="fas fa-sync-alt"></i></a>
+    </td>
+</tr>
     }
 </table>
 
