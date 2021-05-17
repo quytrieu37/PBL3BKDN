@@ -15,6 +15,7 @@
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="BookImage" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="State" Type="bit" />
           <Property Name="Author" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
@@ -231,6 +232,7 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="BookImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Boolean" />
           <Property Name="Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products" FromRole="Books" ToRole="OrderDetails" />
@@ -407,7 +409,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PBL3Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PBL3Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
@@ -451,7 +453,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3Entities">
+        <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3Entities1">
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="PBL3Model.Book">
               <MappingFragment StoreEntitySet="Books">
@@ -461,6 +463,7 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="BookImage" ColumnName="BookImage" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>

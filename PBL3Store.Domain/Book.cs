@@ -26,6 +26,7 @@ namespace PBL3Store.Domain
         public int Quantity { get; set; }
         public string BookImage { get; set; }
         public int CategoryId { get; set; }
+        public Nullable<bool> State { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
     

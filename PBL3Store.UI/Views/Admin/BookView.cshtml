@@ -14,6 +14,7 @@
         <td>Tác Giả</td>
         <td>Doanh mục</td>
         <td>Giá Tiền</td>
+        <td>Trạng thái</td>
         <td>Tồn kho</td>
         <td>Mô tả</td>
         <td></td>
@@ -25,11 +26,19 @@
         <td>@Model.Author</td>
         <td>@Model.Category.CategoryName</td>
         <td>@Model.Price</td>
+        @if (Model.State == true)
+        {
+            <td>Đang bán</td>
+        }
+        else
+        {
+            <td>Đã dừng bán</td>
+        }
         <td>@Model.Quantity</td>
         <td>@Html.Raw(Model.Description)</td>
         <td>
             <a href="#" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-minus-circle"></i></a>
+            <a href="#" class="btn btn-outline-danger"><i class="fas fa-sync-alt"></i></a>
         </td>
     </tr>
 </table>
