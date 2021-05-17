@@ -75,7 +75,7 @@ namespace PBL3Store.UI.Controllers
                 {
                     Directory.CreateDirectory(path);
                 }
-                string fullPath = path + file.FileName;
+                string fullPath = Path.Combine(path,file.FileName);
                 file.SaveAs(fullPath);
                 Book newBook = new Book()
                 {
@@ -92,6 +92,75 @@ namespace PBL3Store.UI.Controllers
                 _mainRepository.Add(newBook);
                 TempData["msgAdmin"] = "Thêm sách thành công!";
                 return Redirect("/Admin/BookList");
+            }
+            return View(model);
+        }
+        public ViewResult EditBook(int bookId)
+        {
+            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
+            ViewBag.Categories = _mainRepository.Categories.ToList();
+            if (book != null)
+            {
+                AdminEditBookModel model = new AdminEditBookModel()
+                {
+                    BookId = book.BookId,
+                    BookName = book.BookName,
+                    Author = book.Author,
+                    Avatar = book.BookImage,
+                    CategoryId = book.CategoryId,
+                    Description = book.Description,
+                    Price = book.Price,
+                    Quantity = book.Quantity,
+                    State = (bool)book.State
+                };
+                return View(model);
+            }    
+            return View("NotFound");
+        }
+        [HttpPost]
+        public ActionResult EditBook(AdminEditBookModel model)
+        {
+            if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
+            {
+                string[] extention = new string[] { ".jpg", ".png", ".jpeg" };
+                var file = Request.Files[0];
+                string ext = Path.GetExtension(file.FileName);
+                if (!extention.Any(x => x == ext))
+                {
+                    ModelState.AddModelError("", "file tải lên không hợp lệ");
+                    return View(model);
+                }
+                else
+                {
+                    string folder = "/Content/Upload/";
+                    string path = Server.MapPath("~" + folder);
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    string result = Path.Combine(path, file.FileName);
+                    file.SaveAs(result);
+                    model.Avatar = "/Content/Upload/" + file.FileName;
+
+                    if (ModelState.IsValid)
+                    {
+                        Book book = new Book()
+                        {
+                            Author = model.Author,
+                            Description = model.Description,
+                            Price = model.Price,
+                            BookName = model.BookName,
+                            BookImage = model.Avatar,
+                            CategoryId = model.CategoryId,
+                            Quantity = model.Quantity,
+                            State = model.State,
+                            BookId = ((int)model.BookId)
+                        };
+                        _mainRepository.Edit(book);
+                        TempData["msgAdmin"] = "Chỉnh sửa sách thành công";
+                        return RedirectToAction(nameof(AdminController.BookList));
+                    }
+                }
             }
             return View(model);
         }

@@ -305,6 +305,7 @@
     <Content Include="Views\Admin\BookList.cshtml" />
     <Content Include="Views\Admin\BookView.cshtml" />
     <Content Include="Views\Admin\AddNewBook.cshtml" />
+    <Content Include="Views\Admin\EditBook.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -324,6 +325,7 @@
     <Compile Include="Models\AccountUpdateInfoModel.cs" />
     <Compile Include="Models\AdminAddNewBookModel.cs" />
     <Compile Include="Models\AdminBookListModel.cs" />
+    <Compile Include="Models\AdminEditBookModel.cs" />
     <Compile Include="Models\CartCheckoutModel.cs" />
     <Compile Include="Models\HomeListBookModel.cs" />
     <Compile Include="Models\HomeOrderManageModel.cs" />
