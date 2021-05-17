@@ -51,80 +51,78 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Cart\Cart.cs" />
     <Compile Include="Cart\CartLine.cs" />
     <Compile Include="Category.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderDetail.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Payment.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3Entities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3Entities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3Entities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3Entities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMainRepository.cs" />
     <Compile Include="Repositories\MainRepository.cs" />
     <Compile Include="Role.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Shipper.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StoreContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StoreContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StoreContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StoreContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StoreContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StoreContext.edmx</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>StoreContext.tt</DependentUpon>
+      <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="StoreContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StoreContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="StoreContext.edmx.diagram">
-      <DependentUpon>StoreContext.edmx</DependentUpon>
+    <EntityDeploy Include="PBL3Entities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PBL3Entities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PBL3Entities.edmx.diagram">
+      <DependentUpon>PBL3Entities.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StoreContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StoreContext.Context.cs</LastGenOutput>
-      <DependentUpon>StoreContext.edmx</DependentUpon>
-    </Content>
-    <Content Include="StoreContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StoreContext.edmx</DependentUpon>
-      <LastGenOutput>StoreContext.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="PBL3Entities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3Entities.edmx</DependentUpon>
+      <LastGenOutput>PBL3Entities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PBL3Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3Entities.edmx</DependentUpon>
+      <LastGenOutput>PBL3Entities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

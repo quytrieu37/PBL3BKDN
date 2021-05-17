@@ -304,6 +304,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\BookList.cshtml" />
     <Content Include="Views\Admin\BookView.cshtml" />
+    <Content Include="Views\Admin\AddNewBook.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -321,6 +322,7 @@
     <Compile Include="Models\AccountLoginModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
     <Compile Include="Models\AccountUpdateInfoModel.cs" />
+    <Compile Include="Models\AdminAddNewBookModel.cs" />
     <Compile Include="Models\AdminBookListModel.cs" />
     <Compile Include="Models\CartCheckoutModel.cs" />
     <Compile Include="Models\HomeListBookModel.cs" />
@@ -341,6 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PBL3Store.Domain\PBL3Store.Domain.csproj">
