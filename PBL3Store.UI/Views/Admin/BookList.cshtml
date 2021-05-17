@@ -35,7 +35,7 @@
     }
     <td>
         <a href="@Url.Action("BookView","Admin", new { id = book.BookId})" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
-        <a href="#" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+        <a href="@Url.Action("EditBook","Admin", new { bookId = book.BookId})" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
         <a href="@Url.Action("StopSell","Admin", new { bookId = book.BookId})" class="btn btn-outline-danger"><i class="fas fa-sync-alt"></i></a>
     </td>
 </tr>
