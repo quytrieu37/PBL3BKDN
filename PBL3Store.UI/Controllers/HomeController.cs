@@ -82,8 +82,14 @@ namespace PBL3Store.UI.Controllers
             TempData["msg"] = "Đã hoàn thành đơn hàng!";
             return RedirectToAction(nameof(HomeController.OrderManage));
         }
-        public ViewResult RegisterShipper(int UserId)
+        public ActionResult RegisterShipper(int UserId)
         {
+            Shipper sp = _mainRepository.Shippers.FirstOrDefault(x => x.UserId == UserId);
+            if(sp != null)
+            {
+                TempData["msg"] = "Bạn đã là shipper";
+                return Redirect("/Home/HomePage/");
+            }    
             User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
             if(user!= null)
             {
@@ -108,6 +114,7 @@ namespace PBL3Store.UI.Controllers
                 {
                     user.Address = model.Address;
                     user.Phone = model.Phone;
+                    user.RoleId = 2;
                     _mainRepository.Edit(user);
                     Shipper shipper = new Shipper()
                     {
@@ -119,11 +126,32 @@ namespace PBL3Store.UI.Controllers
                     };
                     _mainRepository.Add(shipper);
                     TempData["msg"] = "Đăng kí shipper thành công";
-                    return RedirectToAction(nameof(ShipperController.ShipperViewOrder));
+                    return Redirect("/Shipper/ShipperViewOrder/");
                 }
                 return View(model);
             }    
             return View(model);
+        }
+        public ActionResult RedirectUI()
+        {
+            string userName = User.Identity.Name;
+            User currentUser = _mainRepository.Users.FirstOrDefault(x => x.UserName == userName);
+            if(currentUser!= null)
+            {
+                if(currentUser.RoleId==1)
+                {
+                    return Redirect("/Admin/Index");
+                }    
+                if(currentUser.RoleId ==2 )
+                {
+                    return Redirect("/Shipper/Index");
+                }
+                else
+                {
+                    return Redirect("/Home/UserUI");
+                }
+            }
+            return Redirect("/Account/Login");
         }
     }
 }

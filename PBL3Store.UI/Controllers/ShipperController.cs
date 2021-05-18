@@ -1,5 +1,6 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
+using PBL3Store.UI.Attributes;
 using PBL3Store.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PBL3Store.UI.Controllers
 {
+    [CustomFilterRole(RolesAllow ="Shipper,Admin")]
     public class ShipperController : Controller
     {
         private readonly IMainRepository _mainRepository;
@@ -42,6 +44,7 @@ namespace PBL3Store.UI.Controllers
         {
             string ShipperName = User.Identity.Name;
             User Shipper = _mainRepository.Users.FirstOrDefault(x => x.UserName == ShipperName);
+            Shipper sp = _mainRepository.Shippers.FirstOrDefault(x => x.UserId == Shipper.UserId);
             Order order = _mainRepository.order.FirstOrDefault(x => x.OrderId == model.OrderId);
             if(order == null || Shipper == null)
             {
@@ -54,7 +57,7 @@ namespace PBL3Store.UI.Controllers
                 return RedirectToAction(nameof(ShipperController.ShipperViewOrder));
             }
             order.StateId = 2;
-            order.ShipperId = Shipper.UserId;
+            order.ShipperId = sp.ShipperId;
             _mainRepository.Edit(order);
             TempData["msgAdmin"] = "Nhận đơn hàng thành công";
             return RedirectToAction(nameof(ShipperController.ShipperViewOrder));
@@ -63,10 +66,11 @@ namespace PBL3Store.UI.Controllers
         {
             string ShipperName = User.Identity.Name;
             User Shipper = _mainRepository.Users.FirstOrDefault(x => x.UserName == ShipperName);
+            Shipper sp = _mainRepository.Shippers.FirstOrDefault(x => x.UserId == Shipper.UserId);
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
-            if (Shipper!= null)
+            if (sp!= null)
             {
-                model.Orders = _mainRepository.order.Where(x => x.ShipperId == Shipper.UserId).ToList();
+                model.Orders = _mainRepository.order.Where(x => x.ShipperId == sp.ShipperId).ToList();
                 model.customer = Shipper;
                 return View(model);
             }
@@ -112,6 +116,15 @@ namespace PBL3Store.UI.Controllers
             _mainRepository.Edit(order);
             TempData["msgAdmin"] = "Hoàn thành giao hàng";
             return RedirectToAction(nameof(ShipperController.OrderTake));
+        }
+        public ActionResult Index()
+        {
+            string userName = User.Identity.Name;
+            User currentUser = _mainRepository.Users.FirstOrDefault(x => x.UserName == userName);
+            if(currentUser!=null)
+            {
+                
+            }    
         }
     }
 }

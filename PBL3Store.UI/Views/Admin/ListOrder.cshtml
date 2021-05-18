@@ -30,7 +30,7 @@
                 <tr>
                     <td>@j</td>
                     <td>@order.OrderId</td>
-                    <td><a href="@Url.Action("BookView","Admin", new { id= order.UserId})" style="text-decoration:none; color: #000000">@order.UserId</a></td>
+                    <td><a href="@Url.Action("UserDetail","Admin", new { UserId= order.UserId})" style="text-decoration:none; color: #000000">@order.UserId</a></td>
                     <td>
                         @for (int i = 0; i < payment.Count; i++)
                         {
