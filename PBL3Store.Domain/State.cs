@@ -12,23 +12,21 @@ namespace PBL3Store.Domain
     using System;
     using System.Collections.Generic;
     
-    public partial class Shipper
+    public partial class State
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Shipper()
+        public State()
         {
             this.Orders = new HashSet<Order>();
+            this.Users = new HashSet<User>();
         }
     
-        public int ShipperId { get; set; }
-        public int UserId { get; set; }
-        public string ShipperName { get; set; }
-        public string HomeTown { get; set; }
-        public string Phone { get; set; }
-        public string CMND { get; set; }
+        public int StateId { get; set; }
+        public string StateName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }

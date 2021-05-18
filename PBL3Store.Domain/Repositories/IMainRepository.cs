@@ -19,7 +19,9 @@ namespace PBL3Store.Domain.Repositories
         void Add(Order order);
         void Add(OrderDetail orderDetail);
         void Add(Book book);
+        void Add(Shipper shipper);
         void Edit(Book book);
+        void Edit(Order Order);
         void Remove(Book book);
         void Edit(User User);
     }

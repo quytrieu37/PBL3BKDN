@@ -22,7 +22,7 @@ namespace PBL3Store.UI.Controllers
             HomeListBookModel model = new HomeListBookModel();
             model.Books = _mainRepository.Books
                 .OrderByDescending(x => x.BookId)
-                .Skip((page - 1) * pageSize).Where(x => x.CategoryId == categoriId || categoriId == -1)
+                .Skip((page - 1) * pageSize).Where(x => x.CategoryId == categoriId || categoriId == -1).Where(x=>x.State == true)
                 .ToList();
             return View(model);
         }
@@ -67,6 +67,63 @@ namespace PBL3Store.UI.Controllers
                 return View(model);
             }
             return View();
+        }
+        [HttpPost]
+        public ActionResult CompleteOrder(HomeOrderModel model)
+        {
+            Order order = _mainRepository.order.FirstOrDefault(x => x.OrderId == model.OrderId);
+            if( order== null)
+            {
+                ModelState.AddModelError("", "Đơn hàng không tồn tại");
+                return RedirectToAction(nameof(HomeController.OrderManage));
+            }
+            order.StateId = 7;
+            _mainRepository.Edit(order);
+            TempData["msg"] = "Đã hoàn thành đơn hàng!";
+            return RedirectToAction(nameof(HomeController.OrderManage));
+        }
+        public ViewResult RegisterShipper(int UserId)
+        {
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            if(user!= null)
+            {
+                HomeRegisterUserModel model = new HomeRegisterUserModel();
+                model.UserId = user.UserId;
+                if(model.Address != null && model.Phone != null)
+                {
+                    model.Address = user.Address;
+                    model.Phone = user.Phone;
+                }
+                return View(model);
+            }    
+            return View("NotFound");
+        }
+        [HttpPost]
+        public ActionResult RegisterShipper(HomeRegisterUserModel model)
+        {
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == model.UserId);
+            if(user != null)
+            {
+                if(ModelState.IsValid)
+                {
+                    user.Address = model.Address;
+                    user.Phone = model.Phone;
+                    _mainRepository.Edit(user);
+                    Shipper shipper = new Shipper()
+                    {
+                        UserId = user.UserId,
+                        CMND = model.CMND,
+                        HomeTown = model.HomeTown,
+                        ShipperName = model.ShipperName,
+                        Phone = model.Phone
+                    };
+                    _mainRepository.Add(shipper);
+                    TempData["msg"] = "Đăng kí shipper thành công";
+                    return RedirectToAction(nameof(ShipperController.ShipperViewOrder));
+                }
+                return View(model);
+            }    
+            return View(model);
         }
     }
 }
