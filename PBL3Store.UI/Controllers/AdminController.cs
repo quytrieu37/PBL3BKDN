@@ -1,5 +1,6 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
+using PBL3Store.UI.Attributes;
 using PBL3Store.UI.Models;
 using PBL3Store.UI.Models.Dynamic;
 using System;
@@ -11,6 +12,7 @@ using System.Web.Mvc;
 
 namespace PBL3Store.UI.Controllers
 {
+    [CustomFilterRole(RolesAllow = "Admin,Shipper")]
     public class AdminController : Controller
     {
         private readonly IMainRepository _mainRepository;

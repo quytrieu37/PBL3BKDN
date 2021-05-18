@@ -15,6 +15,7 @@ namespace PBL3Store.Domain.Repositories
         IQueryable<Role> Roles { get; }
         IQueryable<Order> order { get; }
         IQueryable<OrderDetail> OrderDetails { get; }
+        IQueryable<Shipper> Shippers { get; }
         void Add(User user);
         void Add(Order order);
         void Add(OrderDetail orderDetail);

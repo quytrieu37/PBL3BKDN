@@ -24,7 +24,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>
-                            <a class="btn" href="@Url.Action("Index", "Admin")">
+                            <a class="btn" href="@Url.Action("RedirectUI", "Home")">
                                 Hi, @User.Identity.Name
                             </a>
                         </li>

@@ -36,14 +36,17 @@ namespace PBL3Store.UI.Attributes
                 if (!roles.Any(x => x == user.Role.RoleName))
                 {
                     ViewResult view = new ViewResult();
-                    view.ViewName = "Error403"; // ko có quyền truy cập tài nguyên
+                    view.ViewName = "~/Views/Layout/Error403.cshtml"; // ko có quyền truy cập tài nguyên
                     filterContext.Result = view;
                 }
             }
-            ViewResult view1 = new ViewResult();
-            view1.ViewName = "~/Views/Account/Login.cshtml";
-            
-            filterContext.Result = view1;
+            else
+            {
+                ViewResult view1 = new ViewResult();
+                view1.ViewName = "~/Views/Account/Login.cshtml";
+
+                filterContext.Result = view1;
+            }
         }
     }
 }
