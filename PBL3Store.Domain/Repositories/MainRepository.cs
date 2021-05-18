@@ -51,6 +51,12 @@ namespace PBL3Store.Domain.Repositories
             _context.SaveChanges();
         }
 
+        public void Add(Shipper shipper)
+        {
+            _context.Shippers.Add(shipper);
+            _context.SaveChanges();
+        }
+
         public void Edit(Book book)
         {
             _context.Entry(book).State = System.Data.Entity.EntityState.Modified;
@@ -60,6 +66,12 @@ namespace PBL3Store.Domain.Repositories
         public void Edit(User User)
         {
             _context.Entry(User).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public void Edit(Order Order)
+        {
+            _context.Entry(Order).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
 

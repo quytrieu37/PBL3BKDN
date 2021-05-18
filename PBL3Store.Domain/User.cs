@@ -18,6 +18,7 @@ namespace PBL3Store.Domain
         public User()
         {
             this.Orders = new HashSet<Order>();
+            this.Shippers = new HashSet<Shipper>();
         }
     
         public int UserId { get; set; }
@@ -26,10 +27,14 @@ namespace PBL3Store.Domain
         public string Email { get; set; }
         public int RoleId { get; set; }
         public string Address { get; set; }
+        public int StateId { get; set; }
         public string Phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Shipper> Shippers { get; set; }
+        public virtual State State { get; set; }
     }
 }

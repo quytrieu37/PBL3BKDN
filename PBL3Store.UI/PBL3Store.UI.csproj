@@ -164,6 +164,7 @@
     <Content Include="Content\img\Vuong-quoc-tren-may.jpg" />
     <Content Include="Content\img\zalo-pay.jpg" />
     <Content Include="Content\RegisterStyle.css" />
+    <Content Include="Content\ShipperStyle.css" />
     <Content Include="Content\StyleLayoutMain.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -209,6 +210,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Shipper.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -306,7 +308,11 @@
     <Content Include="Views\Admin\BookView.cshtml" />
     <Content Include="Views\Admin\AddNewBook.cshtml" />
     <Content Include="Views\Admin\EditBook.cshtml" />
+    <Content Include="Views\Home\CompleteOrder.cshtml" />
+    <Content Include="Views\Admin\ListUser.cshtml" />
+    <Content Include="Views\Home\RegisterShipper.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
+    <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -316,6 +322,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShipperController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -326,9 +333,12 @@
     <Compile Include="Models\AdminAddNewBookModel.cs" />
     <Compile Include="Models\AdminBookListModel.cs" />
     <Compile Include="Models\AdminEditBookModel.cs" />
+    <Compile Include="Models\AdminListUserModel.cs" />
     <Compile Include="Models\CartCheckoutModel.cs" />
     <Compile Include="Models\HomeListBookModel.cs" />
+    <Compile Include="Models\HomeOrderModel.cs" />
     <Compile Include="Models\HomeOrderManageModel.cs" />
+    <Compile Include="Models\HomeRegisterUserModel.cs" />
     <Compile Include="Models\HomeViewOrderModel.cs" />
     <Compile Include="Models\LineCartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -336,6 +346,9 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\Shipper\ShipperViewOrder.cshtml" />
+    <Content Include="Views\Shipper\ShipperOrderDetail.cshtml" />
+    <Content Include="Views\Shipper\OrderTake.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,61 @@
+﻿@model PBL3Store.UI.Models.AdminListUserModel
+@{
+    ViewBag.Title = "ListUser";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h1>Danh sách user            <a href="#" class="btn btn-outline-success"><i class="fas fa-plus"></i></a></h1>
+<table class="table table-bordered" style="font-weight:700">
+    <tr>
+        <td>Mã User</td>
+        <td>UserName</td>
+        <td>Email</td>
+        <td>Role</td>
+        <td>Địa chỉ thường trú</td>
+        <td>Trạng thái</td>
+        <td>Số điện thoại</td>
+        <td>Quê quán</td>
+        <td>CMND</td>
+        <td>Mã Shipper</td>
+        <td></td>
+    </tr>
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td>@user.UserId</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>@user.Role.RoleName</td>
+            <td>@user.Address</td>
+            <td>@user.State.StateName</td>
+            <td>@user.Phone</td>
+            @if(user.RoleId == 2)
+            {
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            }
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <form>
+                    <input type="hidden" name="UserId" id="UserId" value="@user.UserId"/>
+                    <button class="btn btn-outline-danger"><i class="fas fa-user-lock"></i></button>
+                </form>
+                <form>
+                    <input type="hidden" name="UserId" id="UserId" value="@user.UserId" />
+                    <button class="btn btn-outline-info"><i class="fas fa-biking"></i></button>
+                </form>
+                <form>
+                    <input type="hidden" name="UserId" id="UserId" value="@user.UserId" />
+                    <button class="btn btn-outline-warning"><i class="fas fa-users-cog"></i></button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+

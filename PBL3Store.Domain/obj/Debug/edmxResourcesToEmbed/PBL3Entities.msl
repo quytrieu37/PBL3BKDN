@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3Entities1">
+  <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3Entities">
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="PBL3Model.Book">
         <MappingFragment StoreEntitySet="Books">
@@ -43,7 +43,7 @@
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="ShipperId" ColumnName="ShipperId" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,10 +67,19 @@
       <EntityTypeMapping TypeName="PBL3Model.Shipper">
         <MappingFragment StoreEntitySet="Shippers">
           <ScalarProperty Name="ShipperId" ColumnName="ShipperId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="ShipperName" ColumnName="ShipperName" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="HomeTown" ColumnName="HomeTown" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="PBL3Model.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -94,6 +103,7 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
         </MappingFragment>
       </EntityTypeMapping>

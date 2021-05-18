@@ -1,12 +1,12 @@
 ﻿@model PBL3Store.UI.Models.HomeOrderManageModel
 @{
-    ViewBag.Title = "OrderManage";
-    Layout = "~/Views/Layout/LayoutMain.cshtml";
+    ViewBag.Title = "OrderTake";
+    Layout = "~/Views/Layout/ShipperLayout.cshtml";
     var payment = ViewBag.PaymentMethod as List<PBL3Store.Domain.Payment>;
 }
 
-<h4>Tên Khách hàng: @Model.customer.UserName</h4>
-<h4>Danh sách đơn hàng</h4>
+<h4>Tên user: @Model.customer.UserName</h4>
+<h4>Danh sách đơn hàng đã nhận</h4>
 @{
     int j = 0;
 }
@@ -19,7 +19,7 @@
                 <td>Trạng thái</td>
                 <td>Shipper</td>
                 <td>Ghi chú</td>
-                <td>Ngày đặt hàng</td>
+                <td>Ngày phải giao hàng</td>
                 <td></td>
             </tr>
             @foreach (var order in Model.Orders)
@@ -35,9 +35,9 @@
                                 @payment[i].PaymentName;
                             }
                         }
-                </td>
-                    <td>@order.State.StateName</td>
-                    @if(order.ShipperId != null)
+                    </td>
+                    <td>@order.State</td>
+                    @if (order.ShipperId != null)
                     {
                         <td>@order.Shipper.ShipperName</td>
                     }
@@ -45,11 +45,15 @@
                     {
                         <td></td>
                     }
-                <td>@order.Note</td>
-                <td>@order.CreateDate</td>
-                <td><a href="@Url.Action("ViewOrder","Home", new { OrderId = order.OrderId})" class="btn btn-outline-primary">Chi tiết đơn hàng</a></td>
-        </tr>
-    }
+                    <td>@order.Note</td>
+                    <td>@order.CreateDate</td>
+                    <td><a href="@Url.Action("ShipperOrderDetail","Shipper", new { OrderId = order.OrderId})" class="btn btn btn-outline-info">Chi tiết đơn hàng</a></td>
+                    @*<td>
+                        <a href="@Url.Action("CancelGet","Shipper", new { OrderId = order.OrderId})" class="btn btn-outline-danger">Hủy nhận đơn hàng</a>
+                        <a href="@Url.Action("CompleteOrder","Shipper", new { OrderId = order.OrderId})" class="btn btn-outline-primary">Hoàn thành đơn hàng</a>
+                    </td>*@
+                </tr>
+            }
         </table>
 
     </div>

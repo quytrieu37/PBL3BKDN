@@ -40,7 +40,8 @@ namespace PBL3Store.UI.Controllers
                     UserName = model.UserName,
                     Password = hashPassword,
                     Email = model.Email,
-                    RoleId= 3
+                    RoleId = 3,
+                    StateId = 8
                 };
                 _mainRepository.Add(user);
                 TempData["msg"] = "Tạo tài khoản thành công";
@@ -65,6 +66,11 @@ namespace PBL3Store.UI.Controllers
                 }
                 if(MD5Helper.VerifyPass(user.Password, model.Password))
                 {
+                    if(user.StateId == 9)
+                    {
+                        ModelState.AddModelError("", "Tài khoản của bạn bị khóa tạm thời");
+                        return View(model);
+                    }    
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
                     
                     return Redirect("/Home/HomePage");

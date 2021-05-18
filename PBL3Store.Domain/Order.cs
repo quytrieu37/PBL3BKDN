@@ -26,12 +26,13 @@ namespace PBL3Store.Domain
         public string Note { get; set; }
         public Nullable<int> ShipperId { get; set; }
         public System.DateTime CreateDate { get; set; }
-        public string State { get; set; }
+        public int StateId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Payment Payment { get; set; }
         public virtual Shipper Shipper { get; set; }
+        public virtual State State { get; set; }
         public virtual User User { get; set; }
     }
 }
