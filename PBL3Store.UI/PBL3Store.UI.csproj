@@ -311,6 +311,9 @@
     <Content Include="Views\Home\CompleteOrder.cshtml" />
     <Content Include="Views\Admin\ListUser.cshtml" />
     <Content Include="Views\Home\RegisterShipper.cshtml" />
+    <Content Include="Views\Admin\BookRevenue.cshtml" />
+    <Content Include="Views\Admin\ListOrder.cshtml" />
+    <Content Include="Views\Admin\UserDetail.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />
@@ -332,9 +335,12 @@
     <Compile Include="Models\AccountUpdateInfoModel.cs" />
     <Compile Include="Models\AdminAddNewBookModel.cs" />
     <Compile Include="Models\AdminBookListModel.cs" />
+    <Compile Include="Models\AdminBookRevenueModel.cs" />
     <Compile Include="Models\AdminEditBookModel.cs" />
     <Compile Include="Models\AdminListUserModel.cs" />
+    <Compile Include="Models\AdminUserDetailModel.cs" />
     <Compile Include="Models\CartCheckoutModel.cs" />
+    <Compile Include="Models\Dynamic\BookRevenue.cs" />
     <Compile Include="Models\HomeListBookModel.cs" />
     <Compile Include="Models\HomeOrderModel.cs" />
     <Compile Include="Models\HomeOrderManageModel.cs" />

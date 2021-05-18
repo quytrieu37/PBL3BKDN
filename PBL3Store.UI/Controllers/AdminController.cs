@@ -1,6 +1,7 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
 using PBL3Store.UI.Models;
+using PBL3Store.UI.Models.Dynamic;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -164,15 +165,82 @@ namespace PBL3Store.UI.Controllers
             }
             return View(model);
         }
-        public ActionResult ListUser(AdminListUserModel model)
+        public ViewResult ListUser(AdminListUserModel model)
         {
             model.Users = _mainRepository.Users.ToList();
             return View(model);
         }
-        [HttpPost]
-        public ActionResult AuthorizationShipper(int UserId)
+        public ViewResult UserDetail(int UserId)
         {
-            return View();
+            ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            AdminUserDetailModel model = new AdminUserDetailModel();
+            if(user != null)
+            {
+                model.user = user;
+                if(user.RoleId == 2) // shipper
+                {
+                    model.Orders = _mainRepository.order.Where(x => x.ShipperId == user.UserId).ToList();
+                    return View(model);
+                }   
+                else // Admin và khách hàng
+                {
+                    model.Orders = _mainRepository.order.Where(x => x.UserId == user.UserId).ToList();
+                    return View(model);
+                }    
+            }    
+            return View("NotFound");
+        }
+        [HttpPost]
+        public ActionResult BlockUser(int UserId)
+        {
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            if(user!=null)
+            {
+                if(user.StateId == 8)
+                {
+                    user.StateId = 9;
+                }    
+                else
+                {
+                    user.StateId = 8;
+                }    
+                _mainRepository.Edit(user);
+                return RedirectToAction(nameof(AdminController.ListUser));
+            }
+            return View("NotFound");
+        }
+        public ActionResult BookRevenue(int status)
+        {
+            AdminBookRevenueModel model = new AdminBookRevenueModel();
+            model.BookRevenues = _mainRepository.OrderDetails.GroupBy(x => x.BookId).Select(c1 => new BookRevenue
+            {
+                BookId = c1.Select(x => x.BookId).FirstOrDefault(),
+                BookName = c1.Select(x => x.Book.BookName).FirstOrDefault(),
+                Quantity = c1.Sum(x => x.Quantity),
+                Price = c1.Select(x => x.Price).FirstOrDefault()
+            }).ToList();
+            if(status == 0 )
+            {
+                return View(model);
+            }    
+            else if(status==1)
+            {
+                model.BookRevenues = model.BookRevenues.OrderBy(x => x.Quantity).ToList();
+                return View(model);
+            }
+            else
+            {
+                model.BookRevenues = model.BookRevenues.OrderByDescending(x => x.Quantity).ToList();
+                return View(model);
+            }
+        }
+        public ActionResult ListOrder()
+        {
+            HomeOrderManageModel model = new HomeOrderManageModel();
+            ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
+            model.Orders = _mainRepository.order.Where(x => x.StateId == 1).ToList();
+            return View(model);
         }
     }
 }
