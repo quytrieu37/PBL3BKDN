@@ -27,6 +27,8 @@ namespace PBL3Store.Domain.Repositories
 
         public IQueryable<OrderDetail> OrderDetails => _context.OrderDetails;
 
+        public IQueryable<Shipper> Shippers => _context.Shippers;
+
         public void Add(User user)
         {
             _context.Users.Add(user);

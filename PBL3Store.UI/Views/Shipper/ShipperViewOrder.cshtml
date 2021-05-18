@@ -52,7 +52,9 @@
                     </td>
                     @if(order.ShipperId == Model.customer.UserId)
                     {
-                        <td>
+                        if (order.StateId == 3 || order.StateId == 7)
+                        {
+                            <td>
                             <form action="@Url.Action("CancelGet","Shipper")" method="post">
                                 <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
                                 <button type="submit" class="btn btn-outline-danger">Hủy nhận đơn hàng</button>
@@ -62,6 +64,7 @@
                                 <button type="submit" class="btn btn-outline-primary">Hoàn thành đơn hàng</button>
                             </form>
                         </td>
+                        }
                     }
                     else
                     {
