@@ -164,5 +164,15 @@ namespace PBL3Store.UI.Controllers
             }
             return View(model);
         }
+        public ActionResult ListUser(AdminListUserModel model)
+        {
+            model.Users = _mainRepository.Users.ToList();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AuthorizationShipper(int UserId)
+        {
+            return View();
+        }
     }
 }

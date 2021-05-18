@@ -112,7 +112,7 @@ namespace PBL3Store.UI.Controllers
                 Note = model.Note,
                 PaymentId = model.paymentId,
                 UserId = CurrentUser.UserId,
-                State = "NewOrder"
+                StateId = 1
             };
             _mainRepository.Add(order);
             foreach(CartLine line in cart.lines)

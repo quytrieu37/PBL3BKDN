@@ -1,0 +1,47 @@
+﻿@model PBL3Store.UI.Models.HomeRegisterUserModel
+@{
+    ViewBag.Title = "RegisterShipper";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Đăng kí shipper</h2>
+<h3>Vui lòng điền đầy đủ thông tin vào form sau</h3>
+<div class="row">
+    <div class="col-12 col-md-8">
+        @using (Html.BeginForm("RegisterShipper", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(x=>x.UserId)
+            <div class="form-group">
+                @Html.LabelFor(x => x.ShipperName)
+                @Html.TextBoxFor(x => x.ShipperName, new { @class = "form-control" })
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.ShipperName)</p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.HomeTown)
+                @Html.TextBoxFor(x => x.HomeTown, new { @class = "form-control" })
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.HomeTown)</p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Address)
+                @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.Address)</p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Phone)
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.Phone)</p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.CMND)
+                @Html.TextBoxFor(x => x.CMND, new { @class = "form-control" })
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.CMND)</p>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Đăng kí</button>
+        }
+    </div>
+</div>
+@section js{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+}
