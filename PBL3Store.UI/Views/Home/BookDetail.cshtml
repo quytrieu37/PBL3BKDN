@@ -7,18 +7,20 @@
 <h2>Chi tiết sản phẩm</h2>
 <div class="row">
     <div class="col-12 col-md-4">
-        <img src="@Model.BookImage " alt="Hình ảnh cho @Model.BookName"  class="img-fluid"/> 
+        <img src="@Model.BookImage " alt="Hình ảnh cho @Model.BookName"  class="img-fluid" width="450"/> 
     </div>
     <div class="col-12 col-md-5">
         <h3>@Model.BookName</h3>
         <p class="text-danger">@Model.Author</p>
-        <h3 class="text-danger">@Model.Price</h3>
+        <div style="display:flex">
+            <h3 class="text-danger">@Model.Price</h3><h3 class="text-danger">đ</h3>
+        </div>
         <p class="text-muted">Tình trạng <span class="text-danger">Còn hàng</span></p>
         <div>
             @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "frmAddToCart" }))
             {
-                <input name="BookId" value="@Model.BookId" type="hidden" />
-                <input name="Quantity" value="1" type="number" style="width: 95%" />
+                <input name="BookId" id="BookId" value="@Model.BookId" type="hidden" />
+                <input name="Quantity" id="Quantity" value="1" type="number" style="width: 95%" />
                 <button class="btn btn-outline-primary" type="submit">Thêm vào giỏ hàng</button>
             }
         </div>
@@ -28,6 +30,7 @@
             <p>Đổi trả trong vòng 7 ngày</p>
             <p>Freeship toàn quốc từ 250.000đ</p>
         </div>
+        <div>@Html.Raw(Model.Description)</div>
     </div>
     <div class="col-12 col-md-3"></div>                                             
 </div>
