@@ -10,5 +10,6 @@ namespace PBL3Store.UI.Models
     {
         public List<Order> Orders { get; set; }
         public User customer { get; set; }
+        public PagingInfo pagingInfo { get; set; }
     }
 }

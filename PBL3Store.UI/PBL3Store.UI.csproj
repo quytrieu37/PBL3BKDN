@@ -331,6 +331,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HashPassword\MD5Helper.cs" />
+    <Compile Include="HtmlHelpers\PageLink.cs" />
     <Compile Include="Models\AccountLoginModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
     <Compile Include="Models\AccountUpdateInfoModel.cs" />
@@ -348,6 +349,7 @@
     <Compile Include="Models\HomeRegisterUserModel.cs" />
     <Compile Include="Models\HomeViewOrderModel.cs" />
     <Compile Include="Models\LineCartModel.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
