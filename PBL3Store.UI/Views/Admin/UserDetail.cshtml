@@ -3,6 +3,7 @@
     ViewBag.Title = "UserDetail";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
     var payment = ViewBag.PaymentMethod as List<PBL3Store.Domain.Payment>;
+    var shippers = ViewBag.Shippers as List<PBL3Store.Domain.Shipper>;
 }
 
 <h2>UserDetail</h2>
@@ -16,9 +17,12 @@
         <td>Địa chỉ thường trú</td>
         <td>Trạng thái</td>
         <td>Số điện thoại</td>
-        <td>Quê quán</td>
-        <td>CMND</td>
-        <td>Mã Shipper</td>
+        @if (Model.user.RoleId == 2)
+        {
+            <td>Quê quán</td>
+            <td>CMND</td>
+            <td>Mã Shipper</td>
+        }
         <td></td>
     </tr>
     <tr>
@@ -31,13 +35,17 @@
         <td>@Model.user.Phone</td>
         @if (Model.user.RoleId == 2)
         {
-            <td></td>
-            <td></td>
-            <td></td>
+            foreach (var shipper in shippers)
+            {
+                if (shipper.UserId == Model.user.UserId)
+                {
+                    <td>@shipper.HomeTown</td>
+                    <td>@shipper.CMND</td>
+                    <td>@shipper.ShipperId</td>
+
+                }
+            }
         }
-        <td></td>
-        <td></td>
-        <td></td>
         <td>
             <form action="@Url.Action("BlockUser","Admin")" method="post">
                 <input type="hidden" name="UserId" id="UserId" value="@Model.user.UserId" />

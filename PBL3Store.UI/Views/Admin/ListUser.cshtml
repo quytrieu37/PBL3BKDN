@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "ListUser";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
+    var shippers = ViewBag.Shippers as List<PBL3Store.Domain.Shipper>;
 }
 
 <h1>Danh sách user            <a href="#" class="btn btn-outline-success"><i class="fas fa-plus"></i></a></h1>
@@ -30,17 +31,23 @@
             <td>@user.Address</td>
             <td>@user.State.StateName</td>
             <td>@user.Phone</td>
-            @if(user.RoleId == 2)
+            @if(user.RoleId==2)
             {
-                <td></td>
-                <td></td>
-                <td></td>
+                foreach(var shipper in shippers)
+                {
+                    if(shipper.UserId == user.UserId)
+                    {
+                    <td>@shipper.HomeTown</td>
+                    <td>@shipper.CMND</td>
+                    <td>@shipper.ShipperId</td> 
+                    }
+                }
             }
             else
             {
                 <td></td>
-            <td></td>
-            <td></td>
+                <td></td>
+                <td></td>
             }
             <td><a href="@Url.Action("UserDetail","Admin", new { UserId = user.UserId})">Chi tiết user</a></td>
             <td>

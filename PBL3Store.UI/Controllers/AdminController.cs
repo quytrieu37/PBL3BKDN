@@ -169,12 +169,14 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult ListUser(AdminListUserModel model)
         {
+            ViewBag.Shippers = _mainRepository.Shippers.ToList();
             model.Users = _mainRepository.Users.ToList();
             return View(model);
         }
         public ViewResult UserDetail(int UserId)
         {
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
+            ViewBag.Shippers = _mainRepository.Shippers.ToList();
             User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
             AdminUserDetailModel model = new AdminUserDetailModel();
             if(user != null)
@@ -243,6 +245,39 @@ namespace PBL3Store.UI.Controllers
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
             model.Orders = _mainRepository.order.Where(x => x.StateId == 1).ToList();
             return View(model);
+        }
+        public ActionResult AuthoShipper()
+        {
+            List<Shipper> list = _mainRepository.Shippers.ToList();
+            AdminListUserModel model = new AdminListUserModel();
+            model.Users = new List<User>();
+            ViewBag.Shippers = _mainRepository.Shippers.ToList();
+            foreach (var sp in list)
+            {
+                User us = _mainRepository.Users.FirstOrDefault(x => x.UserId == sp.UserId);
+                if(us!= null)
+                {
+                    if(us.RoleId==3)
+                    {
+                        model.Users.Add(us);
+                    }    
+                }    
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AuthoShipper(int UserId)
+        {
+            ViewBag.Shippers = _mainRepository.Shippers.ToList();
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            if(user != null)
+            {
+                user.RoleId = 2;
+                _mainRepository.Edit(user);
+                TempData["msgAdmin"] = "Đã thêm shipper";
+                return View();
+            }
+            return View();
         }
     }
 }

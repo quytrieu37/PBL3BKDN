@@ -315,6 +315,7 @@
     <Content Include="Views\Admin\ListOrder.cshtml" />
     <Content Include="Views\Admin\UserDetail.cshtml" />
     <Content Include="Views\Layout\Error403.cshtml" />
+    <Content Include="Views\Admin\AuthoShipper.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />
