@@ -124,7 +124,8 @@ namespace PBL3Store.UI.Controllers
             if(currentUser!=null)
             {
                 
-            }    
+            }
+            return View();
         }
     }
 }

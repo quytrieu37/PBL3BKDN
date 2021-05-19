@@ -9,5 +9,6 @@ namespace PBL3Store.UI.Models
     public class HomeListBookModel
     {
         public List<Book> Books { get; set; }
+        public PagingInfo pagingInfo { get; set; }
     }
 }
