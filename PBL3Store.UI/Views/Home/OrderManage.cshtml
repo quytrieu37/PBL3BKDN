@@ -35,9 +35,9 @@
                                 @payment[i].PaymentName;
                             }
                         }
-                </td>
+                    </td>
                     <td>@order.State.StateName</td>
-                    @if(order.ShipperId != null)
+                    @if (order.ShipperId != null)
                     {
                         <td>@order.Shipper.ShipperName</td>
                     }
@@ -45,12 +45,17 @@
                     {
                         <td></td>
                     }
-                <td>@order.Note</td>
-                <td>@order.CreateDate</td>
-                <td><a href="@Url.Action("ViewOrder","Home", new { OrderId = order.OrderId})" class="btn btn-outline-primary">Chi tiết đơn hàng</a></td>
-        </tr>
-    }
+                    <td>@order.Note</td>
+                    <td>@order.CreateDate</td>
+                    <td><a href="@Url.Action("ViewOrder","Home", new { OrderId = order.OrderId})" class="btn btn-outline-primary">Chi tiết đơn hàng</a></td>
+                </tr>
+            }
         </table>
-
+    </div>
+    <div class="col-12">
+        <div class="col-12 col-md-6">
+            @Html.Paging(Model.pagingInfo,
+           x=>Url.Action("OrderManage", "Home", new { page=x, pageSize = Model.pagingInfo.PageSize}))
+        </div>
     </div>
 </div>

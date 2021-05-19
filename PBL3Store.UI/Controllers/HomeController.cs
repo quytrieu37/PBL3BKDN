@@ -21,9 +21,16 @@ namespace PBL3Store.UI.Controllers
         {
             HomeListBookModel model = new HomeListBookModel();
             model.Books = _mainRepository.Books
-                .OrderByDescending(x => x.BookId)
-                .Skip((page - 1) * pageSize).Where(x => x.CategoryId == categoriId || categoriId == -1).Where(x=>x.State == true)
+                .OrderByDescending(x => x.BookId).Where(x => x.State == true)
+                .Skip((page - 1) * pageSize).Take(pageSize).Where(x => x.CategoryId == categoriId || categoriId == -1)
                 .ToList();
+            model.pagingInfo = new PagingInfo()
+            {
+                PageSize = pageSize,
+                CurrentPage = page,
+                TotalItem = _mainRepository.Books.Where(x => x.State == true).Count()
+            };
+                
             return View(model);
         }
         public ViewResult BookDetail(int BookId)
@@ -36,19 +43,25 @@ namespace PBL3Store.UI.Controllers
             return View("NotFound");
         }
 
-        public ActionResult OrderManage()
+        public ActionResult OrderManage(int page = 1, int pageSize = 10)
         {
             string UserName = User.Identity.Name;
             User customer = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
             if (customer != null)
             {
-                List<Order> orders = _mainRepository.order.Where(x => x.UserId == customer.UserId).ToList();
+                List<Order> orders = _mainRepository.order.OrderBy(x=>x.OrderId).Where(x => x.UserId == customer.UserId).Skip((page-1)*pageSize).Take(pageSize).ToList();
                 if (orders != null)
                 {
                     HomeOrderManageModel model = new HomeOrderManageModel()
                     {
                         Orders = orders,
-                        customer = customer
+                        customer = customer,
+                        pagingInfo = new PagingInfo()
+                        {
+                            PageSize = pageSize,
+                            CurrentPage = page,
+                            TotalItem = _mainRepository.order.Where(x => x.UserId == customer.UserId).Count()
+                        }
                     };
                     ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
                     return View(model);
