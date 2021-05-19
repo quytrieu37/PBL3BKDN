@@ -26,14 +26,18 @@ namespace PBL3Store.Domain.Cart
                 };
                 lines.Add(line);
             }
-            line.Quantity += quantity;
+            else
+            {
+                line.Quantity += quantity;
+            }
+            
         }
         public void Update(Book book, int quantity)
         {
             CartLine line = lines.FirstOrDefault(x => x.Book.BookId == book.BookId);
             if(line!=null)
             {
-                line.Quantity += quantity;
+                line.Quantity = quantity;
             }    
         }
         public void Remove(Book book)

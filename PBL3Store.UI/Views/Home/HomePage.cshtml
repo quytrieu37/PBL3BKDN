@@ -19,7 +19,7 @@
     <div class="col-12">
         <div class="col-12 col-md-6">
             @Html.Paging(Model.pagingInfo,
-           x=>Url.Action("HomePage", "Home", new {page = x, pageSize= Model.pagingInfo.PageSize }));
+           x=>Url.Action("HomePage", "Home", new {page = x, pageSize= Model.pagingInfo.PageSize }))
         </div>
     </div>
 </div>

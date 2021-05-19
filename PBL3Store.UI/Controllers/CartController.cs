@@ -11,8 +11,6 @@ using System.Web.Mvc;
 
 namespace PBL3Store.UI.Controllers
 {
-    //[CustomFilterRole(RolesAllow =("Admin,User,Shipper"))]
-    
     public class CartController : Controller
     {
         private readonly IMainRepository _mainRepository;
@@ -23,12 +21,16 @@ namespace PBL3Store.UI.Controllers
         // GET: Cart
         public ActionResult Index()
         {
+            if (User.Identity.Name == "")
+            {
+                return Redirect("/Account/Login/");
+            }
             Cart cart = GetCart();
             return View(cart);
         }
         [HttpPost]
-        public JsonResult AddToCart(LineCartModel model)
-        {
+        public ActionResult AddToCart(LineCartModel model)
+        {   
             if(ModelState.IsValid)
             {
                 Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == model.BookId);
@@ -44,6 +46,10 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult UpdateToCart(LineCartModel model)
         {
+            if (User.Identity.Name == "")
+            {
+                return View("/Account/Login/");
+            }
             if (ModelState.IsValid)
             {
                 var product = _mainRepository.Books.FirstOrDefault(x => x.BookId == model.BookId);
@@ -58,6 +64,10 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
+            if (User.Identity.Name == "")
+            {
+                return View("/Account/Login/");
+            }
             var product = _mainRepository.Books.FirstOrDefault(x => x.BookId == id);
             if (product != null)
             {
@@ -89,6 +99,7 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult Checkout(CartCheckoutModel model)
         {
+            ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
             Cart cart = GetCart();
             if(cart.lines==null)
             {
@@ -124,10 +135,21 @@ namespace PBL3Store.UI.Controllers
                     Price = line.Book.Price,
                     Quantity = line.Quantity
                 };
+                Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == line.Book.BookId);
+                if(book.Quantity - line.Quantity < 0)
+                {
+                    ModelState.AddModelError("", $"Sách {book.BookName} chỉ còn {book.Quantity} cuốn vui lòng điều chỉnh số lượng hoặc chọn sách khác!");
+                    return View(model);
+                }       
+                book.Quantity -= line.Quantity;
+                if(book.Quantity == 0)
+                {
+                    book.State = false;
+                }    
+                _mainRepository.Edit(book);
                 _mainRepository.Add(orderDetail);
             }
             cart.Clear();
-            ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
             TempData["msg"] = "Đặt hàng thành công xin vui lòng chờ hàng được chuyển đến";
             return Redirect("/Home/HomePage");
         }

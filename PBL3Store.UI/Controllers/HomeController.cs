@@ -17,7 +17,7 @@ namespace PBL3Store.UI.Controllers
         {
             _mainRepository = mainRepository;
         }
-        public ViewResult HomePage(int page=1, int pageSize=10, int categoriId=-1)
+        public ViewResult HomePage(int page=1, int pageSize=12, int categoriId=-1)
         {
             HomeListBookModel model = new HomeListBookModel();
             model.Books = _mainRepository.Books
@@ -95,17 +95,18 @@ namespace PBL3Store.UI.Controllers
             TempData["msg"] = "Đã hoàn thành đơn hàng!";
             return RedirectToAction(nameof(HomeController.OrderManage));
         }
-        public ActionResult RegisterShipper(int UserId)
+        public ActionResult RegisterShipper()
         {
-            Shipper sp = _mainRepository.Shippers.FirstOrDefault(x => x.UserId == UserId);
-            if(sp != null)
-            {
-                TempData["msg"] = "Bạn đã là shipper";
-                return Redirect("/Home/HomePage/");
-            }    
-            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            string UserName = User.Identity.Name;
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
             if(user!= null)
             {
+                Shipper sp = _mainRepository.Shippers.FirstOrDefault(x => x.UserId == user.UserId);
+                if (sp != null)
+                {
+                    TempData["msg"] = "Bạn đã đăng kí shipper";
+                    return Redirect("/Home/HomePage/");
+                }
                 HomeRegisterUserModel model = new HomeRegisterUserModel();
                 model.UserId = user.UserId;
                 if(model.Address != null && model.Phone != null)
@@ -127,7 +128,6 @@ namespace PBL3Store.UI.Controllers
                 {
                     user.Address = model.Address;
                     user.Phone = model.Phone;
-                    user.RoleId = 2;
                     _mainRepository.Edit(user);
                     Shipper shipper = new Shipper()
                     {
@@ -138,8 +138,8 @@ namespace PBL3Store.UI.Controllers
                         Phone = model.Phone
                     };
                     _mainRepository.Add(shipper);
-                    TempData["msg"] = "Đăng kí shipper thành công";
-                    return Redirect("/Shipper/ShipperViewOrder/");
+                    TempData["msg"] = "Đăng kí shipper thành công, xin chờ phản hồi";
+                    return Redirect("/Home/HomePage");
                 }
                 return View(model);
             }    

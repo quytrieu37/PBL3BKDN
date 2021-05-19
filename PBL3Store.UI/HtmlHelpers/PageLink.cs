@@ -21,8 +21,20 @@ namespace PBL3Store.UI.HtmlHelpers
                 int end = Math.Min(start + 4, pagingInfo.TotalPage);
                 if (pagingInfo.CurrentPage != 1)
                 {
+                    if(pagingInfo.CurrentPage > 4)
+                    {
+                        TagBuilder tagA1 = new TagBuilder("a");
+                        tagA1.SetInnerText("<<<");
+                        tagA1.Attributes.Add("href", pageUrl(1));
+                        tagA1.AddCssClass("page-link");
+                        TagBuilder tagLi1 = new TagBuilder("li");
+                        tagLi1.AddCssClass("page-item");
+                        tagLi1.InnerHtml = tagA1.ToString();
+                        sb.Append(tagLi1);
+                    }    
+
                     TagBuilder tagA = new TagBuilder("a");
-                    tagA.SetInnerText("<<");
+                    tagA.SetInnerText("<");
                     tagA.Attributes.Add("href", pageUrl(pagingInfo.CurrentPage - 1));
                     tagA.AddCssClass("page-link");
                     TagBuilder tagLi = new TagBuilder("li");
@@ -52,13 +64,25 @@ namespace PBL3Store.UI.HtmlHelpers
                 if (pagingInfo.CurrentPage != pagingInfo.TotalPage)
                 {
                     TagBuilder tagA = new TagBuilder("a");
-                    tagA.SetInnerText(">>");
+                    tagA.SetInnerText(">");
                     tagA.Attributes.Add("href", pageUrl(pagingInfo.CurrentPage + 1));
                     tagA.AddCssClass("page-link");
                     TagBuilder tagLi = new TagBuilder("li");
                     tagLi.AddCssClass("page-item");
                     tagLi.InnerHtml = tagA.ToString();
                     sb.Append(tagLi);
+
+                    if (pagingInfo.CurrentPage < (pagingInfo.TotalPage-4))
+                    {
+                        TagBuilder tagA1 = new TagBuilder("a");
+                        tagA1.SetInnerText(">>>");
+                        tagA1.Attributes.Add("href", pageUrl(pagingInfo.TotalPage));
+                        tagA1.AddCssClass("page-link");
+                        TagBuilder tagLi1 = new TagBuilder("li");
+                        tagLi1.AddCssClass("page-item");
+                        tagLi1.InnerHtml = tagA1.ToString();
+                        sb.Append(tagLi1);
+                    }
                 }
                 TagBuilder tabUl = new TagBuilder("ul");
                 tabUl.InnerHtml = sb.ToString();
