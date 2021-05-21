@@ -145,6 +145,7 @@
     <Content Include="Content\img\img-header-body-right.jpg" />
     <Content Include="Content\img\khoc-giua-sg.jpg" />
     <Content Include="Content\img\lich-su-khai-pha-vu-tru.jpg" />
+    <Content Include="Content\img\logo-new.png" />
     <Content Include="Content\img\Logo.jpg" />
     <Content Include="Content\img\logo.PNG" />
     <Content Include="Content\img\mat-biec.jpg" />
@@ -316,6 +317,7 @@
     <Content Include="Views\Admin\UserDetail.cshtml" />
     <Content Include="Views\Layout\Error403.cshtml" />
     <Content Include="Views\Admin\AuthoShipper.cshtml" />
+    <Content Include="Views\Home\Seach.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />
@@ -348,6 +350,7 @@
     <Compile Include="Models\HomeOrderModel.cs" />
     <Compile Include="Models\HomeOrderManageModel.cs" />
     <Compile Include="Models\HomeRegisterUserModel.cs" />
+    <Compile Include="Models\HomeSeachBookModel.cs" />
     <Compile Include="Models\HomeViewOrderModel.cs" />
     <Compile Include="Models\LineCartModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />

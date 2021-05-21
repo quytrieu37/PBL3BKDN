@@ -1,0 +1,53 @@
+﻿@model PBL3Store.UI.Models.HomeSeachBookModel
+@{
+    ViewBag.Title = "Seach";
+    Layout = "~/Views/Layout/LayoutMain.cshtml";
+}
+
+@if (Model.Books.Count() == 0)
+{
+    <h1 class="text-warning">Rất tiếc, không tìm thấy sản phẩm phù hợp với lựa chọn của bạn</h1>
+}
+else
+{
+    <h2>Danh sách tìm kiếm</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <td>Hình ảnh</td>
+            <td>Tên sách</td>
+            <td>Giá tiền</td>
+            <td>Tác giả</td>
+            <td>Doanh mục</td>
+            <td>Tình trạng</td>
+            <td>Thông tin chi tiết</td>
+        </tr>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td><a href="@Url.Action("BookDetail","Home", new { BookId = item.BookId})"><img src="@item.BookImage" alt="ProductImg" style="max-width:100px" /></a></td>
+                <td>@item.BookName</td>
+                <td>@item.Price</td>
+                <td>@item.Author</td>
+                @if (item.State == true)
+                {
+                    <td>Còn hàng</td>
+                }
+                else
+                {
+                    <td>Hết hàng</td>
+                }
+                <td>@item.Category.CategoryName</td>
+                <td>@Html.Raw(item.Description)</td>
+            </tr>
+        }
+    </table>
+    <div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                @Html.Paging(Model.pagingInfo,
+               x=>Url.Action("Seach","Home", new { textSeach = Model.TextSeach, page= x, pageSize = Model.pagingInfo.PageSize}))
+            </div>
+        </div>
+    </div>
+}

@@ -166,5 +166,30 @@ namespace PBL3Store.UI.Controllers
             }
             return Redirect("/Account/Login");
         }
+        public ActionResult Seach(string textSeach = "", int page=1, int pageSize=10)
+        {
+            string input2 = textSeach.Trim().ToLower();
+            HomeSeachBookModel model = new HomeSeachBookModel();
+            if (input2.Length == 0 || input2.Contains("<script>"))
+            {
+                return Redirect("/Home/HomePage");
+            }
+            {
+                List<Book> l = _mainRepository.Books.Where(x => x.BookName.ToLower().Contains(input2) ||
+                x.Author.ToLower().Contains(input2) ||
+                x.Description.ToLower().Contains(input2) ||
+                x.Category.CategoryName.ToLower().Contains(input2)).OrderBy(x => x.BookId).ToList();
+                model.Books = l.Skip((page-1)*pageSize).Take(pageSize).ToList();
+
+                model.TextSeach = input2;
+                model.pagingInfo = new PagingInfo()
+                {
+                    CurrentPage = page,
+                    PageSize = pageSize,
+                    TotalItem = l.Count()
+                };
+                return View(model);
+            }
+        }
     }
 }
