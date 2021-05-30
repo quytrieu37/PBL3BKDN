@@ -1,18 +1,18 @@
 ﻿$(document).ready(function () {
-    $('.frmAddToCart').submit(function (e) {
+    $('.frmUpdateToCart').submit(function (e) {
         e.preventDefault();
         let BookId = $(this).find('input[name=BookId]').val();
-        let Quantity = $(this).find('input[name=Quantity]').val();
-        const data = { BookId: BookId, Quantity: Quantity };
+        let quantity = $(this).find('input[name=Quantity]').val();
+        const DATA = { BookId: BookId, Quantity: quantity };
         console.log(data);
         $.ajax({
-            url: '/Cart/AddToCart',
+            url: '/Cart/UpdateToCart',
             type: 'POST',
-            data: data,
+            data: DATA,
             success: function (res) {
                 console.log(res);
                 if (res.state) {
-                    $(document).trigger('addToCartEvent');
+                    $(document).trigger('updateToCartEvent');
                 }
                 else {
                     console.log('Them that bai');
@@ -23,12 +23,12 @@
             }
         });
     });
-    $(document).on('addToCartEvent', function () {
+    $(document).on('updateToCartEvent', function () {
         $.ajax({
-            url: '/Cart/CartSummary',
+            url: '/Cart/CartUpdateSummary',
             type: "GET",
             success: function (res) {
-                $('.cart-summary').html(res);
+                $('.cart-update-summary').html(res);
             },
             error: function (res) {
                 console.log(res);
@@ -36,4 +36,3 @@
         });
     });
 })
-
