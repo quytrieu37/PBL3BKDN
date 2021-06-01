@@ -1,4 +1,4 @@
-﻿* {
+﻿/** {
     padding: 0;
     margin: 0;
     font-family: 'HelveticaNeue';
@@ -91,10 +91,10 @@ li {
     font-size: 1em;
     background-color: white;
     position: absolute;
-}
+}*/
 
 /*icon header*/
-.orange {
+/*.orange {
     color: #eb7c26;
     font-size: 1.3em;
     padding-right: 8px;
@@ -115,11 +115,11 @@ li {
     width: 60%;
     margin: 0 auto;
     background-color: #eb7c26;
-}
+}*/
 
 
 /* category */
-.category_bar {
+/*.category_bar {
     display: flex;
     justify-content: space-between;
 }
@@ -180,4 +180,4 @@ li {
 .container-Body {
     width: 100%;
     background-color: #f8f8f8;
-}
+}*/
