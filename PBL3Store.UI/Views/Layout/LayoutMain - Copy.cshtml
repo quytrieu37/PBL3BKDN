@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookbuy.vn</title>
+    <link rel="stylesheet" href="~/Content/StyleLayoutMain.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'HelveticaNeue';
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            line-height: 18px;
+        }
+
+        .container-nav {
+            width: 100%;
+            background-color: #e7e7e7;
+            height: 40px;
+        }
+
+        .container-category {
+            width: 100%;
+            background-color: white;
+            height: 3.5em;
+            margin-bottom: 1px;
+            box-shadow: /*rgb(60 64 67 / 30%)*/ 0px 1px 2px 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .Login_Panel {
+            display: flex;
+            justify-content: space-between;
+            background-color: #e7e7e7;
+            height: 40px;
+        }
+
+        .Login_Panel ul {
+            display: flex;
+            padding: 5px;
+        }
+
+        .Login_Panel ul li {
+            text-decoration: none;
+            padding: 5px 13px;
+            cursor: pointer;
+            height : 29px;
+        }
+
+        .Login_Panel ul li:hover {
+            background-color: #fff;
+            border-radius: 2px;
+        }
+
+        .Login_Panel ul li a {
+            color: #777;
+            opacity: .7;
+            font-size: 12px;
+        }
+
+        .Login_Panel ul li a i {
+            font-size: 15px;
+            padding-right: .8em;
+        }
+
+        .Seach_panel {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f8f8f8;
+            align-items: center;
+            height: 65px;
+        }
+
+        .seach_input input {
+            width: 529px;
+            height: 48px;
+            border: none;
+            outline: none;
+            position: relative;
+        }
+
+        .btn-seach {
+            width: 50px;
+            height: 50px;
+            color: #eb7c26;
+            border: none;
+            font-size: 1em;
+            background-color: white;
+            position: absolute;
+        }
+
+        /*icon header*/
+        .orange {
+            color: #eb7c26;
+            font-size: 1.3em;
+            padding-right: 8px;
+            padding-top: 8px;
+        }
+
+        .phone_contact {
+            color: #eb7c26;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .Seach_panel a {
+            text-decoration: none;
+        }
+
+        .body1 {
+            width: 60%;
+            margin: 0 auto;
+            background-color: #eb7c26;
+        }
+
+
+        /* category */
+        .category_bar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .container-category {
+            display: flex;
+            align-items: center;
+        }
+
+        .category-box {
+            display: block;
+            font-weight: bold;
+            float: left;
+            font-size: 15px;
+            cursor: pointer;
+            border: .5px solid #bdbdbd;
+            line-height: 56px;
+            padding-right: 73px;
+            border-top: none;
+        }
+
+            .category-box:hover {
+                color: #eb7c26;
+            }
+
+        .menu {
+            position: absolute;
+            font-size: 1.2em;
+            display: block;
+            box-sizing: border-box;
+            line-height: 44px;
+            background-color: white;
+            left: 380px;
+            padding-left: 1%;
+            padding-right: 54px;
+            top: 162px;
+            left: 381px;
+        }
+
+            .menu li a span:hover {
+                color: #eb7c26;
+            }
+
+            .menu li a {
+                color: #333;
+            }
+
+                .menu li a span {
+                    font-size: 15px;
+                }
+
+        .grid {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .container-Body {
+            width: 100%;
+            background-color: #f8f8f8;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-nav">
+        <div class="grid">
+            <div class="Login_Panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Trợ giúp</a></li>
+                    <li><a href="#"><i class="far fa-newspaper"></i> Tin tức</a></li>
+                    <li><a href="@Url.Action("RegisterShipper","Home")"><i class="fab fa-cloudscale"></i> Đăng kí shipper</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="fas fa-gift"></i> Ưu đãi & tiện ích</a></li>
+                    <li><a href="@Url.Action("OrderManage","Home")"><i class="fas fa-money-check-alt"></i> Kiểm tra đơn hàng</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="btn" href="@Url.Action("RedirectUI", "Home")">
+                                Hi, @User.Identity.Name
+                            </a>
+                        </li>
+                        <li>
+                            <form action="@Url.Action("Logout", "Account", FormMethod.Post)" method="post">
+                                <button type="submit" class="btn">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login","Account")"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a></li>
+                        <li><a href="@Url.Action("Register","Account")"><i class="fas fa-user-check"></i> Đăng kí</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="grid">
+            <div class="Seach_panel">
+                <a href="@Url.Action("HomePage","Home")"><img src="~/Content/img/logo-new.png" class="logo pr-5" alt="Logo" width="200"></a>
+                <form class="seach_input pr-5" action="@Url.Action("Seach","Home")" method="get">
+                    <input type="text" placeholder="Bạn cần tìm gì" name="textSeach" id="textSeach">
+                    <button class="btn-seach" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                
+                <a class="phone_contact pl-5"><i class="fas fa-headset orange phone_contact"></i></a>
+                <div>
+                    <b class="orange">0933109009</b>
+                    <p style="font-size: 2em;">Hot line</p>
+                </div>
+                <div class="dropdown cart-summary">
+                    @{
+                        Html.RenderAction("CartSummary", "Cart");// gọi một partial view có gọi đến action trả về void nên cần bỏ vào {}
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-category">
+        <div class="grid">
+            <div class="category_bar">
+                <div class="category-box">
+                    <i class="fas fa-bars" style="font-size: 1.2em;"></i>
+                    <b>Danh mục sản phẩm</b>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <a href="#"><i class="fas fa-percent"></i> Giảm thêm 2%</a>
+                <a href="#"><i class="fab fa-hotjar"></i> Sách bán chạy</a>
+                <a href="#"><i class="fab fa-hotjar"></i>Chương trình khuyến mãi</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid">
+            <div style="display:flex; justify-content: space-between;">
+                <div>
+                    <div>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>Sách - Truyện Tranh</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Dụng cụ vẽ - VPP</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Bảng Vẽ - Phụ Kiện Số</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <span>Vật dụng - Đời Sống</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-magic"></i>
+                                    <span>Làm đẹp - Sức khỏe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Quà Tặng - Đồ Chơi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Thời trang</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="slide-wrap">
+                    <img src="~/Content/img/bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" alt="tab1" class="slide">
+                    <!-- <img src="/img/6ff85665-63b4-4299-8202-fabbbc0397e5.jpg" alt="tab2" class= "slide">
+                    <img src="/img/bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" alt="tab3" class= "slide">
+                    <img src="/img/c9225a84-d82a-42a9-9f23-4951b45e235a.jpg" alt="tab4" class= "slide">
+                    <img src="/img/e9e561ee-1b22-4cf9-992d-339f0d1c11ee.jpg" alt="tab5" class= "slide"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (TempData["msg"] != null)
+    {
+        <div class="row">
+            <div class="col-12">
+                <p class="alert alert-info">
+                    @TempData["msg"]
+                </p>
+            </div>
+        </div>
+    }
+    <div class="container-body">
+        <div class="grid">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer class="container-category">
+        <div class="grid">
+
+        </div>
+    </footer>
+
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/CartAjax.js"></script>
+    @RenderSection("js", false)
+
+</body>
+</html>
+
+<script src="https://kit.fontawesome.com/bc35e4f263.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
