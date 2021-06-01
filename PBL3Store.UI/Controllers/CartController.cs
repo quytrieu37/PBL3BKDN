@@ -46,10 +46,6 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult UpdateToCart(LineCartModel model)
         {
-            if (User.Identity.Name == "")
-            {
-                return View("/Account/Login/");
-            }
             if (ModelState.IsValid)
             {
                 var product = _mainRepository.Books.FirstOrDefault(x => x.BookId == model.BookId);
@@ -57,17 +53,15 @@ namespace PBL3Store.UI.Controllers
                 {
                     var cart = GetCart();
                     cart.Update(product, model.Quantity);
+                    //return Json(new { state = true, message = " thành công" });
                 }
             }
-            return RedirectToAction("Index");
+            //return Json(new { state = false, message = "fail" });
+            return Redirect("Cart/Index");
         }
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
-            if (User.Identity.Name == "")
-            {
-                return View("/Account/Login/");
-            }
             var product = _mainRepository.Books.FirstOrDefault(x => x.BookId == id);
             if (product != null)
             {
@@ -77,6 +71,11 @@ namespace PBL3Store.UI.Controllers
             return RedirectToAction("Index");
         }
         public PartialViewResult CartSummary()
+        {
+            Cart cart = GetCart();
+            return PartialView(cart);
+        }
+        public PartialViewResult CartUpdateSummary()
         {
             Cart cart = GetCart();
             return PartialView(cart);

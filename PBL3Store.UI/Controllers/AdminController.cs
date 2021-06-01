@@ -56,6 +56,7 @@ namespace PBL3Store.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddNewBook(AdminAddNewBookModel model)
         {
+            ViewBag.Categories = _mainRepository.Categories.ToList();
             var files = Request.Files;
             if(files.Count ==0)
             {
@@ -91,7 +92,7 @@ namespace PBL3Store.UI.Controllers
                     State = model.State,
                     BookImage = "/Content/Upload/" + file.FileName
                 };
-                ViewBag.Categories = _mainRepository.Categories.ToList();
+                
                 _mainRepository.Add(newBook);
                 TempData["msgAdmin"] = "Thêm sách thành công!";
                 return Redirect("/Admin/BookList");
@@ -123,6 +124,7 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult EditBook(AdminEditBookModel model)
         {
+            ViewBag.Categories = _mainRepository.Categories.ToList();
             if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
             {
                 string[] extention = new string[] { ".jpg", ".png", ".jpeg" };
