@@ -1,0 +1,12 @@
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\PBL3Store.Domain.dll.config
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\PBL3Store.Domain.dll
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\PBL3Store.Domain.pdb
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\EntityFramework.dll
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\EntityFramework.SqlServer.dll
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\EntityFramework.xml
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\bin\Release\EntityFramework.SqlServer.xml
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Release\PBL3Store.Domain.csprojAssemblyReference.cache
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Release\PBL3Store.Domain.csproj.CoreCompileInputs.cache
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Release\PBL3Store.Domain.csproj.CopyComplete
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Release\PBL3Store.Domain.dll
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Release\PBL3Store.Domain.pdb

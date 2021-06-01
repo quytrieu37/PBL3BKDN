@@ -22,7 +22,7 @@ body {
     background-color: white;
     height: 3.5em;
     margin-bottom: 1px;
-    box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px;
+    box-shadow:*/ /*rgb(60 64 67 / 30%)*/ /*0px 1px 2px 0px;
 }
 
 a {
@@ -38,34 +38,35 @@ li {
     display: flex;
     justify-content: space-between;
     background-color: #e7e7e7;
+    height: 40px;
 }
 
-    .Login_Panel ul {
-        display: flex;
-        padding: 5px;
-    }
+.Login_Panel ul {
+    display: flex;
+    padding: 5px;
+}
 
-        .Login_Panel ul li {
-            text-decoration: none;
-            padding: 5px 13px;
-            cursor: pointer;
-        }
+.Login_Panel ul li {
+    text-decoration: none;
+    padding: 5px 13px;
+    cursor: pointer;
+}
 
-            .Login_Panel ul li:hover {
-                background-color: #fff;
-                border-radius: 2px;
-            }
+.Login_Panel ul li:hover {
+    background-color: #fff;
+    border-radius: 2px;
+}
 
-            .Login_Panel ul li a {
-                color: #777;
-                opacity: .7;
-                font-size: 12px;
-            }
+.Login_Panel ul li a {
+    color: #777;
+    opacity: .7;
+    font-size: 12px;
+}
 
-                .Login_Panel ul li a i {
-                    font-size: 15px;
-                    padding-right: .8em;
-                }
+.Login_Panel ul li a i {
+    font-size: 15px;
+    padding-right: .8em;
+}
 
 .Seach_panel {
     display: flex;
