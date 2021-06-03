@@ -94,9 +94,6 @@
     <Compile Include="State.cs">
       <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>PBL3Entities.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>
