@@ -161,3 +161,10 @@ footer p {
 .services{
 
 }
+icon-fa{
+    position: relative;
+}
+.icon {
+    position: absolute;
+    left: 50%;
+}
