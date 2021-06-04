@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿/** {
+=======
+﻿* {
+>>>>>>> Trieu
     padding: 0;
     margin: 0;
     font-family: 'HelveticaNeue';
@@ -23,7 +27,11 @@ body {
     background-color: white;
     height: 3.5em;
     margin-bottom: 1px;
+<<<<<<< HEAD
     box-shadow:*/ /*rgb(60 64 67 / 30%)*/ /*0px 1px 2px 0px;
+=======
+    box-shadow: /*rgb(60 64 67 / 30%)*/ 0px 1px 2px 0px;
+>>>>>>> Trieu
 }
 
 a {
@@ -42,6 +50,7 @@ li {
     height: 40px;
 }
 
+<<<<<<< HEAD
 .Login_Panel ul {
     display: flex;
     padding: 5px;
@@ -72,11 +81,45 @@ li {
 .Seach_panel {
     display: flex;
     justify-content: space-between;
+=======
+    .Login_Panel ul {
+        display: flex;
+        padding: 5px;
+    }
+
+        .Login_Panel ul li {
+            text-decoration: none;
+            padding: 5px 13px;
+            cursor: pointer;
+            height: 29px;
+        }
+
+            .Login_Panel ul li:hover {
+                background-color: #fff;
+                border-radius: 2px;
+            }
+
+            .Login_Panel ul li a {
+                color: #777;
+                opacity: .7;
+                font-size: 12px;
+            }
+
+                .Login_Panel ul li a i {
+                    font-size: 15px;
+                    padding-right: .8em;
+                }
+
+    .Seach_panel {
+    display: flex;
+    justify-content: space-around;
+>>>>>>> Trieu
     background-color: #f8f8f8;
     align-items: center;
     height: 65px;
 }
 
+<<<<<<< HEAD
 .seach_input input {
     width: 500px;
     height: 48px;
@@ -88,11 +131,30 @@ li {
 .btn-seach {
     width: 48px;
     height: 48px;
+=======
+.seach_input {
+    width: 60%;
+    padding-left: 2%;
+}
+
+    .seach_input input {
+        width: 90%;
+        height: 48px;
+        border: none;
+        outline: none;
+        position: relative;
+    }
+
+.btn-seach {
+    width: 50px;
+    height: 50px;
+>>>>>>> Trieu
     color: #eb7c26;
     border: none;
     font-size: 1em;
     background-color: white;
     position: absolute;
+<<<<<<< HEAD
 }*/
 
 /*icon header*/
@@ -100,6 +162,13 @@ li {
     color: #eb7c26;
     font-size: 1.3em;
     padding-right: 8px;
+=======
+}
+/*icon header*/
+.orange {
+    color: #eb7c26;
+    font-size: 1.3em;
+>>>>>>> Trieu
     padding-top: 8px;
 }
 
@@ -117,16 +186,25 @@ li {
     width: 60%;
     margin: 0 auto;
     background-color: #eb7c26;
+<<<<<<< HEAD
 }*/
 
 
 /* category */
 /*.category_bar {
+=======
+}
+/* category */
+.category_bar {
+>>>>>>> Trieu
     display: flex;
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Trieu
 .container-category {
     display: flex;
     align-items: center;
@@ -140,6 +218,7 @@ li {
     cursor: pointer;
     border: .5px solid #bdbdbd;
     line-height: 56px;
+<<<<<<< HEAD
     padding-right: 47px;
     border-top: none;
 }
@@ -160,6 +239,31 @@ li {
     padding-right: 74px;
     top: 162px;
     left: 384px;
+=======
+    padding-right: 73px;
+    border-top: none;
+    position: relative;
+}
+
+    .category-box:hover ~ .divhide {
+        color: #eb7c26;
+        display: block;
+    }
+
+.divhide {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    line-height: 43px;
+    background-color: white;
+    padding-left: 1%;
+    padding-right: 64px;
+    top: 57px;
+>>>>>>> Trieu
 }
 
     .menu li a span:hover {
@@ -174,15 +278,275 @@ li {
             font-size: 15px;
         }
 
+<<<<<<< HEAD
+=======
+.container-Body {
+    width: 100%;
+    background-color: #f8f8f8;
+    margin-top: 5em;
+}
+
+.box {
+    width: 100%;
+    height: 3.5em;
+    margin-bottom: 1px;
+    padding-top: 50px;
+}
+
+>>>>>>> Trieu
 .grid {
     width: 60%;
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .container-Body {
     width: 100%;
     background-color: #f8f8f8;
 }*/
 =======
 ﻿
+>>>>>>> Trieu
+=======
+.receive-email {
+    background-color: #9fa7ab;
+    color: #fff;
+    font-weight: normal;
+    font-size: 18px;
+    display: flex;
+    height: 4em;
+    align-items: center;
+    justify-content: space-around;
+}
+    .receive-email h3 {
+        display: inline-block;
+        padding-right: 20px;
+        padding-left: 10px;
+    }
+    .receive-email form {
+        position: relative;
+        width: 50%
+    }
+    .receive-email form input {
+        border: none;
+        width: 80%;
+        height: 40px;
+        border-radius: 3px;
+        font-size: 15px;
+        padding-left: 10px;
+        outline: none;
+        
+        color: #dddddd;
+    }
+
+        .receive-email form button {
+            border: none;
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            background-color: rgb(255,152,0);
+            color: white;
+            font-weight: bold;
+            border-radius: 3px;
+            border-bottom: 1px solid #fff;
+            left: 80%;
+        }
+
+        .receive-email form button:hover {
+            background: #c00;
+            border: 1px solid #fff;
+            transition: all 0.9s;
+        }
+
+ul li {
+    list-style-type: none;
+}
+
+    ul li a {
+        text-decoration: none;
+    }
+
+.icon-contact {
+    display: flex;
+    justify-content: start;
+}
+
+    .icon-contact li i {
+        font-size: 2em;
+        border-radius: 50%;
+    }
+
+    .icon-contact li {
+        padding-right: 15px;
+        color: #646464;
+    }
+
+.services-account {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .services-account div ul li a {
+        color: #000;
+        line-height: 35px;
+    }
+
+        .services-account div ul li a:hover {
+            color: rgb(236, 132, 132);
+        }
+
+.PR li img {
+    max-width: 170px;
+    max-height: 100px;
+    padding-bottom: 20px;
+}
+
+.card_hover:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+/*cart*/
+.book_summary{
+    width: 250px;
+    height: 400px;
+}
+.book_each{
+    width : 25%;
+}
+.img-book{
+    max-width: 200px;
+    height: 250px;
+}
+/*giá tiền sach homepage*/
+.price_book{
+    position: relative;
+}
+.price_book h4 {
+    padding-bottom: 2%;
+}
+.price_book div{
+    position: absolute;
+    display: flex;
+    top: 7%;
+    left: 50%;
+}
+.price_book div p {
+    padding-left: 10%;
+    color: #999999;
+    text-decoration: line-through;
+}
+    .price_book div h6 {
+        background-color: #f51919;
+        text-align: center;
+        font-size: 10px;
+        position: absolute;
+        top: 15%;
+        left: 117%;
+    }
+
+@media only screen and (max-width:1700px) {
+    .Seach_panel a {
+        padding-left: 4%;
+    }
+    .book_summary {
+        width: 218.75px;
+        height: 350px;
+    }
+    .img-book {
+        max-width: 200px;
+        height: 218.75px;
+    }
+    *{
+        font-size: 12px;
+    }
+    .menu li a span{
+        font-size: 12px;
+    }
+    .slide {
+        padding-left: 5%;
+        max-width: 800px;
+    }
+    .menu {
+        line-height: 38px;
+        padding-left: 1%;
+        padding-right: 84px;
+        top: 43px;
+    }
+    .category-box {
+        line-height: 41px;
+    }
+    .receive-email h3{
+        font-size: large;
+    }
+    .slide {
+        padding-left: 17%;
+        max-width: 740px;
+    }
+    .Login_Panel ul li {
+        padding: 5px 9px;
+    }
+}
+@media only screen and (max-width:1500px) {
+    .Seach_panel a {
+        padding-left: 4%;
+    }
+    .book_summary {
+        width: 218.75px;
+        height: 350px;
+        margin-right: 0px;
+    }
+    .img-book {
+        max-width: 200px;
+        height: 218.75px;
+    }
+    .book_each {
+        width: 33%;
+    }
+    .slide {
+        padding-left: 17%;
+        max-width: 734px;
+    }
+    .container-Body{
+        margin-top: 5em;
+    }
+    .PR li img {
+        max-width: 100px;
+        max-height: 100px;
+        padding-bottom: 20px;
+    }
+    .Login_Panel ul li {
+        padding: 5px 9px;
+    }
+        .Login_Panel ul li a i{
+            padding-right: 0.5em;
+        }
+}
+
+@media only screen and (max-width:1200px) {
+    .Seach_panel a {
+        padding-left: 4%;
+    }
+
+    .book_summary {
+        width: 156.25px;
+        height: 250px;
+    }
+
+    .img-book {
+        max-width: 200px;
+        height: 156.25px;
+    }
+
+    .book_each {
+        width: 33%;
+    }
+    .Login_Panel ul li {
+        padding: 5px 1px;
+    }
+
+        .Login_Panel ul li a i {
+            padding-right: 0.5em;
+        }
+}
 >>>>>>> Trieu
