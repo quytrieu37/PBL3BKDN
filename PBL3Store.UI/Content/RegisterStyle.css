@@ -86,27 +86,13 @@ h1 {
         text-align: center;
     }
 
-.icon-contact {
-    display: flex;
-    justify-content: center;
-}
 
-    .icon-contact div {
-        display: block;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        border: 1px solid #fff;
-        margin: 1px;
-        cursor: pointer;
+    .face:hover {
+        animation: spin 3s;
+        color: #fff;
+        background-color: #3b5998;
+        border-color: #3b5998;
     }
-.face:hover {
-    animation: spin 3s;
-    color: #fff;
-    background-color: #3b5998;
-    border-color: #3b5998;
-}
 
 .yt:hover {
     animation: spin 3s;
@@ -158,13 +144,28 @@ footer p {
             text-align:center;
             padding-right:30px;
         }
+.icon-contact {
+    display: flex;
+    justify-content: center;
+}
+
+    .icon-contact div {
+        position: relative;
+        display: block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #fff;
+        margin: 1px;
+        cursor: pointer;
+    }
+
+    .icon-contact div a {
+        position: absolute;
+        left: 13px;
+        top: 13px;
+    }
 .services{
 
-}
-icon-fa{
-    position: relative;
-}
-.icon {
-    position: absolute;
-    left: 50%;
 }
