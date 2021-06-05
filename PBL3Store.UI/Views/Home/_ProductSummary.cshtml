@@ -1,11 +1,16 @@
 ﻿@model PBL3Store.Domain.Book
 
-<div class="card mb-4 shadow-sm" style=" width: 250px; height: 400px">
-    <div class="card-body">
-        <a href="@Url.Action("BookDetail", "Home", new { BookId = Model.BookId})">
+<div class="card mb-4 shadow-sm card_hover" style=" width: 250px; height: 400px">
+    <div class="card-body" style="display:flex;flex-direction : column; justify-content: space-between">
+        <a href="@Url.Action("BookDetail", "Home", new { BookId = Model.BookId})" class="nav-link">
             <img src="@Model.BookImage" style="max-width: 200px; height: 250px" />
             <p class="card-title pricing-card-title">@Model.BookName</p>
         </a>
+        <div style="display:flex">
+            <h4 class="text-danger pb-2">@Model.Price</h4><h4 class="text-danger">đ</h4>
+            <strike style="padding-left:48px; color:#999999">@((double)(Model.Price)*1.15)đ</strike>
+            <h6 style="background-color:#f51919; text-align:center;height:15px; line-height:15px; font-size:10px; margin-left:4px">-15%</h6>
+        </div>
     </div>
 </div>
 

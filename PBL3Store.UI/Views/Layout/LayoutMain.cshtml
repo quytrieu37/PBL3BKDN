@@ -150,6 +150,7 @@
             line-height: 56px;
             padding-right: 73px;
             border-top: none;
+            position: relative;
         }
 
             .category-box:hover ~ .divhide {
@@ -165,13 +166,11 @@
             position: absolute;
             font-size: 1.2em;
             box-sizing: border-box;
-            line-height: 44px;
+            line-height: 43px;
             background-color: white;
-            left: 380px;
             padding-left: 1%;
-            padding-right: 54px;
-            top: 162px;
-            left: 381px;
+            padding-right: 64px;
+            top: 57px;
         }
 
             .menu li a span:hover {
@@ -294,8 +293,12 @@
                     max-height:100px;
                     padding-bottom:20px;
                 }
+        .card_hover:hover {
+            transform: scale(1.05);
+            transition : 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
     </style>
-
 </head>
 <body>
     <div class="container-nav">
@@ -365,54 +368,42 @@
                 <div class="category-box">
                     <i class="fas fa-bars" style="font-size: 1.2em;"></i>
                     <b>Danh mục sản phẩm</b>
-                    <i class="fas fa-caret-down"></i>
-                </div>
-                <a href="#"><i class="fas fa-percent"></i> Giảm thêm 2%</a>
-                <a href="#"><i class="fab fa-hotjar"></i> Sách bán chạy</a>
-                <a href="#"><i class="fab fa-hotjar"></i>Chương trình khuyến mãi</a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="grid">
-            <div style="display:flex; justify-content: space-between;">
-                <div>
-                    <div>
-                        <ul class="menu">
+                    <div class="menu">
+                        <ul>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-book-open"></i>
-                                    <span>Sách - Truyện Tranh</span>
+                                    <span>Văn học</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-palette"></i>
-                                    <span>Dụng cụ vẽ - VPP</span>
+                                    <span>Kỹ năng</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-palette"></i>
-                                    <span>Bảng Vẽ - Phụ Kiện Số</span>
+                                    <span>Truyện tranh</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-shopping-bag"></i>
-                                    <span>Vật dụng - Đời Sống</span>
+                                    <span>Thiếu nhi</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-magic"></i>
-                                    <span>Làm đẹp - Sức khỏe</span>
+                                    <span>Khoa học - Công nghệ</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-gift"></i>
-                                    <span>Quà Tặng - Đồ Chơi</span>
+                                    <span>Nhân vật - Sự kiện</span>
                                 </a>
                             </li>
                             <li>
@@ -424,7 +415,18 @@
                         </ul>
 
                     </div>
+                    <i class="fas fa-caret-down"></i>
                 </div>
+                <a href="#"><i class="fas fa-percent"></i> Giảm thêm 2%</a>
+                <a href="#"><i class="fab fa-hotjar"></i> Sách bán chạy</a>
+                <a href="#"><i class="fab fa-hotjar"></i>Chương trình khuyến mãi</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid">
+            <div style="display:flex; justify-content: space-between;">
+                
                 <div class="slide-wrap">
                     <img src="~/Content/img/bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" alt="tab1" class="slide">
                     <!-- <img src="/img/6ff85665-63b4-4299-8202-fabbbc0397e5.jpg" alt="tab2" class= "slide">
