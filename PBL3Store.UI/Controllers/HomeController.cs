@@ -157,11 +157,11 @@ namespace PBL3Store.UI.Controllers
                 }    
                 if(currentUser.RoleId ==2 )
                 {
-                    return Redirect("/Shipper/Index");
+                    return Redirect("/Shipper/ShipperViewOrder");
                 }
                 else
                 {
-                    return Redirect("/Home/UserUI");
+                    return Redirect("/CustomerInfo/UserRecord");
                 }
             }
             return Redirect("/Account/Login");

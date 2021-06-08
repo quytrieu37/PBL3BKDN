@@ -1,7 +1,10 @@
 ﻿* {
     padding: 0;
     margin: 0;
-    font-family: 'HelveticaNeue';
+    font-family:  "Helvetica Neue", Helvetica, Arial,
+     文泉驛正黑, "WenQuanYi Zen Hei", "Hiragino Sans GB",
+      "儷黑 Pro", "LiHei Pro", "Heiti TC", 微軟正黑體, "Microsoft JhengHei UI",
+       "Microsoft JhengHei", sans-serif;
     font-size: 1em;
     box-sizing: border-box;
 }
@@ -161,7 +164,7 @@ li {
     line-height: 43px;
     background-color: white;
     padding-left: 1%;
-    padding-right: 64px;
+    padding-right: 77px;
     top: 57px;
 }
 
@@ -339,6 +342,11 @@ ul li {
             top: 15%;
             left: 117%;
         }
+        
+
+
+
+
 
 @media only screen and (max-width:1700px) {
     .Seach_panel a {
@@ -362,12 +370,6 @@ ul li {
     .menu li a span {
         font-size: 12px;
     }
-
-    .slide {
-        padding-left: 5%;
-        max-width: 800px;
-    }
-
     .menu {
         line-height: 38px;
         padding-left: 1%;
@@ -383,13 +385,12 @@ ul li {
         font-size: large;
     }
 
-    .slide {
-        padding-left: 17%;
-        max-width: 740px;
-    }
-
     .Login_Panel ul li {
         padding: 5px 9px;
+    }
+    .slide {
+        padding-left: 6%;
+        max-width: 800px;
     }
 }
 

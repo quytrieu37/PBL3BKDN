@@ -1,0 +1,66 @@
+﻿@model  PBL3Store.Domain.User
+@{
+    ViewBag.Title = "UserRecord";
+    Layout = "~/Views/Layout/CustomerInfo.cshtml";
+    var shippers = ViewBag.Shipper as List<PBL3Store.Domain.Shipper>;
+}
+
+<div style="padding-bottom: 1em; border-bottom: .0625rem solid #efefef;">
+    <h5>Hồ Sơ Của Tôi</h5>
+    <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+</div>
+<div>
+    <div>
+        <form action="/" method="post" class="form-info">
+            <div class="line-form">
+                <label>Tên Đăng Nhập</label>
+                <span>@Model.UserName</span>
+            </div>
+            <div class="line-form">
+                <label>Email</label>
+                <span>@Model.Email</span>
+            </div>
+            <div class="line-form">
+                <label>Số Điện thoại</label>
+                <span>@Model.Phone</span>
+            </div>
+            @*<div class="line-form">
+            <label>Giới Tính</label>
+            <div>
+                <input type="radio" name="Gender" id="Nam" />
+                <label for="Nam">Nam</label>
+                <input type="radio" name="Gender" id="Nữ" />
+                <label for="Nữ">Nữ</label>
+                <input type="radio" name="Gender" id="Khác" />
+                <label for="Khác">Khác</label>
+            </div>
+        </div>*@
+            <div class="line-form">
+                <label>Địa chỉ</label>
+                <span>@Model.Address</span>
+            </div>
+            @foreach (var shipper in shippers)
+            {
+                if (shipper.UserId == Model.UserId)
+                {
+                    <div class="line-form">
+                        <label>Tên đầy đủ</label>
+                        <span>@shipper.ShipperName</span>
+                    </div>
+                    <div class="line-form">
+                        <label>Quê Quán</label>
+                        <span>@shipper.HomeTown</span>
+                    </div>
+                    <div class="line-form">
+                        <label>Số CMND</label>
+                        <span>@shipper.CMND</span>
+                    </div>
+                    break;
+                }
+            }
+        </form>
+    </div>
+    <div>
+
+    </div>
+</div>

@@ -102,6 +102,34 @@ namespace PBL3Store.UI.Controllers
             }    
             return View(model);
         }
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(AccountChangePassModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                string username = User.Identity.Name;
+                User user = _mainRepository.Users.FirstOrDefault(x => x.UserName == username);
+                if(user!= null)
+                {
+                    if(!MD5Helper.VerifyPass(user.Password,model.OldPassword))
+                    {
+                        ModelState.AddModelError("", "Mật khẩu không đúng");
+                        return View(model);
+                    }
+                    user.Password = MD5Helper.HashMD5(model.NewPassword);
+                    _mainRepository.Edit(user);
+                    TempData["msg"] = "Đổi mật khẩu thành công";
+                    return View(model);
+                }
+                return RedirectToAction(nameof(AccountController.Login));
+            }
+            return View(model);
+        }
         [HttpPost]
         public ActionResult Logout()
         {
