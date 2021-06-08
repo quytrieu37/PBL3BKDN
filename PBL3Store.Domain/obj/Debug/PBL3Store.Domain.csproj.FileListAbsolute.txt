@@ -22,3 +22,15 @@ E:\STUDYING DATA\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.D
 E:\STUDYING DATA\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csproj.CopyComplete
 E:\STUDYING DATA\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.dll
 E:\STUDYING DATA\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.pdb
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\PBL3Store.Domain.dll.config
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\PBL3Store.Domain.dll
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\PBL3Store.Domain.pdb
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.dll
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.xml
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csprojAssemblyReference.cache
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csproj.CoreCompileInputs.cache
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csproj.CopyComplete
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.dll
+D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.pdb
