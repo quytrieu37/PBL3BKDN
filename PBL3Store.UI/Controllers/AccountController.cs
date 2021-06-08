@@ -56,26 +56,26 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult Login(AccountLoginModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 User user = _mainRepository.Users.FirstOrDefault(x => x.UserName == model.UserName);
-                if(user==null)
+                if (user == null)
                 {
                     ModelState.AddModelError("", "Tài khoản không tồn tại");
                     return View(model);
                 }
-                if(MD5Helper.VerifyPass(user.Password, model.Password))
+                if (MD5Helper.VerifyPass(user.Password, model.Password))
                 {
-                    if(user.StateId == 9)
+                    if (user.StateId == 9)
                     {
                         ModelState.AddModelError("", "Tài khoản của bạn bị khóa tạm thời");
                         return View(model);
-                    }    
+                    }
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
-                    
+
                     return Redirect("/Home/HomePage");
                 }
-                ModelState.AddModelError("","Sai Mật khẩu");
+                ModelState.AddModelError("", "Sai Mật khẩu");
             }
             return View(model);
         }
@@ -87,7 +87,7 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult UpdateInfo(AccountUpdateInfoModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 string UserName = User.Identity.Name;
                 User CurrentUser = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
@@ -99,7 +99,7 @@ namespace PBL3Store.UI.Controllers
                     TempData["msg"] = "Cập nhật thông tin thành công!";
                     return Redirect("/Home/HomePage");
                 }
-            }    
+            }
             return View(model);
         }
         [HttpGet]
@@ -110,15 +110,6 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult ChangePassword(AccountChangePassModel model)
         {
-<<<<<<< HEAD
-            if(ModelState.IsValid)
-            {
-                string username = User.Identity.Name;
-                User user = _mainRepository.Users.FirstOrDefault(x => x.UserName == username);
-                if(user!= null)
-                {
-                    if(!MD5Helper.VerifyPass(user.Password,model.OldPassword))
-=======
             if (ModelState.IsValid)
             {
                 string username = User.Identity.Name;
@@ -126,7 +117,6 @@ namespace PBL3Store.UI.Controllers
                 if (user != null)
                 {
                     if (!MD5Helper.VerifyPass(user.Password, model.OldPassword))
->>>>>>> develop
                     {
                         ModelState.AddModelError("", "Mật khẩu không đúng");
                         return View(model);
