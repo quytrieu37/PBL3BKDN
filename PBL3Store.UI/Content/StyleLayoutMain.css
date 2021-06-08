@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-﻿/** {
-=======
-﻿* {
->>>>>>> Trieu
+* {
     padding: 0;
     margin: 0;
     font-family: 'HelveticaNeue';
@@ -27,11 +22,7 @@ body {
     background-color: white;
     height: 3.5em;
     margin-bottom: 1px;
-<<<<<<< HEAD
-    box-shadow:*/ /*rgb(60 64 67 / 30%)*/ /*0px 1px 2px 0px;
-=======
     box-shadow: /*rgb(60 64 67 / 30%)*/ 0px 1px 2px 0px;
->>>>>>> Trieu
 }
 
 a {
@@ -50,38 +41,6 @@ li {
     height: 40px;
 }
 
-<<<<<<< HEAD
-.Login_Panel ul {
-    display: flex;
-    padding: 5px;
-}
-
-.Login_Panel ul li {
-    text-decoration: none;
-    padding: 5px 13px;
-    cursor: pointer;
-}
-
-.Login_Panel ul li:hover {
-    background-color: #fff;
-    border-radius: 2px;
-}
-
-.Login_Panel ul li a {
-    color: #777;
-    opacity: .7;
-    font-size: 12px;
-}
-
-.Login_Panel ul li a i {
-    font-size: 15px;
-    padding-right: .8em;
-}
-
-.Seach_panel {
-    display: flex;
-    justify-content: space-between;
-=======
     .Login_Panel ul {
         display: flex;
         padding: 5px;
@@ -113,25 +72,11 @@ li {
 .Seach_panel {
     display: flex;
     justify-content: space-around;
->>>>>>> Trieu
     background-color: #f8f8f8;
     align-items: center;
     height: 65px;
 }
 
-<<<<<<< HEAD
-.seach_input input {
-    width: 500px;
-    height: 48px;
-    border: none;
-    outline: none;
-    position: relative;
-}
-
-.btn-seach {
-    width: 48px;
-    height: 48px;
-=======
 .seach_input {
     width: 60%;
     padding-left: 2%;
@@ -148,27 +93,16 @@ li {
 .btn-seach {
     width: 50px;
     height: 50px;
->>>>>>> Trieu
     color: #eb7c26;
     border: none;
     font-size: 1em;
     background-color: white;
     position: absolute;
-<<<<<<< HEAD
-}*/
-
-/*icon header*/
-/*.orange {
-    color: #eb7c26;
-    font-size: 1.3em;
-    padding-right: 8px;
-=======
 }
 /*icon header*/
 .orange {
     color: #eb7c26;
     font-size: 1.3em;
->>>>>>> Trieu
     padding-top: 8px;
 }
 
@@ -186,25 +120,13 @@ li {
     width: 60%;
     margin: 0 auto;
     background-color: #eb7c26;
-<<<<<<< HEAD
-}*/
-
-
-/* category */
-/*.category_bar {
-=======
 }
 /* category */
 .category_bar {
->>>>>>> Trieu
     display: flex;
     justify-content: space-between;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Trieu
 .container-category {
     display: flex;
     align-items: center;
@@ -218,28 +140,6 @@ li {
     cursor: pointer;
     border: .5px solid #bdbdbd;
     line-height: 56px;
-<<<<<<< HEAD
-    padding-right: 47px;
-    border-top: none;
-}
-
-    .category-box:hover {
-        color: #eb7c26;
-    }
-
-.menu {
-    position: absolute;
-    font-size: 1.2em;
-    display: block;
-    box-sizing: border-box;
-    line-height: 46px;
-    background-color: white;
-    left: 380px;
-    padding-left: 1%;
-    padding-right: 74px;
-    top: 162px;
-    left: 384px;
-=======
     padding-right: 73px;
     border-top: none;
     position: relative;
@@ -262,15 +162,9 @@ li {
     line-height: 50px;
     background-color: white;
     padding-left: 1%;
-<<<<<<< HEAD
-    padding-right: 64px;
-    top: 57px;
->>>>>>> Trieu
-=======
     padding-right: 0;
     top: 58px;
     width: 100%;
->>>>>>> Trieu
 }
 
     .menu li a span:hover {
@@ -285,8 +179,6 @@ li {
             font-size: 15px;
         }
 
-<<<<<<< HEAD
-=======
 .container-Body {
     width: 100%;
     background-color: #f8f8f8;
@@ -300,21 +192,11 @@ li {
     padding-top: 50px;
 }
 
->>>>>>> Trieu
 .grid {
     width: 60%;
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
-.container-Body {
-    width: 100%;
-    background-color: #f8f8f8;
-}*/
-=======
-﻿
->>>>>>> Trieu
-=======
 .receive-email {
     background-color: #9fa7ab;
     color: #fff;
@@ -403,7 +285,6 @@ ul li {
         .services-account div ul li a:hover {
             color: rgb(236, 132, 132);
         }
-
 
 
 .PR li img {
@@ -590,7 +471,3 @@ ul li {
             padding-right: 0.5em;
         }
 }
-<<<<<<< HEAD
->>>>>>> Trieu
-=======
->>>>>>> Trieu
