@@ -144,6 +144,7 @@
     <Content Include="Content\img\doi-callboy.jpg" />
     <Content Include="Content\img\du-hanh-bien-phuong-nam.jpg" />
     <Content Include="Content\img\e9e561ee-1b22-4cf9-992d-339f0d1c11ee.jpg" />
+    <Content Include="Content\img\EmptyOrder.png" />
     <Content Include="Content\img\google-play.png" />
     <Content Include="Content\img\Huyên-thảo-chưa-tàn.jpg" />
     <Content Include="Content\img\icon_giao_hang_nhanh.png" />
@@ -311,7 +312,6 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\UpdateInfo.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Home\OrderManage.cshtml" />
@@ -332,6 +332,10 @@
     <Content Include="Views\Admin\AuthoShipper.cshtml" />
     <Content Include="Views\Home\Seach.cshtml" />
     <Content Include="Views\Cart\CartUpdateSummary.cshtml" />
+    <Content Include="Views\Layout\LayoutCart.cshtml" />
+    <Content Include="Views\Layout\CustomerInfo.cshtml" />
+    <Content Include="Views\CustomerInfo\UserRecord.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />
@@ -342,6 +346,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CustomerInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShipperController.cs" />
     <Compile Include="Global.asax.cs">
@@ -349,6 +354,7 @@
     </Compile>
     <Compile Include="HashPassword\MD5Helper.cs" />
     <Compile Include="HtmlHelpers\PageLink.cs" />
+    <Compile Include="Models\AccountChangePassModel.cs" />
     <Compile Include="Models\AccountLoginModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
     <Compile Include="Models\AccountUpdateInfoModel.cs" />

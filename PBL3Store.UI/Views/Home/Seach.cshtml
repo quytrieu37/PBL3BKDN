@@ -18,7 +18,7 @@ else
             <td>Tên sách</td>
             <td>Giá tiền</td>
             <td>Tác giả</td>
-            <td>Doanh mục</td>
+            <td>Danh mục</td>
             <td>Tình trạng</td>
             <td>Thông tin chi tiết</td>
         </tr>
@@ -38,7 +38,7 @@ else
                     <td>Hết hàng</td>
                 }
                 <td>@item.Category.CategoryName</td>
-                <td>@Html.Raw(item.Description)</td>
+                <td><div style="text-align:justify"> @Html.Raw(item.Description) </div></td>
             </tr>
         }
     </table>
@@ -46,7 +46,7 @@ else
         <div class="row">
             <div class="col-12 col-md-6">
                 @Html.Paging(Model.pagingInfo,
-               x=>Url.Action("Seach","Home", new { textSeach = Model.TextSeach, page= x, pageSize = Model.pagingInfo.PageSize}))
+               x => Url.Action("Seach", "Home", new { textSeach = Model.TextSeach, page = x, pageSize = Model.pagingInfo.PageSize }))
             </div>
         </div>
     </div>

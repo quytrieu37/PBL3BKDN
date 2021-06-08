@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\PBL3Entities.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\STUDYING DATA\PBL3BKDN-master\PBL3BKDN\PBL3Store.Domain\PBL3Entities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
