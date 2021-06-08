@@ -13,8 +13,8 @@
     </div>
     <div class="register">
         <div class="left-register">
-            <h2>OFFICIAL</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2>BOOKIE</h2>
+            <p>Chào bạn</p>
         </div>
         <div class="form-register">
             <div>
@@ -26,14 +26,14 @@
                             <div class="form-group">
 
                                 @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" ,
-                               placeholder = "User Name"})
+                               placeholder = "Tên đăng nhập"})
                                 <p class="text-danger">
                                     @Html.ValidationMessageFor(x => x.UserName)
                                 </p>
                             </div>
                             <div class="form-group">
 
-                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" , placeholder = "Password" })
+                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" , placeholder = "Mật khẩu" })
                                 <p class="text-danger">
                                     @Html.ValidationMessageFor(x => x.Password)
                                 </p>
@@ -41,7 +41,7 @@
                             <div class="form-group">
 
                                 @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", type = "password",
-                               placeholder = "Confirm Password" })
+                               placeholder = "Nhắc lại mật khẩu" })
                                 <p class="text-danger">
                                     @Html.ValidationMessageFor(x => x.ConfirmPassword)
                                 </p>
@@ -72,7 +72,7 @@
         </div>
     </div>
     <footer>
-        <p>© 2017 Official Signup Form. All Rights Reserved | <a href="@Url.Action("HomePage","Home")">Back To Home</a>| <a href="@Url.Action("Login","Account")">Login</a></p>
+        <p>Điều khoản sử dụng | <a href="@Url.Action("HomePage","Home")">Về trang chủ</a>| <a href="@Url.Action("Register","Account")">Đăng ký</a></p>
     </footer>
 </div>
 

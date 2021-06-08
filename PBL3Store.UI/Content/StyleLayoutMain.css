@@ -69,7 +69,7 @@ li {
                     padding-right: .8em;
                 }
 
-    .Seach_panel {
+.Seach_panel {
     display: flex;
     justify-content: space-around;
     background-color: #f8f8f8;
@@ -154,15 +154,17 @@ li {
     display: none;
 }
 
+
 .menu {
     position: absolute;
     font-size: 1.2em;
     box-sizing: border-box;
-    line-height: 43px;
+    line-height: 50px;
     background-color: white;
     padding-left: 1%;
-    padding-right: 64px;
-    top: 57px;
+    padding-right: 0;
+    top: 58px;
+    width: 100%;
 }
 
     .menu li a span:hover {
@@ -205,26 +207,28 @@ li {
     align-items: center;
     justify-content: space-around;
 }
+
     .receive-email h3 {
         display: inline-block;
         padding-right: 20px;
         padding-left: 10px;
     }
+
     .receive-email form {
         position: relative;
         width: 50%
     }
-    .receive-email form input {
-        border: none;
-        width: 80%;
-        height: 40px;
-        border-radius: 3px;
-        font-size: 15px;
-        padding-left: 10px;
-        outline: none;
-        
-        color: #dddddd;
-    }
+
+        .receive-email form input {
+            border: none;
+            width: 80%;
+            height: 40px;
+            border-radius: 3px;
+            font-size: 15px;
+            padding-left: 10px;
+            outline: none;
+            color: #dddddd;
+        }
 
         .receive-email form button {
             border: none;
@@ -239,11 +243,11 @@ li {
             left: 80%;
         }
 
-        .receive-email form button:hover {
-            background: #c00;
-            border: 1px solid #fff;
-            transition: all 0.9s;
-        }
+            .receive-email form button:hover {
+                background: #c00;
+                border: 1px solid #fff;
+                transition: all 0.9s;
+            }
 
 ul li {
     list-style-type: none;
@@ -282,6 +286,8 @@ ul li {
             color: rgb(236, 132, 132);
         }
 
+
+
 .PR li img {
     max-width: 170px;
     max-height: 100px;
@@ -294,120 +300,149 @@ ul li {
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 /*cart*/
-.book_summary{
+.book_summary {
     width: 250px;
     height: 400px;
 }
-.book_each{
-    width : 25%;
+
+.book_each {
+    width: 25%;
 }
-.img-book{
+
+.img-book {
     max-width: 200px;
     height: 250px;
 }
 /*giá tiền sach homepage*/
-.price_book{
+.price_book {
     position: relative;
 }
-.price_book h4 {
-    padding-bottom: 2%;
-}
-.price_book div{
-    position: absolute;
-    display: flex;
-    top: 7%;
-    left: 50%;
-}
-.price_book div p {
-    padding-left: 10%;
-    color: #999999;
-    text-decoration: line-through;
-}
-    .price_book div h6 {
-        background-color: #f51919;
-        text-align: center;
-        font-size: 10px;
-        position: absolute;
-        top: 15%;
-        left: 117%;
+
+    .price_book h4 {
+        padding-bottom: 2%;
     }
+
+    .price_book div {
+        position: absolute;
+        display: flex;
+        top: 7%;
+        left: 50%;
+    }
+
+        .price_book div p {
+            padding-left: 10%;
+            color: #999999;
+            text-decoration: line-through;
+        }
+
+        .price_book div h6 {
+            background-color: #f51919;
+            text-align: center;
+            font-size: 10px;
+            position: absolute;
+            top: 15%;
+            left: 117%;
+        }
 
 @media only screen and (max-width:1700px) {
     .Seach_panel a {
         padding-left: 4%;
     }
+
     .book_summary {
         width: 218.75px;
         height: 350px;
     }
+
     .img-book {
         max-width: 200px;
         height: 218.75px;
     }
-    *{
+
+    * {
         font-size: 12px;
     }
-    .menu li a span{
+
+    .menu li a span {
         font-size: 12px;
     }
+
     .slide {
         padding-left: 5%;
         max-width: 800px;
     }
+
     .menu {
         line-height: 38px;
         padding-left: 1%;
         padding-right: 84px;
         top: 43px;
     }
+
     .category-box {
         line-height: 41px;
     }
-    .receive-email h3{
+
+    .receive-email h3 {
         font-size: large;
     }
+
     .slide {
         padding-left: 17%;
         max-width: 740px;
     }
+
     .Login_Panel ul li {
         padding: 5px 9px;
     }
 }
+
 @media only screen and (max-width:1500px) {
     .Seach_panel a {
         padding-left: 4%;
     }
+
     .book_summary {
         width: 218.75px;
         height: 350px;
         margin-right: 0px;
     }
+
     .img-book {
         max-width: 200px;
         height: 218.75px;
     }
+
     .book_each {
         width: 33%;
     }
+
     .slide {
         padding-left: 17%;
         max-width: 734px;
     }
-    .container-Body{
+
+    .container-Body {
         margin-top: 5em;
     }
+
     .PR li img {
         max-width: 100px;
         max-height: 100px;
         padding-bottom: 20px;
     }
+
     .Login_Panel ul li {
         padding: 5px 9px;
     }
-        .Login_Panel ul li a i{
+
+        .Login_Panel ul li a i {
             padding-right: 0.5em;
         }
+
+    .menu {
+        padding-right: 76px;
+    }
 }
 
 @media only screen and (max-width:1200px) {
@@ -428,6 +463,7 @@ ul li {
     .book_each {
         width: 33%;
     }
+
     .Login_Panel ul li {
         padding: 5px 1px;
     }

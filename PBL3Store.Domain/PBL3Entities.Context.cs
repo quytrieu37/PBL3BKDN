@@ -33,7 +33,6 @@ namespace PBL3Store.Domain
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<State> States { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

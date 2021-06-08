@@ -10,5 +10,6 @@ namespace PBL3Store.UI.Models
     {
         public List<Book> Books { get; set; }
         public PagingInfo pagingInfo { get; set; }
+        public int categoryID { get; set; }
     }
 }
