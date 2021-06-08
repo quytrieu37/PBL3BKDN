@@ -110,6 +110,7 @@ namespace PBL3Store.UI.Controllers
         [HttpPost]
         public ActionResult ChangePassword(AccountChangePassModel model)
         {
+<<<<<<< HEAD
             if(ModelState.IsValid)
             {
                 string username = User.Identity.Name;
@@ -117,6 +118,15 @@ namespace PBL3Store.UI.Controllers
                 if(user!= null)
                 {
                     if(!MD5Helper.VerifyPass(user.Password,model.OldPassword))
+=======
+            if (ModelState.IsValid)
+            {
+                string username = User.Identity.Name;
+                User user = _mainRepository.Users.FirstOrDefault(x => x.UserName == username);
+                if (user != null)
+                {
+                    if (!MD5Helper.VerifyPass(user.Password, model.OldPassword))
+>>>>>>> develop
                     {
                         ModelState.AddModelError("", "Mật khẩu không đúng");
                         return View(model);

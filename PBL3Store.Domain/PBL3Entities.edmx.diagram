@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="546e999e87cc4af3aa96f03f1a154435" Name="Diagram1">
+      <Diagram DiagramId="08304d1ebe294ec6aed7bc540c0f654f" Name="Diagram1">
         <EntityTypeShape EntityType="PBL3Model.Book" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3Model.Category" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3Model.OrderDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="PBL3Model.Role" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3Model.Shipper" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3Model.State" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3Model.User" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
         <AssociationConnector Association="PBL3Model.FK_OrderDetails_Products" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3Model.FK_Products_Categories" ManuallyRouted="false" />

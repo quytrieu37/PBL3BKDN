@@ -332,10 +332,17 @@
     <Content Include="Views\Admin\AuthoShipper.cshtml" />
     <Content Include="Views\Home\Seach.cshtml" />
     <Content Include="Views\Cart\CartUpdateSummary.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Layout\CustomerInfo.cshtml" />
     <Content Include="Views\CustomerInfo\UserRecord.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Layout\LayoutCart.cshtml" />
+=======
+    <Content Include="Views\Layout\LayoutCart.cshtml" />
+    <Content Include="Views\Layout\CustomerInfo.cshtml" />
+    <Content Include="Views\CustomerInfo\UserRecord.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+>>>>>>> develop
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />

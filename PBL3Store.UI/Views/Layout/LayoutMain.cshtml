@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bookbuy.vn</title>
+    <title>BookieStore</title>
     <link rel="stylesheet" href="~/Content/StyleLayoutMain.css">
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        
+    </style>
 </head>
 <body>
     <div class="container-nav">
@@ -50,7 +53,7 @@
     <div class="container-1">
         <div class="grid">
             <div class="Seach_panel">
-                <a href="@Url.Action("HomePage","Home")"><img src="~/Content/img/logo-new.png" class="logo" alt="Logo" width="150"></a>
+                <a href="@Url.Action("HomePage","Home")"><img src="~/Content/img/logo - edit.png" class="logo" alt="Logo" width="250"></a>
                 <form class="seach_input" action="@Url.Action("Seach","Home")" method="get">
                     <input type="text" placeholder="Bạn cần tìm gì" name="textSeach" id="textSeach">
                     <button class="btn-seach" type="submit"><i class="fas fa-search"></i></button>
@@ -58,7 +61,7 @@
 
                 <a class="phone_contact"><i class="fas fa-headset orange phone_contact"></i></a>
                 <div>
-                    <b class="orange">0933109009</b>
+                    <b class="orange">0933109xxx</b>
                     <p style="font-size: 1.5em;">Hot line</p>
                 </div>
                 <div class="dropdown cart-summary">
@@ -80,45 +83,39 @@
                     <div class="menu">
                         <ul>
                             <li>
-                                <a href="#">
-                                    <i class="fas fa-book-open"></i>
-                                    <span>Sách - Truyện Tranh</span>
+                                <a href="@Url.Action("HomePage","Home", new {page=1, pageSize=12, categoriId= 1})">
+                                    <i class="fas fa-child"></i>
+                                    <span>Thiếu nhi</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fas fa-palette"></i>
-                                    <span>Dụng cụ vẽ - VPP</span>
+                                <a href="@Url.Action("HomePage","Home", new { categoriId= 2})">
+                                    <i class="fas fa-pen-alt"></i>
+                                    <span>Văn học</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fas fa-palette"></i>
-                                    <span>Bảng Vẽ - Phụ </span>
+                                <a href="@Url.Action("HomePage","Home", new { categoriId= 3})">
+                                    <i class="fas fa-address-book"></i>
+                                    <span>Tự truyện</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fas fa-shopping-bag"></i>
-                                    <span>Vật dụng - Đời Sống</span>
+                                <a href="@Url.Action("HomePage","Home", new { categoriId= 4})">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Ngôn tình</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fas fa-magic"></i>
-                                    <span>Làm đẹp - Sức khỏe</span>
+                                <a href="@Url.Action("HomePage","Home", new { categoriId= 5})">
+                                    <i class="fas fa-business-time"></i>
+                                    <span>Kỹ năng-Kinh doanh</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fas fa-gift"></i>
-                                    <span>Quà Tặng - Đồ Chơi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-gift"></i>
-                                    <span>Thời trang</span>
+                                <a href="@Url.Action("HomePage","Home", new { categoriId= 6})">
+                                    <i class="fas fa-search"></i>
+                                    <span>Trinh thám</span>
                                 </a>
                             </li>
                         </ul>
@@ -126,16 +123,16 @@
                     </div>
                     <i class="fas fa-caret-down"></i>
                 </div>
-                <a href="#"><i class="fas fa-percent"></i> Giảm thêm 2%</a>
-                <a href="#"><i class="fab fa-hotjar"></i> Sách bán chạy</a>
-                <a href="#"><i class="fab fa-hotjar"></i>Chương trình khuyến mãi</a>
+                <a href="#"><i class="fas fa-bookmark"></i> Sách mới</a>
+                <a href="#"><i class="fas fa-medal"></i> Sách bán chạy</a>
+                <a href="#"><i class="fab fa-hotjar"></i> Chương trình khuyến mãi</a>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="grid">
             <div style="display:flex; justify-content: space-between;">
-                
+
                 <div class="slide-wrap">
                     <img src="~/Content/img/bf468e73-51e3-4c9b-8034-a2643ffe8196.jpg" alt="tab1" class="slide ">
                     <!-- <img src="/img/6ff85665-63b4-4299-8202-fabbbc0397e5.jpg" alt="tab2" class= "slide">
@@ -179,10 +176,10 @@
             <div class="row" style="padding-top:50px;">
                 <div class="col-12 col-md-4">
                     <div>
-                        <img src="~/Content/img/logo-new.png" alt="logo" width="200">
-                        <p>Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCM Công Ty Cổ Phần Phát Hành Sách TP HCM - BookBuy - 62 Lê Lợi, Quận 1, TP. HCM, Việt Nam</p>
+                        <img src="~/Content/img/logo - edit.png" alt="logo" width="200">
+                        <p>Công Ty Cổ Phần Phát Hành Sách Bookie Store - TP Đà Nẵng, Việt Nam</p>
                         <p>
-                            Bookbuy.com nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua
+                            Bookie Store nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua
                             và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống Fahasa trên toàn quốc.
                         </p>
                         <img src="~/Content/img/logo-bo-cong-thuong-da-thong-bao.png" alt="bo cong thuong da thong bao" width="150">
@@ -215,14 +212,14 @@
                                 <li><b>DỊCH VỤ</b></li>
                                 <li><a href="#">Điều khoản hoạt động</a></li>
                                 <li><a href="#">Chính sách bảo mật</a></li>
-                                <li><a href="#">Giới thiệu BookBuy</a></li>
+                                <li><a href="#">Giới thiệu Bookie</a></li>
                                 <li><a href="#">Hệ thống nhà sách</a></li>
                             </ul>
                         </div>
                         <div>
                             <ul>
                                 <li><b>HỖ TRỢ</b></li>
-                                <li><a href="#">Chính sách đổi -trả-hoàn tiền</a></li>
+                                <li><a href="#">Chính sách đổi - trả - hoàn tiền</a></li>
                                 <li><a href="#">Chính sách khách sỉ</a></li>
                                 <li><a href="#">Phương thức vận chuyển</a></li>
                                 <li><a href="#">Phương thức thanh toán</a></li>
@@ -243,9 +240,9 @@
                             <li><b>LIÊN HỆ</b></li>
                             <li>
                                 <ul style="display:flex; justify-content:space-between;">
-                                    <li><i class="fas fa-map-marker-alt"></i>   60-62 Lê Lợi, Q.1, TP. HCM</li>
-                                    <li><i class="fas fa-envelope"></i>   info@fahasa.com</li>
-                                    <li><i class="fas fa-phone-alt"></i>   1900636467</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>   TP Đà Nẵng</li>
+                                    <li><i class="fas fa-envelope"></i>   info@bookie.com</li>
+                                    <li><i class="fas fa-phone-alt"></i>   0933109xxx</li>
                                 </ul>
                             </li>
                         </ul>

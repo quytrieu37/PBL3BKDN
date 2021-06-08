@@ -20,15 +20,16 @@ namespace PBL3Store.UI.Controllers
         public ViewResult HomePage(int page=1, int pageSize=12, int categoriId=-1)
         {
             HomeListBookModel model = new HomeListBookModel();
-            model.Books = _mainRepository.Books
+            model.Books = _mainRepository.Books.Where(x => x.CategoryId == categoriId || categoriId == -1)
                 .OrderByDescending(x => x.BookId).Where(x => x.State == true)
-                .Skip((page - 1) * pageSize).Take(pageSize).Where(x => x.CategoryId == categoriId || categoriId == -1)
+                .Skip((page - 1) * pageSize).Take(pageSize)
                 .ToList();
+            model.categoryID = categoriId;
             model.pagingInfo = new PagingInfo()
             {
                 PageSize = pageSize,
                 CurrentPage = page,
-                TotalItem = _mainRepository.Books.Where(x => x.State == true).Count()
+                TotalItem = _mainRepository.Books.Where(x => x.CategoryId == categoriId || categoriId == -1).Where(x => x.State == true).Count()
             };
                 
             return View(model);
@@ -105,7 +106,7 @@ namespace PBL3Store.UI.Controllers
                 if (sp != null)
                 {
                     TempData["msg"] = "Bạn đã đăng kí shipper";
-                    return Redirect("/Home/HomePage/");
+                    return Redirect("/CustomerInfo/UserRecord/");
                 }
                 HomeRegisterUserModel model = new HomeRegisterUserModel();
                 model.UserId = user.UserId;

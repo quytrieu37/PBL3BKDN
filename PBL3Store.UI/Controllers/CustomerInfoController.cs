@@ -21,7 +21,11 @@ namespace PBL3Store.UI.Controllers
             string UserName = User.Identity.Name;
             ViewBag.Shipper = _mainRepository.Shippers.ToList();
             User user = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
+<<<<<<< HEAD
             if(user!= null)
+=======
+            if (user != null)
+>>>>>>> develop
             {
                 return View(user);
             }

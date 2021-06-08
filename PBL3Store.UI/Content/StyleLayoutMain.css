@@ -157,15 +157,28 @@ li {
     display: none;
 }
 
+
 .menu {
     position: absolute;
     font-size: 1.2em;
     box-sizing: border-box;
-    line-height: 43px;
+    line-height: 50px;
     background-color: white;
     padding-left: 1%;
+<<<<<<< HEAD
     padding-right: 77px;
     top: 57px;
+=======
+<<<<<<< HEAD
+    padding-right: 64px;
+    top: 57px;
+>>>>>>> Trieu
+=======
+    padding-right: 0;
+    top: 58px;
+    width: 100%;
+>>>>>>> Trieu
+>>>>>>> develop
 }
 
     .menu li a span:hover {
@@ -287,6 +300,8 @@ ul li {
             color: rgb(236, 132, 132);
         }
 
+
+
 .PR li img {
     max-width: 170px;
     max-height: 100px;
@@ -342,11 +357,14 @@ ul li {
             top: 15%;
             left: 117%;
         }
+<<<<<<< HEAD
         
 
 
 
 
+=======
+>>>>>>> develop
 
 @media only screen and (max-width:1700px) {
     .Seach_panel a {
@@ -370,6 +388,15 @@ ul li {
     .menu li a span {
         font-size: 12px;
     }
+<<<<<<< HEAD
+=======
+
+    .slide {
+        padding-left: 5%;
+        max-width: 800px;
+    }
+
+>>>>>>> develop
     .menu {
         line-height: 38px;
         padding-left: 1%;
@@ -385,6 +412,14 @@ ul li {
         font-size: large;
     }
 
+<<<<<<< HEAD
+=======
+    .slide {
+        padding-left: 17%;
+        max-width: 740px;
+    }
+
+>>>>>>> develop
     .Login_Panel ul li {
         padding: 5px 9px;
     }
@@ -436,6 +471,10 @@ ul li {
         .Login_Panel ul li a i {
             padding-right: 0.5em;
         }
+
+    .menu {
+        padding-right: 76px;
+    }
 }
 
 @media only screen and (max-width:1200px) {
@@ -465,3 +504,10 @@ ul li {
             padding-right: 0.5em;
         }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> Trieu
+=======
+>>>>>>> Trieu
+>>>>>>> develop

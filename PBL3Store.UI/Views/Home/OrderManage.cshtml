@@ -4,6 +4,7 @@
     Layout = "~/Views/Layout/CustomerInfo.cshtml";
     var payment = ViewBag.PaymentMethod as List<PBL3Store.Domain.Payment>;
 }
+<<<<<<< HEAD
     @{
         int j = 0;
     }
@@ -14,6 +15,35 @@
         <h4>Chưa Có Đơn Hàng</h4>
     </div>
 }
+=======
+@{
+    int j = 0;
+}
+<<<<<<< HEAD
+<div class="row">
+    <div class="col-12">
+        <table class="border table-bordered col-md-12">
+            <tr>
+                <td>STT</td>
+                <td>Phương thức thanh toán</td>
+                <td>Trạng thái</td>
+                <td>Shipper</td>
+                <td>Ghi chú</td>
+                <td>Ngày đặt hàng</td>
+                <td></td>
+            </tr>
+            @foreach (var order in Model.Orders)
+            {
+                j++;
+=======
+@if (Model.Orders.Count() == 0)
+{
+    <div style="position: absolute; right: 40%; bottom: 28%;">
+        <img src="~/Content/img/EmptyOrder.png" />
+        <h4>Chưa Có Đơn Hàng</h4>
+    </div>
+}
+>>>>>>> develop
 else
 {
     <h4>Tên Khách Hàng: @Model.customer.UserName</h4>
@@ -22,6 +52,10 @@ else
     <div class="row">
         <div class="col-12">
             <table class="border table-bordered col-md-12">
+<<<<<<< HEAD
+=======
+>>>>>>> Trieu
+>>>>>>> develop
                 <tr>
                     <td>STT</td>
                     <td>Phương thức thanh toán</td>
