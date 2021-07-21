@@ -1,0 +1,88 @@
+﻿@model PBL3Store.UI.Models.AdminEditBookModel
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<div class="border-bottom">
+    <h2>Cập nhật thông tin sách</h2>
+</div>
+@using (Html.BeginForm("EditBook", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Avatar)
+    @Html.HiddenFor(x => x.BookId)
+    @*@Html.HiddenFor(x=>x.Avatar)*@
+    <div class="form-group">
+        @Html.LabelFor(x => x.BookName)
+        @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+        <p class="text-danger">
+            @Html.ValidationMessageFor(x => x.BookName)
+        </p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Author)
+        @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+        <p class="text-danger">
+            @Html.ValidationMessageFor(x => x.Author)
+        </p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Price)
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        <p class="text-danger">
+            @Html.ValidationMessageFor(x => x.Price)
+        </p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Quantity)
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+        <p class="text-danger">
+            @Html.ValidationMessageFor(x => x.Quantity)
+        </p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.CategoryId)
+        @Html.DropDownListFor(x => x.CategoryId, new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"), new { @class = "form-control" })
+        <p class="text-danger">
+            @Html.ValidationMessageFor(x => x.CategoryId)
+        </p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.State, new { @class = "lbstate" })
+        @Html.CheckBoxFor(x => x.State, new { @class = "ckboxstate" })
+        <p class="text-danger">
+            @Html.ValidationMessageFor(x => x.State)
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Hình ảnh</label>
+        <input type="file" name="file" />
+    </div>
+    <div class="form-group">
+        <img src="@Model.Avatar" style="height:100px" alt="hình ảnh cho @Model.BookName" />
+    </div>
+    <div class="form-group">
+        <label>Mô tả</label>
+        <div>
+            @Html.TextAreaFor(x => x.Description, new { id = "editor" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">
+       Save
+    </button>
+}
+
+@section js{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+} 

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.UI\obj\Release\Package\PackageTmp" />
+  <setAcl path="D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.UI\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.UI\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

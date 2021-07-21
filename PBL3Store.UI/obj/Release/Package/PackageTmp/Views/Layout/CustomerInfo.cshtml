@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookbuy.vn</title>
+    <link rel="stylesheet" href="~/Content/StyleLayoutMain.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        /*customer info layout*/
+        /* thanh menu (div trai user info) */
+        /* avatar */
+        .avt {
+            padding: 1em 0;
+            border-bottom: 1px solid #efefef;
+        }
+        /* list method */
+        .list-option {
+            padding-top: 1em;
+        }
+
+            .list-option div div a {
+                margin-bottom: 1em;
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+            }
+
+            .list-option div div span:hover {
+                color: #ee4d2d;
+                outline: 0;
+            }
+
+            .list-option div div a:hover {
+                color: #ee4d2d;
+                outline: 0;
+            }
+        /* account */
+        .account div div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .account i {
+            color: rgb(236, 180, 58);
+        }
+
+        /* nofitication */
+        .nofitication div div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nofitication i {
+            color: rgb(241, 75, 75);
+        }
+
+        main {
+            background-color: #fff;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%);
+            border-radius: .125rem;
+            margin: 1em 0;
+            min-height: 100%;
+            position: relative;
+        }
+
+        .label-list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+            .label-list label {
+                opacity: 0.7;
+            }
+
+        .line-form {
+            display: flex;
+            padding-bottom: 2%;
+        }
+
+            .line-form > label {
+                width: 20%;
+                text-align: right;
+                opacity: 0.7;
+                padding-right: 3%;
+            }
+
+        .order a {
+            color: #000;
+            text-decoration: none;
+        }
+
+            .order a:hover {
+                color: #ee4d2d;
+                outline: 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-nav">
+        <div class="grid">
+            <div class="Login_Panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Trợ giúp</a></li>
+                    <li><a href="#"><i class="far fa-newspaper"></i> Tin tức</a></li>
+                    <li><a href="@Url.Action("RegisterShipper","Home")"><i class="fab fa-cloudscale"></i> Đăng kí shipper</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="fas fa-gift"></i> Ưu đãi & tiện ích</a></li>
+                    <li><a href="@Url.Action("OrderManage","Home")"><i class="fas fa-money-check-alt"></i> Kiểm tra đơn hàng</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="btn" href="@Url.Action("RedirectUI", "Home")">
+                                Hi, @User.Identity.Name
+                            </a>
+                        </li>
+                        <li>
+                            <form action="@Url.Action("Logout", "Account", FormMethod.Post)" method="post">
+                                <button type="submit" class="btn">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login","Account")"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a></li>
+                        <li><a href="@Url.Action("Register","Account")"><i class="fas fa-user-check"></i> Đăng kí</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-1">
+        <div class="grid">
+            <div class="Seach_panel">
+                <a href="@Url.Action("HomePage","Home")"><img src="~/Content/img/logo-new.png" class="logo" alt="Logo" width="150"></a>
+                <form class="seach_input" action="@Url.Action("Seach","Home")" method="get">
+                    <input type="text" placeholder="Bạn cần tìm gì" name="textSeach" id="textSeach">
+                    <button class="btn-seach" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
+                <a class="phone_contact"><i class="fas fa-headset orange phone_contact"></i></a>
+                <div>
+                    <b class="orange">0933109009</b>
+                    <p style="font-size: 1.5em;">Hot line</p>
+                </div>
+                <div class="dropdown cart-summary">
+                    <!--ở đây renderAction để hiển thị html ở đây còn cho class để nhận sự kiện js ajax reload-->
+                    @{
+                        Html.RenderAction("CartSummary", "Cart");// gọi một partial view có gọi đến action trả về void nên cần bỏ vào {}
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="row">
+            <div class="col-12">
+                <p class="alert alert-info">
+                    @TempData["msg"]
+                </p>
+            </div>
+        </div>
+    }
+    <div>
+        <div class="row" style="background-color:#fcf4f4; width:100%;">
+            <div class="col-12 col-md-7" style="margin: 0 auto;">
+                <div class="row" style="padding-bottom: 3em;">
+                    <div class="col-12 col-md-2">
+                        <div class="avt">
+                            <h4>Tên người dùng</h4>
+                        </div>
+                        <div class="list-option">
+                            <div class="account">
+                                <div class="abso">
+                                    <a><i class="far fa-user-circle"></i><span>Tài Khoản Của Tôi</span></a>
+                                    <div>
+                                        <a href="@Url.Action("UserRecord","CustomerInfo")">Hồ Sơ</a>
+                                        <a href="@Url.Action("RegisterShipper","Home")">Đăng Kí Shipper</a>
+                                        <a href="@Url.Action("ChangePassword","Account")">Thêm Mật Khẩu</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order">
+                                <a href="@Url.Action("OrderManage","Home")"><i class="fas fa-file-alt" style="color:rgb(32, 196, 236);"></i><span>Đơn Mua</span></a>
+                            </div>
+                            <div class="nofitication">
+                                <div class="abso">
+                                    <a><i class="far fa-bell"></i><span>Thông Báo</span></a>
+                                    <div>
+                                        <a href="">Cập Nhật Đơn Hàng</a>
+                                        <a href="">Khuyến Mãi</a>
+                                        <a href="">Cập Nhật Ví</a>
+                                        <a href="">Hoạt Động</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <main>
+                            <div style="padding: 1em 2em;">
+                                @RenderBody()
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="box">
+        <div class="grid">
+            <div class="receive-email">
+                <div>
+                    <i class="far fa-envelope"></i>
+                    <h3>ĐĂNG KÍ NHẬN BẢN TIN</h3>
+                </div>
+                <form>
+                    <input placeholder="Nhập địa chỉ email của bạn" />
+                    <button>Đăng kí</button>
+                </form>
+            </div>
+            <div class="row" style="padding-top:50px;">
+                <div class="col-12 col-md-4">
+                    <div>
+                        <img src="~/Content/img/logo-new.png" alt="logo" width="200">
+                        <p>Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCM Công Ty Cổ Phần Phát Hành Sách TP HCM - BookBuy - 62 Lê Lợi, Quận 1, TP. HCM, Việt Nam</p>
+                        <p>
+                            Bookbuy.com nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua
+                            và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống Fahasa trên toàn quốc.
+                        </p>
+                        <img src="~/Content/img/logo-bo-cong-thuong-da-thong-bao.png" alt="bo cong thuong da thong bao" width="150">
+                    </div>
+                    <div>
+                        <ul class="icon-contact">
+                            <li><i class="fab fa-facebook-square"></i></li>
+                            <li><i class="fab fa-instagram-square"></i></li>
+                            <li><i class="fab fa-youtube-square"></i></li>
+                            <li><i class="fab fa-tumblr-square"></i></li>
+                            <li><i class="fab fa-twitter-square"></i></li>
+                            <li><i class="fab fa-pinterest-square"></i></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul style="display: flex; text-align: left;">
+                            <li style="padding-right: 20px;">
+                                <img src="~/Content/img/appstore.png" alt="app-store" width="110">
+                            </li>
+                            <li>
+                                <img src="~/Content/img/android.png" alt="google-play" width="110">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="services-account">
+                        <div>
+                            <ul>
+                                <li><b>DỊCH VỤ</b></li>
+                                <li><a href="#">Điều khoản hoạt động</a></li>
+                                <li><a href="#">Chính sách bảo mật</a></li>
+                                <li><a href="#">Giới thiệu BookBuy</a></li>
+                                <li><a href="#">Hệ thống nhà sách</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><b>HỖ TRỢ</b></li>
+                                <li><a href="#">Chính sách đổi -trả-hoàn tiền</a></li>
+                                <li><a href="#">Chính sách khách sỉ</a></li>
+                                <li><a href="#">Phương thức vận chuyển</a></li>
+                                <li><a href="#">Phương thức thanh toán</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><b>TÀI KHOẢN CỦA TÔI</b></li>
+                                <li><a href="#">Đăng nhập/Tạo mới tài khoản</a></li>
+                                <li><a href="#">Thay đổi địa chỉ khách hàng</a></li>
+                                <li><a href="#">Lịch sử mua hàng</a></li>
+                                <li><a href="#">Chi tiết tài khoản</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><b>LIÊN HỆ</b></li>
+                            <li>
+                                <ul style="display:flex; justify-content:space-between;">
+                                    <li><i class="fas fa-map-marker-alt"></i>   60-62 Lê Lợi, Q.1, TP. HCM</li>
+                                    <li><i class="fas fa-envelope"></i>   info@fahasa.com</li>
+                                    <li><i class="fas fa-phone-alt"></i>   1900636467</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul style="display:flex; flex-wrap: wrap;" class="PR">
+                            <li><img src="~/Content/img/vnpost.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/momopay.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/ahamove_logo.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/logo_moca_120.jpg" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/icon_giao_hang_nhanh.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/icon_snappy.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/vnpay_logo.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/ZaloPay-logo-130x83.png" alt="" style="padding-right: 30px;"></li>
+                            <li><img src="~/Content/img/airpay_logo.png" alt="" style="padding-right: 30px;"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/CartAjax.js"></script>
+    <script src="~/Scripts/Update.js"></script>
+    @RenderSection("js", false)
+
+</body>
+</html>
+
+<script src="https://kit.fontawesome.com/bc35e4f263.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

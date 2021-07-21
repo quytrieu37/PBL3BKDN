@@ -1,6 +1,7 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
 using PBL3Store.UI.Attributes;
+using PBL3Store.UI.Infratructure;
 using PBL3Store.UI.Models;
 using PBL3Store.UI.Models.Dynamic;
 using System;
@@ -16,9 +17,12 @@ namespace PBL3Store.UI.Controllers
     public class AdminController : Controller
     {
         private readonly IMainRepository _mainRepository;
-        public AdminController(IMainRepository mainRepository)
+        private readonly IDbQueries _query;
+        public AdminController(IMainRepository mainRepository,
+            IDbQueries query)
         {
             _mainRepository = mainRepository;
+            _query = query;
         }
         public ActionResult Index()
         {
@@ -27,7 +31,8 @@ namespace PBL3Store.UI.Controllers
         public ViewResult BookList()
         {
             AdminBookListModel model = new AdminBookListModel();
-            model.Books = _mainRepository.Books.OrderByDescending(x=>x.BookId).ToList();
+            model.Books = _query.GetAllBook();
+            ViewBag.Categories = _mainRepository.Categories.ToList();
             return View(model);
         }
         public ViewResult BookView(int id)
@@ -241,6 +246,10 @@ namespace PBL3Store.UI.Controllers
                 return View(model);
             }
         }
+        public ActionResult Revenues(DateTime start, DateTime end)
+        {
+            return View();
+        }
         public ActionResult ListOrder()
         {
             HomeOrderManageModel model = new HomeOrderManageModel();
@@ -280,6 +289,25 @@ namespace PBL3Store.UI.Controllers
                 return View();
             }
             return View();
+        }
+        [HttpGet]
+        public ActionResult OrderAmount(int? state=null, DateTime? start =null, DateTime? end = null)
+        {
+            if (state == 1) // current month
+            {
+                start = DateTime.Now - new TimeSpan(30, 0, 0, 0);
+                end = DateTime.Now;
+            }
+            if(state == 2) //current year
+            {
+                start = DateTime.Now - new TimeSpan(DateTime.Now.DayOfYear, 0, 0, 0);
+                end = DateTime.Now;
+            }
+            List<Order> orders = _query.GetOrderBaseMileStones(start, end);
+            ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
+            ViewBag.State = _mainRepository.States.ToList();
+            ViewBag.Shipper = _mainRepository.Shippers.ToList();
+            return View(orders);
         }
     }
 }
