@@ -17,6 +17,6 @@ namespace PBL3Store.UI.Infratructure
         /// <param name="start">time start</param>
         /// <param name="end">time end</param>
         /// <returns></returns>
-        List<Order> GetOrderBaseMileStones(DateTime? start= null, DateTime? end=null);
-    } 
+        List<Order> GetOrderBaseMileStones(DateTime? start = null, DateTime? end = null);
+    }
 }
