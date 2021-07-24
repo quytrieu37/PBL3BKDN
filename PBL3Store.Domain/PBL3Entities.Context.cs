@@ -22,7 +22,7 @@ namespace PBL3Store.Domain
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            //throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Book> Books { get; set; }
