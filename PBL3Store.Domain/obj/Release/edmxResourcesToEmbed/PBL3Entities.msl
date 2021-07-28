@@ -83,6 +83,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="PBL3Model.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -94,6 +95,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+=======
+>>>>>>> Trieu
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="PBL3Model.User">
         <MappingFragment StoreEntitySet="Users">

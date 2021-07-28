@@ -1,6 +1,7 @@
 ﻿using Ninject;
 using Ninject.Web.Common.WebHost;
 using PBL3Store.Domain.Repositories;
+using PBL3Store.UI.Infratructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace PBL3Store.UI
         {
             var kernel = new StandardKernel();
             kernel.Bind<IMainRepository>().To<MainRepository>();
+            kernel.Bind<IDbQueries>().To<DbQueries>();
             return kernel;
         }
     }

@@ -1,0 +1,81 @@
+﻿@model List<PBL3Store.Domain.Order>
+@{
+    ViewBag.Title = "OrderAmount";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    var payment = ViewBag.PaymentMethod as List<PBL3Store.Domain.Payment>;
+    var state = ViewBag.State as List<PBL3Store.Domain.State>;
+    var Shipper = ViewBag.Shipper as List<PBL3Store.Domain.Shipper>;
+}
+
+<div style="display:flex;">
+    <a class="nav-link" href="@Url.Action("OrderAmount", "Admin", new { state=1})">
+        Current month
+    </a>
+    <a class="nav-link" href="@Url.Action("OrderAmount", "Admin", new { state=2})">
+        Current year
+    </a>
+    <div>
+        <p class="pl-5">Custom</p>
+        <form action="@Url.Action("OrderAmount", "Admin", new { state=0})">
+            <span>start</span>
+            <input type="datetime" name="start" value="2000-00-00" />
+            <span>end</span>
+            <input type="datetime" name="end" value="2000-00-00" />
+            <button type="submit">go</button>
+        </form>
+    </div>
+</div>
+
+
+@{
+    int j = 0;
+}
+<div class="row">
+    <div class="col-12">
+        <table class="border table-bordered col-md-8">
+            <tr>
+                <td>STT</td>
+                <td>Phương thức thanh toán</td>
+                <td>Trạng thái</td>
+                <td>Shipper</td>
+                <td>Ghi chú</td>
+                <td>Ngày phải giao hàng</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @if (Model.Count == 0)
+            {
+        <tr>
+            <td>
+                <h2>Không có đơn hàng nào được đặt trong thời gian này</h2>
+            </td>
+        </tr>
+            }
+            @foreach (var order in Model)
+            {
+                j++;
+                <tr>
+                    <td>@j</td>
+                    <td>
+                        @payment.FirstOrDefault(x=>x.PaymentId == order.PaymentId).PaymentName
+                    </td>
+                    <td>
+                        @state.FirstOrDefault(x => x.StateId == order.StateId).StateName
+                    </td>
+                    @if (order.ShipperId != null)
+                    {
+                        <td>@order.ShipperId: @Shipper.FirstOrDefault(x=>x.ShipperId== order.ShipperId).ShipperName</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@order.Note</td>
+                    <td>@order.CreateDate</td>
+                    <td><a href="@Url.Action("ShipperOrderDetail","Shipper", new { OrderId = order.OrderId})" class="btn btn btn-outline-info">Chi tiết đơn hàng</a></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
