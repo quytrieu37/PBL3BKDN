@@ -37,7 +37,7 @@ namespace PBL3Store.UI.Infratructure
                 sb.Append("OFFSET (@page-1)*@pageSize ROWS ");
                 sb.Append("FETCH FIRST @pageSize ROWS ONLY ");
                 string query = sb.ToString();
-                IEnumerable<Book> result = connection.Query<Book>(query, new { categoriId = categoriId, page= page, pageSize = pageSize});
+                IEnumerable<Book> result = connection.Query<Book>(query, new { categoriId = categoriId, page = page, pageSize = pageSize });
                 return result.ToList();
             }
         }
@@ -62,7 +62,7 @@ namespace PBL3Store.UI.Infratructure
                 sb.Append("or ( o.CreateDate <= @e ");
                 sb.Append("and o.CreateDate >= @st ) ");
                 string query = sb.ToString();
-                IEnumerable<Order> orders = connection.Query<Order>(query, new {st1=st, st = st, e = e });
+                IEnumerable<Order> orders = connection.Query<Order>(query, new { st1 = st, st = st, e = e });
                 return orders.ToList();
             }
         }

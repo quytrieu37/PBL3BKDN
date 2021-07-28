@@ -9,7 +9,33 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <style>
-        
+        /*add to card in each product*/
+        .product_item {
+            position: relative;
+        }
+
+        .product_add {
+            opacity: 0;
+            visibility: hidden;
+            font-size: 1.3em;
+            color: #e53637;
+            font-weight: 700;
+            position: absolute;
+            bottom: 25%;
+            left: 24%;
+            transition: all 0.3s ease-out;
+        }
+
+            .product_add:hover {
+                text-decoration: none;
+            }
+
+        .product_item:hover .product_add {
+            bottom: 16%;
+            left: 24%;
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>

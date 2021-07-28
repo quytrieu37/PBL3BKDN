@@ -1,11 +1,20 @@
 ﻿@model PBL3Store.Domain.Book
 
-<div class="card mb-4 shadow-sm card_hover book_summary">
-    <div class="card-body" style="display:flex;flex-direction : column; justify-content:space-evenly">
+<div class="card mb-4 card_hover book_summary">
+    <div class="card-body product_item" style="display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #F1EFF2;">
         <a href="@Url.Action("BookDetail", "Home", new { BookId = Model.BookId})" class="nav-link">
-            <img src="@Model.BookImage" class="img-book" style="border-radius: 3px"/>
+            <img src="@Model.BookImage" class="img-book" />
             <p class="card-title pricing-card-title name_book">@Model.BookName</p>
         </a>
+        @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "frmAddToCart" }))
+        {
+            <input name="BookId" id="BookId" value="@Model.BookId" type="hidden" />
+            <input name="Quantity" id="Quantity" value="1" type="number" style="visibility:hidden" />
+            <button class="product_add" type="submit" style="border:none">+ Add to card</button>
+        }
         <div class="price_book" style="display:flex">
             <h4 class="text-danger">@Model.Price</h4><h4 class="text-danger">đ</h4>
             <div>
