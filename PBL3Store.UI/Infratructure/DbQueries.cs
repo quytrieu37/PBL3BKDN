@@ -42,6 +42,11 @@ namespace PBL3Store.UI.Infratructure
             }
         }
 
+        public Book GetBookDetail(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Order> GetOrderBaseMileStones(DateTime? start = null, DateTime? end = null)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
