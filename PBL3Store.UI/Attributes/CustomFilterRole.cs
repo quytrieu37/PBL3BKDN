@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PBL3Store.UI.Attributes
 {
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple=true, Inherited =true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple=true, Inherited =true)]
     public class CustomFilterRole : FilterAttribute, IAuthorizationFilter
     {
         public string RolesAllow { get; set; }
