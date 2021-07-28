@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "BookList";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
+    var categories = ViewBag.Categories as List<PBL3Store.Domain.Category>;
 }
 
 <h1>Danh sách sách            <a href="@Url.Action("AddNewBook","Admin",FormMethod.Post)" class="btn btn-outline-success"><i class="fas fa-plus"></i></a></h1>
@@ -19,12 +20,15 @@
     </tr>
     @foreach(var book in Model.Books)
     {
+        
         i++;
 <tr>
     <td>@i</td>
     <td>@book.BookId</td>
     <td>@book.BookName</td>
-    <td>@book.Category.CategoryName</td>
+    <td>
+        @categories.FirstOrDefault(x => x.CategoryId == book.CategoryId).CategoryName
+    </td>
     @if (book.State == true)
     {
         <td>Đang bán</td>

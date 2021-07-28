@@ -259,3 +259,5 @@ D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKD
 D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.UI\obj\Debug\PBL3Store.UI.csproj.CopyComplete
 D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.UI\obj\Debug\PBL3Store.UI.dll
 D:\Trường bách khoa\Học kì 4\PBL3\Phượng sửa\PBL3BKDN-master\PBL3BKDN\PBL3Store.UI\obj\Debug\PBL3Store.UI.pdb
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.UI\bin\Dapper.dll
+D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.UI\bin\Dapper.xml

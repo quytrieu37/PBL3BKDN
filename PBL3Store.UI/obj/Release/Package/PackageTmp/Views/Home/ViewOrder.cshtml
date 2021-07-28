@@ -1,0 +1,72 @@
+﻿@model PBL3Store.UI.Models.HomeViewOrderModel
+@{
+    ViewBag.Title = "ViewOrder";
+    Layout = "~/Views/Layout/CustomerInfo.cshtml";
+    var Books = ViewBag.Book as List<PBL3Store.Domain.Book>;
+}
+@{ 
+    int j = 0;
+    double total = 0;
+}
+<h3>Chi tiết đơn hàng</h3>
+<div class="row">
+    <div class="col-12">
+        <div class="col-12 col-md-10">
+            <table class="table table-bordered">
+                <tr>
+                    <td>STT</td>
+                    <td>Tên sản phẩm</td>
+                    <td>Tác giả</td>
+                    <td>Hình ảnh</td>
+                    <td>Đơn giá</td>
+                    <td>Số Lượng</td>
+                    <td>Thành tiền</td>
+                </tr>
+                @foreach (var orderDetail in Model.orderDetails)
+                {
+                    j++;
+                    var book = Books[0];
+                    for (int i = 0; i < Books.Count; i++)
+                    {
+                        if (Books[i].BookId == orderDetail.BookId)
+                        {
+                            book = Books[i];
+                            break;
+                        }
+                    }
+                    double TotalSmall = ((double)orderDetail.Price) * orderDetail.Quantity;
+                    total += TotalSmall;
+                    <tr>
+                        <td>@j</td>
+                        <td>
+                            <a href="@Url.Action("BookDetail","Home", new { BookId = book.BookId})">
+                                @book.BookName
+                            </a>
+                        </td>
+                        <td>@book.Author</td>
+                        <td>
+                            <a href="@Url.Action("BookDetail","Home", new { BookId = book.BookId})">
+                                <img src="@book.BookImage" alt="Tên sản phẩm" class="img-fluid" style="max-height:100px" />
+                            </a>
+                        </td>
+                        <td>@orderDetail.Price</td>
+                        <td>@orderDetail.Quantity</td>
+                        <td>@TotalSmall</td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="4">Total:</td>
+                    <td colspan="3">@total</td>
+                </tr>
+
+            </table>
+            @if (Model.orderDetails[0].Order.StateId !=6 && Model.orderDetails[0].Order.StateId != 7)
+            {
+                <form action="@Url.Action("CompleteOrder","Home")" method="post">
+                    <input name="OrderId" id="OrderId" type="hidden" value="@Model.orderDetails[0].OrderId" />
+                    <button type="submit" class="btn btn-outline-primary">Hoàn thành đơn hàng</button>
+                </form>
+            }
+        </div>
+    </div>
+</div>

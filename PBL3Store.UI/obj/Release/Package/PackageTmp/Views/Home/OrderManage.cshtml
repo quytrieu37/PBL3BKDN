@@ -1,0 +1,72 @@
+﻿@model PBL3Store.UI.Models.HomeOrderManageModel
+@{
+    ViewBag.Title = "OrderManage";
+    Layout = "~/Views/Layout/CustomerInfo.cshtml";
+    var payment = ViewBag.PaymentMethod as List<PBL3Store.Domain.Payment>;
+}
+@{
+    int j = 0;
+}
+@if (Model.Orders.Count() == 0)
+{
+    <div style="position: absolute; right: 40%; bottom: 28%;">
+        <img src="~/Content/img/EmptyOrder.png" />
+        <h4>Chưa Có Đơn Hàng</h4>
+    </div>
+}
+else
+{
+    <h4>Tên Khách Hàng: @Model.customer.UserName</h4>
+    <h4>Danh Sách Đơn Hàng</h4>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="border table-bordered col-md-12">
+                <tr>
+                    <td>STT</td>
+                    <td>Phương thức thanh toán</td>
+                    <td>Trạng thái</td>
+                    <td>Shipper</td>
+                    <td>Ghi chú</td>
+                    <td>Ngày đặt hàng</td>
+                    <td></td>
+                </tr>
+                @foreach (var order in Model.Orders)
+                {
+                    j++;
+                    <tr>
+                        <td>@j</td>
+                        <td>
+                            @for (int i = 0; i < payment.Count; i++)
+                            {
+                                if (payment[i].PaymentId == order.PaymentId)
+                                {
+                                    @payment[i].PaymentName;
+                                }
+                            }
+                        </td>
+                        <td>@order.State.StateName</td>
+                        @if (order.ShipperId != null)
+                        {
+                            <td>@order.Shipper.ShipperName</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td>@order.Note</td>
+                        <td>@order.CreateDate</td>
+                        <td><a href="@Url.Action("ViewOrder","Home", new { OrderId = order.OrderId})" class="btn btn-outline-primary">Chi tiết đơn hàng</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-12">
+            <div class="col-12 col-md-6">
+                @Html.Paging(Model.pagingInfo,
+               x => Url.Action("OrderManage", "Home", new { page = x, pageSize = Model.pagingInfo.PageSize }))
+            </div>
+        </div>
+    </div>
+
+}

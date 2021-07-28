@@ -140,9 +140,9 @@ li {
     cursor: pointer;
     border: .5px solid #bdbdbd;
     line-height: 56px;
-    padding-right: 73px;
     border-top: none;
     position: relative;
+    width: 30%;
 }
 
     .category-box:hover ~ .divhide {

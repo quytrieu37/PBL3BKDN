@@ -1,5 +1,6 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
+using PBL3Store.UI.Infratructure;
 using PBL3Store.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -13,17 +14,16 @@ namespace PBL3Store.UI.Controllers
     {
         // GET: Home
         private IMainRepository _mainRepository;
-        public HomeController(IMainRepository mainRepository)
+        private readonly IDbQueries _query;
+        public HomeController(IMainRepository mainRepository, IDbQueries dbQueries)
         {
             _mainRepository = mainRepository;
+            _query = dbQueries;
         }
         public ViewResult HomePage(int page=1, int pageSize=12, int categoriId=-1)
         {
             HomeListBookModel model = new HomeListBookModel();
-            model.Books = _mainRepository.Books.Where(x => x.CategoryId == categoriId || categoriId == -1)
-                .OrderByDescending(x => x.BookId).Where(x => x.State == true)
-                .Skip((page - 1) * pageSize).Take(pageSize)
-                .ToList();
+            model.Books = _query.GetAllBookDisplay(page, pageSize, categoriId);
             model.categoryID = categoriId;
             model.pagingInfo = new PagingInfo()
             {

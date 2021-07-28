@@ -3,7 +3,7 @@
 <div class="card mb-4 shadow-sm card_hover book_summary">
     <div class="card-body" style="display:flex;flex-direction : column; justify-content:space-evenly">
         <a href="@Url.Action("BookDetail", "Home", new { BookId = Model.BookId})" class="nav-link">
-            <img src="@Model.BookImage" class="img-book"/>
+            <img src="@Model.BookImage" class="img-book" style="border-radius: 3px"/>
             <p class="card-title pricing-card-title name_book">@Model.BookName</p>
         </a>
         <div class="price_book" style="display:flex">

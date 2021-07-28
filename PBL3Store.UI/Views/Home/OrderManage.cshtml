@@ -55,13 +55,7 @@ else
                     <tr>
                         <td>@j</td>
                         <td>
-                            @for (int i = 0; i < payment.Count; i++)
-                            {
-                                if (payment[i].PaymentId == order.PaymentId)
-                                {
-                                    @payment[i].PaymentName;
-                                }
-                            }
+                            @payment.FirstOrDefault(x => x.PaymentId == order.PaymentId).PaymentName
                         </td>
                         <td>@order.State.StateName</td>
                         @if (order.ShipperId != null)
