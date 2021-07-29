@@ -36,7 +36,8 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult BookDetail(int BookId)
         {
-            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == BookId);
+            //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == BookId);
+            Book book = _query.GetBookDetail(BookId);
             if(book!= null)
             {
                 return View(book);

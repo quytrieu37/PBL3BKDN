@@ -80,5 +80,17 @@ namespace PBL3Store.UI.Infratructure
                 return orders.ToList();
             }
         }
+
+        public List<OrderDetail> GetViewOrder(int orderId)
+        {
+            using(SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Select * From OrderDetails Where OrderId = @orderId ");
+                string query = sb.ToString();
+                IEnumerable<OrderDetail> result = connection.Query<OrderDetail>(query, new { id = orderId });
+                return result.ToList();
+            }
+        }
     }
 }

@@ -25,6 +25,6 @@ namespace PBL3Store.UI.Infratructure
         /// <param name="id"></param>
         /// <returns></returns>
         Book GetBookDetail(int id);
-
+        List<OrderDetail> GetViewOrder(int OrderId);
     }
 }
