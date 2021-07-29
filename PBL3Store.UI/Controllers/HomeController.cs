@@ -15,6 +15,7 @@ namespace PBL3Store.UI.Controllers
         // GET: Home
         private IMainRepository _mainRepository;
         private readonly IDbQueries _query;
+        private static int cateId =-1;
         public HomeController(IMainRepository mainRepository, IDbQueries dbQueries)
         {
             _mainRepository = mainRepository;
@@ -25,6 +26,7 @@ namespace PBL3Store.UI.Controllers
             HomeListBookModel model = new HomeListBookModel();
             model.Books = _query.GetAllBookDisplay(page, pageSize, categoriId);
             model.categoryID = categoriId;
+            cateId = categoriId;
             model.pagingInfo = new PagingInfo()
             {
                 PageSize = pageSize,
@@ -176,9 +178,10 @@ namespace PBL3Store.UI.Controllers
                 return Redirect("/Home/HomePage");
             }
             {
-                List<Book> l = _mainRepository.Books.Where(x => x.BookName.ToLower().Contains(input2) ||
+                List<Book> l = _mainRepository.Books.Where(x => x.CategoryId == cateId || cateId == -1)
+                    .Where(x => x.BookName.ToLower().Contains(input2) ||
                 x.Author.ToLower().Contains(input2) ||
-                x.Description.ToLower().Contains(input2) ||
+                //x.Description.ToLower().Contains(input2) ||
                 x.Category.CategoryName.ToLower().Contains(input2)).OrderBy(x => x.BookId).ToList();
                 model.Books = l.Skip((page-1)*pageSize).Take(pageSize).ToList();
 
