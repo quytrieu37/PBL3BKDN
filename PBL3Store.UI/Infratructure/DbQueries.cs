@@ -44,7 +44,16 @@ namespace PBL3Store.UI.Infratructure
 
         public Book GetBookDetail(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("SELECT p.ProductName, p.Price, p.Quantity, p.Author, p.State, p.BookImage, p.Décription ");
+                sb.Append("FROM Products AS p ");
+                sb.Append("WHERE p.ProductId = @id ");
+                string query = sb.ToString();
+                IEnumerable<Book> result = connection.Query<Book>(query, new { id = id });
+                return result.FirstOrDefault();
+            }
         }
 
         public List<Order> GetOrderBaseMileStones(DateTime? start = null, DateTime? end = null)
