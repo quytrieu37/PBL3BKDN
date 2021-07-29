@@ -47,8 +47,8 @@ namespace PBL3Store.UI.Infratructure
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT p.ProductName, p.Price, p.Quantity, p.Author, p.State, p.BookImage, p.Décription ");
-                sb.Append("FROM Products AS p ");
+                sb.Append("SELECT * ");
+                sb.Append("FROM Products ");
                 sb.Append("WHERE p.ProductId = @id ");
                 string query = sb.ToString();
                 IEnumerable<Book> result = connection.Query<Book>(query, new { id = id });
