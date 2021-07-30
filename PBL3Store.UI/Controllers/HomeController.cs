@@ -38,7 +38,7 @@ namespace PBL3Store.UI.Controllers
         {
             //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
             ViewBag.Category = _mainRepository.Categories.ToList();
-            Book book = _query.GetBookDetail(bookId);
+            Book book = _query.GetBookById(bookId);
             if(book!= null)
             {
                 return View(book);
