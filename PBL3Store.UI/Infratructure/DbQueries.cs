@@ -42,16 +42,16 @@ namespace PBL3Store.UI.Infratructure
             }
         }
 
-        public Book GetBookDetail(int id)
+        public Book GetBookDetail(int bookId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT * ");
-                sb.Append("FROM Products ");
-                sb.Append("WHERE p.ProductId = @id ");
+                sb.Append("select * from Books where Books.BookId = @bookId ");
+                //sb.Append("where Books.BookId = @bookId ");
+                
                 string query = sb.ToString();
-                IEnumerable<Book> result = connection.Query<Book>(query, new { id = id });
+                IEnumerable<Book> result = connection.Query<Book>(query, new { bookId = bookId });
                 return result.FirstOrDefault();
             }
         }
@@ -86,9 +86,9 @@ namespace PBL3Store.UI.Infratructure
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("Select * From OrderDetails Where OrderId = @orderId ");
+                sb.Append("Select * From OrderDetails AS od Where od.OrderId = @orderId ");
                 string query = sb.ToString();
-                IEnumerable<OrderDetail> result = connection.Query<OrderDetail>(query, new { id = orderId });
+                IEnumerable<OrderDetail> result = connection.Query<OrderDetail>(query, new { orderId = orderId });
                 return result.ToList();
             }
         }
