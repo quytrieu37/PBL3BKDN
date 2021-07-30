@@ -38,7 +38,8 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult BookDetail(int BookId)
         {
-            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == BookId);
+            //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == BookId);
+            Book book = _query.GetBookDetail(BookId);
             if(book!= null)
             {
                 return View(book);
@@ -74,11 +75,12 @@ namespace PBL3Store.UI.Controllers
         }
         public ActionResult ViewOrder(int OrderId)
         {
-            List<OrderDetail> ordetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
-            if (ordetail != null)
+            //List<OrderDetail> orderdetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
+            List<OrderDetail> orderdetail = _query.GetViewOrder(OrderId);
+            if (orderdetail != null)
             {
                 HomeViewOrderModel model = new HomeViewOrderModel();
-                model.orderDetails = ordetail;
+                model.orderDetails = orderdetail;
                 ViewBag.Book = _mainRepository.Books.ToList();
                 return View(model);
             }

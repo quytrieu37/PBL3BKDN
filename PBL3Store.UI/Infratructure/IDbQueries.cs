@@ -18,5 +18,13 @@ namespace PBL3Store.UI.Infratructure
         /// <param name="end">time end</param>
         /// <returns></returns>
         List<Order> GetOrderBaseMileStones(DateTime? start = null, DateTime? end = null);
+
+        /// <summary>
+        /// Lấy chi tiết sách theo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Book GetBookDetail(int id);
+        List<OrderDetail> GetViewOrder(int OrderId);
     }
 }
