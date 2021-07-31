@@ -74,7 +74,7 @@ namespace PBL3Store.UI.Controllers
         }
         public ActionResult ViewOrder(int OrderId)
         {
-           List<OrderDetail> orderdetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
+            List<OrderDetail> orderdetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
             //List<OrderDetail> orderdetail = _query.GetViewOrder(OrderId);
             if (orderdetail != null)
             {

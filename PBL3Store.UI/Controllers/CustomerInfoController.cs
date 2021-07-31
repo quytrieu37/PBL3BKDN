@@ -1,5 +1,6 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
+using PBL3Store.UI.Infratructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace PBL3Store.UI.Controllers
     public class CustomerInfoController : Controller
     {
         private readonly IMainRepository _mainRepository;
-        public CustomerInfoController(IMainRepository mainRepository)
+        private readonly IDbQueries _query;
+        public CustomerInfoController(IMainRepository mainRepository, IDbQueries dbQueries)
         {
             _mainRepository = mainRepository;
+            _query = dbQueries;
         }
         // GET: CustomerInfo
         public ActionResult UserRecord()

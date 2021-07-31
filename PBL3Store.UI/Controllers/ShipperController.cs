@@ -1,6 +1,7 @@
 ﻿using PBL3Store.Domain;
 using PBL3Store.Domain.Repositories;
 using PBL3Store.UI.Attributes;
+using PBL3Store.UI.Infratructure;
 using PBL3Store.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,11 @@ namespace PBL3Store.UI.Controllers
     public class ShipperController : Controller
     {
         private readonly IMainRepository _mainRepository;
-        public ShipperController(IMainRepository mainRepository)
+        private readonly IDbQueries _query;
+        public ShipperController(IMainRepository mainRepository, IDbQueries dbQueries)
         {
             _mainRepository = mainRepository;
+            _query = dbQueries;
         }
         public ViewResult ShipperViewOrder(HomeOrderManageModel model)
         {
@@ -29,12 +32,13 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult ShipperOrderDetail(int OrderId)
         {
-            List<OrderDetail> ordetails = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
-            if (ordetails != null)
+            ViewBag.Book = _mainRepository.Books.ToList();
+            //List<OrderDetail> orderdetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
+            List<OrderDetail> orderdetail = _query.GetViewOrder(OrderId);
+            if (orderdetail != null)
             {
                 HomeViewOrderModel model = new HomeViewOrderModel();
-                model.orderDetails = ordetails;
-                ViewBag.Book = _mainRepository.Books.ToList();
+                model.orderDetails = orderdetail;
                 return View(model);
             }
             return View();
