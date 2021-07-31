@@ -18,5 +18,24 @@ namespace PBL3Store.UI.Infratructure
         /// <param name="end">time end</param>
         /// <returns></returns>
         List<Order> GetOrderBaseMileStones(DateTime? start = null, DateTime? end = null);
+
+        /// <summary>
+        /// Lấy chi tiết sách theo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Book GetBookById(int id);
+        /// <summary>
+        /// Tìm danh sách đơn hàng theo ID
+        /// </summary>
+        /// <param name="OrderId"></param>
+        /// <returns></returns>
+        List<OrderDetail> GetViewOrder(int OrderId);
+        /// <summary>
+        /// Lấy user theo id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        User GetUserById(int userId);
     }
 }

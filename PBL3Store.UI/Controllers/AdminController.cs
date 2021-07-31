@@ -37,7 +37,9 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult BookView(int id)
         {
-            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == id);
+            //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == id);
+            ViewBag.Category = _mainRepository.Categories.ToList();
+            Book book = _query.GetBookById(id);
             return View(book);
         }
         public ActionResult StopSell(int bookId)
@@ -106,7 +108,8 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult EditBook(int bookId)
         {
-            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
+            //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
+            Book book = _query.GetBookById(bookId);
             ViewBag.Categories = _mainRepository.Categories.ToList();
             if (book != null)
             {
@@ -184,7 +187,8 @@ namespace PBL3Store.UI.Controllers
         {
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
             ViewBag.Shippers = _mainRepository.Shippers.ToList();
-            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            //User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            User user = _query.GetUserById(UserId);
             AdminUserDetailModel model = new AdminUserDetailModel();
             if(user != null)
             {

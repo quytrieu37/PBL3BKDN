@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "BookDetail";
     Layout = "~/Views/Layout/LayoutMain.cshtml";
+    var category = ViewBag.Category as List<PBL3Store.Domain.Category>;
 }
 
 <div class="row">
@@ -21,7 +22,7 @@
             <p></p>
         </div>
         <p class="text-muted">Tình trạng <span class="text-danger">Còn hàng</span></p>
-        <span>Tags:  @Model.Category.CategoryName</span>
+        <span>Tags:  @category.FirstOrDefault(x => x.CategoryId == Model.CategoryId).CategoryName</span>
         <div>
             @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "frmAddToCart" }))
             {

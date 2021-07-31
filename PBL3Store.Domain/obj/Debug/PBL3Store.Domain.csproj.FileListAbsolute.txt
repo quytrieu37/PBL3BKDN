@@ -34,3 +34,15 @@ D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Debug
 D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csproj.CopyComplete
 D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.dll
 D:\Trường bách khoa\Học kì 4\PBL3\PBL3Store.UI\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.pdb
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\PBL3Store.Domain.dll.config
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\PBL3Store.Domain.dll
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\PBL3Store.Domain.pdb
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.dll
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.xml
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csprojAssemblyReference.cache
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csproj.CoreCompileInputs.cache
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.csproj.CopyComplete
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.dll
+E:\pbl3\PBL3BKDN\PBL3Store.Domain\obj\Debug\PBL3Store.Domain.pdb
