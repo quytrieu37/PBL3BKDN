@@ -84,7 +84,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMainRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\MainRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Role.cs">
       <DependentUpon>PBL3Entities.tt</DependentUpon>
     </Compile>

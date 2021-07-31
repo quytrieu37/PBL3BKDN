@@ -24,6 +24,7 @@ namespace PBL3Store.UI
             var kernel = new StandardKernel();
             kernel.Bind<IMainRepository>().To<MainRepository>();
             kernel.Bind<IDbQueries>().To<DbQueries>();
+            kernel.Bind<IRepository<object>>().To<Repository<object>>();
             return kernel;
         }
     }
