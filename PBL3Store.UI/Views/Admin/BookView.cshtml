@@ -37,8 +37,8 @@
         <td>@Model.Quantity</td>
         <td>@Html.Raw(Model.Description)</td>
         <td>
-            <a href="#" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-sync-alt"></i></a>
+            <a href="@Url.Action("EditBook","Admin", new { bookId = Model.BookId})" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+            <a href="@Url.Action("StopSell","Admin", new { bookId = Model.BookId})" class="btn btn-outline-danger"><i class="fas fa-sync-alt"></i></a>
         </td>
     </tr>
 </table>

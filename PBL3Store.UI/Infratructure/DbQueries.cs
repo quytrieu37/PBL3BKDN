@@ -42,7 +42,7 @@ namespace PBL3Store.UI.Infratructure
             }
         }
 
-        public Book GetBookDetail(int bookId)
+        public Book GetBookById(int bookId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -78,6 +78,18 @@ namespace PBL3Store.UI.Infratructure
                 string query = sb.ToString();
                 IEnumerable<Order> orders = connection.Query<Order>(query, new { st1 = st, st = st, e = e });
                 return orders.ToList();
+            }
+        }
+
+        public User GetUserById(int userId)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Select * from Users Where Users.UserId = @userId ");
+                string query = sb.ToString();
+                IEnumerable<User> result = connection.Query<User>(query, new { userId = userId });
+                return result.FirstOrDefault();
             }
         }
 
