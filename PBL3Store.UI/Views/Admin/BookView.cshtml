@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "BookView";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
+    var category = ViewBag.Category as List<PBL3Store.Domain.Category>;
 }
 
 <h2>Chi tiết</h2>
@@ -24,7 +25,7 @@
         <td>@Model.BookId</td>
         <td>@Model.BookName</td>
         <td>@Model.Author</td>
-        <td>@Model.Category.CategoryName</td>
+        <td>@category.FirstOrDefault(x => x.CategoryId == Model.CategoryId).CategoryName</td>
         <td>@Model.Price</td>
         @if (Model.State == true)
         {

@@ -60,11 +60,15 @@
                 </tr>
 
             </table>
-            @if (Model.orderDetails[0].Order.StateId !=6 && Model.orderDetails[0].Order.StateId != 7)
+            @if (Model.orderDetails[0].Order.StateId != 6 && Model.orderDetails[0].Order.StateId != 7)
             {
                 <form action="@Url.Action("CompleteOrder","Home")" method="post">
                     <input name="OrderId" id="OrderId" type="hidden" value="@Model.orderDetails[0].OrderId" />
                     <button type="submit" class="btn btn-outline-primary">Hoàn thành đơn hàng</button>
+                </form>
+                <form action="@Url.Action("CancelOrder","Home")" method="post">
+                    <input name="OrderId" id="OrderId" type="hidden" value="@Model.orderDetails[0].OrderId" />
+                    <button type="submit" class="btn btn-outline-danger">Hủy đơn hàng</button>
                 </form>
             }
         </div>

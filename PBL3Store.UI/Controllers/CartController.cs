@@ -36,9 +36,16 @@ namespace PBL3Store.UI.Controllers
                 Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == model.BookId);
                 if(book!= null)
                 {
-                    Cart cart = GetCart();
-                    cart.Add(book, model.Quantity);
-                    return Json(new { state = true, message = "Thêm sách thành công" });
+                    if (book.Quantity < model.Quantity)
+                    {
+                        ViewData["error"] = "Đã hết hàng";
+                    }   
+                    else
+                    {
+                        Cart cart = GetCart();
+                        cart.Add(book, model.Quantity);
+                        return Json(new { state = true, message = "Thêm sách thành công" });
+                    }
                 }    
             }
             return Json(new { state = false, message = "Thêm sách thất bại" });

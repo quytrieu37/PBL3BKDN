@@ -16,7 +16,7 @@ namespace PBL3Store.UI.Models
         public string BookName { get; set; }
         [Display(Name = "Đơn giá")]
         [Required(ErrorMessage = "Vui lòng nhập đơn giá")]
-        [Range(0.1, 100000, ErrorMessage = "Đơn giá trong khoảng từ 0.1 đến 100000")]
+        [Range(0.1, 10000000, ErrorMessage = "Đơn giá trong khoảng từ 0.1 đến 10000000")]
         public decimal Price { get; set; }
         [Display(Name = "Số lượng")]
         [Required(ErrorMessage = "Vui lòng nhập số lượng")]

@@ -54,7 +54,7 @@ namespace PBL3Store.UI.Controllers
             User customer = _mainRepository.Users.FirstOrDefault(x => x.UserName == UserName);
             if (customer != null)
             {
-                List<Order> orders = _mainRepository.order.OrderBy(x=>x.OrderId).Where(x => x.UserId == customer.UserId).Skip((page-1)*pageSize).Take(pageSize).ToList();
+                List<Order> orders = _mainRepository.order.OrderBy(x=>x.OrderId).Where(x => x.UserId == customer.UserId && x.StateId != 6).Skip((page-1)*pageSize).Take(pageSize).ToList();
                 if (orders != null)
                 {
                     HomeOrderManageModel model = new HomeOrderManageModel()
@@ -99,6 +99,20 @@ namespace PBL3Store.UI.Controllers
             order.StateId = 7;
             _mainRepository.Edit(order);
             TempData["msg"] = "Đã hoàn thành đơn hàng!";
+            return RedirectToAction(nameof(HomeController.OrderManage));
+        }
+        [HttpPost]
+        public ActionResult CancelOrder(HomeOrderModel model)
+        {
+            Order order = _mainRepository.order.FirstOrDefault(x => x.OrderId == model.OrderId);
+            if (order == null)
+            {
+                ModelState.AddModelError("", "Đơn hàng không tồn tại");
+                return RedirectToAction(nameof(HomeController.OrderManage));
+            }
+            order.StateId = 6;
+            _mainRepository.Edit(order);
+            TempData["msg"] = "Đã hủy đơn hàng!";
             return RedirectToAction(nameof(HomeController.OrderManage));
         }
         public ActionResult RegisterShipper()
@@ -159,7 +173,7 @@ namespace PBL3Store.UI.Controllers
             {
                 if(currentUser.RoleId==1)
                 {
-                    return Redirect("/Admin/Index");
+                    return Redirect("/Admin/ListUser");
                 }    
                 if(currentUser.RoleId ==2 )
                 {

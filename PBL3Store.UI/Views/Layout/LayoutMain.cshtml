@@ -43,7 +43,7 @@
         <div class="grid">
             <div class="Login_Panel">
                 <ul>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> Trợ giúp</a></li>
+                    <li><a href="@Url.Action("UserRecord","CustomerInfo")"><i class="fas fa-info-circle"></i>Thông tin các nhân</a></li>
                     <li><a href="#"><i class="far fa-newspaper"></i> Tin tức</a></li>
                     <li><a href="@Url.Action("RegisterShipper","Home")"><i class="fab fa-cloudscale"></i> Đăng kí shipper</a></li>
                 </ul>
@@ -175,6 +175,16 @@
             <div class="col-12">
                 <p class="alert alert-info">
                     @TempData["msg"]
+                </p>
+            </div>
+        </div>
+    }
+    @if (TempData["error"] != null)
+    {
+        <div class="row">
+            <div class="col-12">
+                <p class="alert alert-danger">
+                    @TempData["error"]
                 </p>
             </div>
         </div>
