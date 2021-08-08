@@ -1,10 +1,11 @@
 ﻿@model PBL3Store.UI.Models.HomeViewOrderModel
 @{
-    ViewBag.Title = "ViewOrder";
-    Layout = "~/Views/Layout/CustomerInfo.cshtml";
+    ViewBag.Title = "AdminOrderDetail";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
     var Books = ViewBag.Book as List<PBL3Store.Domain.Book>;
 }
-@{ 
+
+@{
     int j = 0;
     double total = 0;
 }
@@ -58,19 +59,7 @@
                     <td colspan="4">Total:</td>
                     <td colspan="3">@total</td>
                 </tr>
-
             </table>
-            @if (Model.orderDetails[0].Order.StateId != 6 && Model.orderDetails[0].Order.StateId != 7 && Model.orderDetails[0].Order.StateId != 5 && Model.orderDetails[0].Order.StateId != 10)
-            {
-                <form action="@Url.Action("CompleteOrder","Home")" method="post">
-                    <input name="OrderId" id="OrderId" type="hidden" value="@Model.orderDetails[0].OrderId" />
-                    <button type="submit" class="btn btn-outline-primary">Hoàn thành đơn hàng</button>
-                </form>
-                <form action="@Url.Action("CancelOrder","Home")" method="post">
-                    <input name="OrderId" id="OrderId" type="hidden" value="@Model.orderDetails[0].OrderId" />
-                    <button type="submit" class="btn btn-outline-danger">Hủy đơn hàng</button>
-                </form>
-            }
         </div>
     </div>
 </div>
