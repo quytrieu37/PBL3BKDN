@@ -108,8 +108,8 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult EditBook(int bookId)
         {
-            //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
-            Book book = _query.GetBookById(bookId);
+            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
+            //Book book = _query.GetBookById(bookId);
             ViewBag.Categories = _mainRepository.Categories.ToList();
             if (book != null)
             {
@@ -130,6 +130,7 @@ namespace PBL3Store.UI.Controllers
             return View("NotFound");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditBook(AdminEditBookModel model)
         {
             ViewBag.Categories = _mainRepository.Categories.ToList();
@@ -154,26 +155,22 @@ namespace PBL3Store.UI.Controllers
                     string result = Path.Combine(path, file.FileName);
                     file.SaveAs(result);
                     model.Avatar = "/Content/Upload/" + file.FileName;
-
-                    if (ModelState.IsValid)
-                    {
-                        Book book = new Book()
-                        {
-                            Author = model.Author,
-                            Description = model.Description,
-                            Price = model.Price,
-                            BookName = model.BookName,
-                            BookImage = model.Avatar,
-                            CategoryId = model.CategoryId,
-                            Quantity = model.Quantity,
-                            State = model.State,
-                            BookId = ((int)model.BookId)
-                        };
-                        _mainRepository.Edit(book);
-                        TempData["msgAdmin"] = "Chỉnh sửa sách thành công";
-                        return RedirectToAction(nameof(AdminController.BookList));
-                    }
                 }
+            }
+            if (ModelState.IsValid)
+            {
+                Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == model.BookId);
+                book.Author = model.Author;
+                book.Description = model.Description;
+                book.Price = model.Price;
+                book.BookName = model.BookName;
+                book.BookImage = model.Avatar;
+                book.CategoryId = model.CategoryId;
+                book.Quantity = model.Quantity;
+                book.State = model.State;
+                _mainRepository.Edit(book);
+                TempData["msgAdmin"] = "Chỉnh sửa sách thành công";
+                return RedirectToAction(nameof(AdminController.BookList));
             }
             return View(model);
         }
@@ -188,7 +185,6 @@ namespace PBL3Store.UI.Controllers
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
             ViewBag.Shippers = _mainRepository.Shippers.ToList();
             User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
-            //User user = _query.GetUserById(UserId);
             AdminUserDetailModel model = new AdminUserDetailModel();
             if(user != null)
             {
@@ -225,7 +221,7 @@ namespace PBL3Store.UI.Controllers
             }
             return View("NotFound");
         }
-        public ActionResult BookRevenue(int status)
+        public ActionResult BookRevenue(int status) //sắp xếp
         {
             AdminBookRevenueModel model = new AdminBookRevenueModel();
             model.BookRevenues = _mainRepository.OrderDetails.GroupBy(x => x.BookId).Select(c1 => new BookRevenue
@@ -235,7 +231,7 @@ namespace PBL3Store.UI.Controllers
                 Quantity = c1.Sum(x => x.Quantity),
                 Price = c1.Select(x => x.Price).FirstOrDefault()
             }).ToList();
-            if(status == 0 )
+            if(status == 0 ) //sắp xếp
             {
                 return View(model);
             }    
@@ -258,7 +254,7 @@ namespace PBL3Store.UI.Controllers
         {
             HomeOrderManageModel model = new HomeOrderManageModel();
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
-            model.Orders = _mainRepository.order.Where(x => x.StateId == 1).ToList();
+            model.Orders = _mainRepository.order.ToList();
             return View(model);
         }
         public ActionResult AuthoShipper()
@@ -279,6 +275,64 @@ namespace PBL3Store.UI.Controllers
                 }    
             }
             return View(model);
+        }
+        public ViewResult AdminOrderDetail(int OrderId)
+        {
+            ViewBag.Book = _mainRepository.Books.ToList();
+            //List<OrderDetail> orderdetail = _mainRepository.OrderDetails.Where(x => x.OrderId == OrderId).ToList();
+            List<OrderDetail> orderdetail = _query.GetViewOrder(OrderId);
+            if (orderdetail != null)
+            {
+                HomeViewOrderModel model = new HomeViewOrderModel();
+                model.orderDetails = orderdetail;
+                return View(model);
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CompleteOrder(HomeOrderModel model)
+        {
+            Order order = _mainRepository.order.FirstOrDefault(x => x.OrderId == model.OrderId);
+            if (order == null)
+            {
+                ModelState.AddModelError("", "Đơn hàng không tồn tại");
+                return Redirect("/Admin/ListOrder");
+            }
+            if(order.StateId == 7)
+            {
+                order.StateId = 5;
+                _mainRepository.Edit(order);
+                TempData["msg"] = "Đã hoàn thành đơn hàng!";
+                return Redirect("/Admin/ListOrder");
+            }
+            TempData["msgAdmin"] = "Người dùng chưa confirm";
+            return Redirect("/Admin/ListOrder");
+        }
+        [HttpPost]
+        public ActionResult CancelOrder(HomeOrderModel model)
+        {
+            Order order = _mainRepository.order.FirstOrDefault(x => x.OrderId == model.OrderId);
+            if (order == null)
+            {
+                ModelState.AddModelError("", "Đơn hàng không tồn tại");
+                return Redirect("/Admin/ListOrder");
+            }
+            if(order.StateId < 4)
+            {
+                order.StateId = 10;
+                _mainRepository.Edit(order);
+                TempData["msgAdmin"] = "Đã hủy đơn hàng";
+                return Redirect("/Admin/ListOrder");
+            }    
+            if(order.StateId == 10)
+            {
+                order.StateId = 2;
+                _mainRepository.Edit(order);
+                TempData["msgAdmin"] = "Đã khôi phục đơn hàng";
+                return Redirect("/Admin/ListOrder");
+            }
+            TempData["msgAdmin"] = "Không thể hủy đơn hàng";
+            return Redirect("/Admin/ListOrder");
         }
         [HttpPost]
         public ActionResult AuthoShipper(int UserId)

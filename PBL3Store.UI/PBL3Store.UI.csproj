@@ -349,6 +349,7 @@
     <Content Include="Views\CustomerInfo\UserRecord.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Admin\OrderAmount.cshtml" />
+    <Content Include="Views\Admin\AdminOrderDetail.cshtml" />
     <None Include="Views\Layout\LayoutMain.cshtml" />
     <None Include="Views\Layout\ShipperLayout.cshtml" />
     <Content Include="Web.config" />

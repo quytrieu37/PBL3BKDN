@@ -110,6 +110,12 @@ namespace PBL3Store.UI.Controllers
                 ModelState.AddModelError("", "Đơn hàng không tồn tại");
                 return RedirectToAction(nameof(HomeController.OrderManage));
             }
+            TimeSpan tSpan = new TimeSpan(3, 0, 0, 0);
+            if(DateTime.Now - order.CreateDate > tSpan)
+            {
+                TempData["msg"] = "không thể hủy do đã đặt quá 3 ngày";
+                return RedirectToAction(nameof(HomeController.OrderManage));
+            }
             order.StateId = 6;
             _mainRepository.Edit(order);
             TempData["msg"] = "Đã hủy đơn hàng!";

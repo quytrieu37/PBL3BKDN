@@ -23,6 +23,7 @@
                 <td>Ngày đặt hàng</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             @foreach (var order in Model.Orders)
             {
@@ -52,30 +53,56 @@
                     <td>@order.Note</td>
                     <td>@order.CreateDate</td>
                     <td>
-                        <a href="@Url.Action("ShipperOrderDetail","Shipper", new { OrderId = order.OrderId})" class="btn btn btn-outline-primary">Chi tiết đơn hàng</a>
+                        <a href="@Url.Action("AdminOrderDetail","Admin", new { OrderId = order.OrderId})" class="btn btn btn-outline-primary">Chi tiết đơn hàng</a>
                     </td>
                     @*@if (order.ShipperId == Model.customer.UserId)
-                    {
-                        <td>
-                            <form action="@Url.Action("CancelGet","Shipper")" method="post">
+                {
+                    <td>
+                        <form action="@Url.Action("CancelGet","Shipper")" method="post">
+                            <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
+                            <button type="submit" class="btn btn-outline-danger">Hủy nhận đơn hàng</button>
+                        </form>
+                        <form action="@Url.Action("CompleteOrder","Shipper")" method="post">
+                            <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
+                            <button type="submit" class="btn btn-outline-primary">Hoàn thành đơn hàng</button>
+                        </form>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <form action="@Url.Action("GetOrder","Shipper")" method="post">
+                            <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
+                            <button type="submit" class="btn btn-outline-info">Nhận vận chuyển</button>
+                        </form>
+                    </td>
+                }*@
+                    
+                     <td>
+                        @if(order.StateId ==10)
+                         {
+                             <form action="@Url.Action("CancelOrder","Admin")" method="post">
                                 <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
-                                <button type="submit" class="btn btn-outline-danger">Hủy nhận đơn hàng</button>
+                                <button type="submit" class="btn btn-outline-info">Khôi phục đơn hàng</button>
                             </form>
-                            <form action="@Url.Action("CompleteOrder","Shipper")" method="post">
+                         }
+                         @if(order.StateId < 4)
+                            {
+                            <form action="@Url.Action("CancelOrder","Admin")" method="post">
                                 <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
-                                <button type="submit" class="btn btn-outline-primary">Hoàn thành đơn hàng</button>
+                                <button type="submit" class="btn btn-outline-danger">Hủy đơn hàng</button>
                             </form>
-                        </td>
-                    }
-                    else
-                    {
-                        <td>
-                            <form action="@Url.Action("GetOrder","Shipper")" method="post">
-                                <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
-                                <button type="submit" class="btn btn-outline-info">Nhận vận chuyển</button>
-                            </form>
-                        </td>
-                    }*@
+                            }
+                         
+                         @if(order.StateId != 5)
+                         {
+                             <form action="@Url.Action("CompleteOrder","Admin")" method="post">
+                            <input name="OrderId" id="OrderId" type="hidden" value="@order.OrderId" />
+                            <button type="submit" class="btn btn-outline-primary">Đóng đơn hàng</button>
+                        </form>
+                         }
+                        
+                    </td>
                 </tr>
             }
         </table>
