@@ -187,8 +187,8 @@ namespace PBL3Store.UI.Controllers
         {
             ViewBag.PaymentMethod = _mainRepository.Payments.ToList();
             ViewBag.Shippers = _mainRepository.Shippers.ToList();
-            //User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
-            User user = _query.GetUserById(UserId);
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            //User user = _query.GetUserById(UserId);
             AdminUserDetailModel model = new AdminUserDetailModel();
             if(user != null)
             {
@@ -290,7 +290,7 @@ namespace PBL3Store.UI.Controllers
                 user.RoleId = 2;
                 _mainRepository.Edit(user);
                 TempData["msgAdmin"] = "Đã thêm shipper";
-                return View();
+                return Redirect("/Admin/ListUser");
             }
             return View();
         }
