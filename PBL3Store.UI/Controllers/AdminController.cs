@@ -54,6 +54,19 @@ namespace PBL3Store.UI.Controllers
             }    
             return Redirect("/Admin/BookList");
         }
+        [HttpPost]
+        public ActionResult AuthorAdmin(int UserId)
+        {
+            User user = _mainRepository.Users.FirstOrDefault(x => x.UserId == UserId);
+            if (user != null)
+            {
+                user.RoleId = 1;
+                _mainRepository.Edit(user);
+                TempData["msgAdmin"] = "Đã thêm admin";
+                return Redirect("/Admin/ListUser");
+            }
+            return View();
+        }
         public ViewResult AddNewBook()
         {
             ViewBag.Categories = _mainRepository.Categories.ToList();

@@ -63,10 +63,13 @@
                         <button class="btn btn-outline-primary">Unlock</button>
                     }
                 </form>
-                <form>
-                    <input type="hidden" name="UserId" id="UserId" value="@user.UserId" />
-                    <button class="btn btn-outline-warning">Phân quyền admin</button>
-                </form>
+                @if (user.RoleId != 1)
+                {
+                    <form action="@Url.Action("AuthorAdmin","Admin")" method="post">
+                        <input type="hidden" name="UserId" id="UserId" value="@user.UserId" />
+                        <button class="btn btn-outline-warning">Phân quyền admin</button>
+                    </form>
+                }
             </td>
         </tr>
     }
