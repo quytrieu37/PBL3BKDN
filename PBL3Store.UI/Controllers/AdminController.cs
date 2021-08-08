@@ -108,8 +108,8 @@ namespace PBL3Store.UI.Controllers
         }
         public ViewResult EditBook(int bookId)
         {
-            //Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
-            Book book = _query.GetBookById(bookId);
+            Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == bookId);
+            //Book book = _query.GetBookById(bookId);
             ViewBag.Categories = _mainRepository.Categories.ToList();
             if (book != null)
             {
@@ -126,7 +126,7 @@ namespace PBL3Store.UI.Controllers
                     State = (bool)book.State
                 };
                 return View(model);
-            }    
+            }
             return View("NotFound");
         }
         [HttpPost]
@@ -154,26 +154,22 @@ namespace PBL3Store.UI.Controllers
                     string result = Path.Combine(path, file.FileName);
                     file.SaveAs(result);
                     model.Avatar = "/Content/Upload/" + file.FileName;
-
-                    if (ModelState.IsValid)
-                    {
-                        Book book = new Book()
-                        {
-                            Author = model.Author,
-                            Description = model.Description,
-                            Price = model.Price,
-                            BookName = model.BookName,
-                            BookImage = model.Avatar,
-                            CategoryId = model.CategoryId,
-                            Quantity = model.Quantity,
-                            State = model.State,
-                            BookId = ((int)model.BookId)
-                        };
-                        _mainRepository.Edit(book);
-                        TempData["msgAdmin"] = "Chỉnh sửa sách thành công";
-                        return RedirectToAction(nameof(AdminController.BookList));
-                    }
                 }
+            }
+            if (ModelState.IsValid)
+            {
+                Book book = _mainRepository.Books.FirstOrDefault(x => x.BookId == model.BookId);
+                book.Author = model.Author;
+                book.Description = model.Description;
+                book.Price = model.Price;
+                book.BookName = model.BookName;
+                book.BookImage = model.Avatar;
+                book.CategoryId = model.CategoryId;
+                book.Quantity = model.Quantity;
+                book.State = model.State;
+                _mainRepository.Edit(book);
+                TempData["msgAdmin"] = "Chỉnh sửa sách thành công";
+                return RedirectToAction(nameof(AdminController.BookList));
             }
             return View(model);
         }
