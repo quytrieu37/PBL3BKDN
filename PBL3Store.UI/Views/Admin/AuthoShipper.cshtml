@@ -5,6 +5,13 @@
     var shippers = ViewBag.Shippers as List<PBL3Store.Domain.Shipper>;
 }
 
+@if (Model.Users.Count == 0)
+{
+    <h1>Hiện không có ai đăng kí shipper</h1>
+}
+else
+{
+
 
     <h1>Danh sách đăng kí shipper</h1>
     <table class="table table-bordered" style="font-weight:700">
@@ -65,3 +72,5 @@
             </tr>
         }
     </table>
+
+} 
